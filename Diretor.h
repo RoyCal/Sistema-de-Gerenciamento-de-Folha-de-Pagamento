@@ -1,15 +1,19 @@
 #pragma once
 #include "Funcionario.h"
 
-class Gerente : public Funcionario{
+class Diretor : public Funcionario{
     private:
         string areaDeSupervisao;
+        string areaDeFormacao;
 
     public:
-        Gerente();
+        Diretor();
 
         void setDesignacao();
 
         void setAreaSupervisao(string str);
         string getAreaSupervisao();
+        
+        void setAreaDeFormacao(string str);
+        string getAreaDeFormacao();
 };

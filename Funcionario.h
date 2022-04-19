@@ -40,6 +40,4 @@ class Funcionario{
 
         void setDataAniversario(string str);
         string getDataAniversario();
-
-        virtual void imprimeAtributos() = 0;
 };
