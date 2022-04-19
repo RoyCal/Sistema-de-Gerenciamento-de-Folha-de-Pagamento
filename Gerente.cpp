@@ -62,5 +62,5 @@ void Gerente::getAtributos(string codigo){
 }
 
 string Gerente::atributosToString(){
-    return codigo + " - " + nome + " - " + endereco + " - " + telefone + " - " + dataDeIngresso + " - " + designacao + " - " + to_string(salario) + " - " + dataAniversario + " - " + areaDeSupervisao;
+    return codigo + " - " + nome + " - " + endereco + " - " + telefone + " - " + dataDeIngresso + " - " + designacao + " - " + to_string(salario).erase(to_string(salario).size()-4, 4) + " - " + dataAniversario + " - " + areaDeSupervisao;
 }

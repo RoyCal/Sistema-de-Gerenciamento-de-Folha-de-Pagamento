@@ -114,13 +114,36 @@ int main(){
                     operador.getAtributos(numero);
                     arquivo.atualizaArquivo(operador.atributosToString());
 
-                    return 0;
+                    operador = Operador();
+
+                    break;
                 } else if(designacao == "Gerente"){
+                    system("cls");
 
+                    gerente.getAtributos(numero);
+                    arquivo.atualizaArquivo(gerente.atributosToString());
+
+                    gerente = Gerente();
+
+                    break;
                 } else if(designacao == "Diretor"){
+                    system("cls");
 
+                    diretor.getAtributos(numero);
+                    arquivo.atualizaArquivo(diretor.atributosToString());
+
+                    diretor = Diretor();
+
+                    break;
                 } else if(designacao == "Presidente"){
+                    system("cls");
 
+                    presidente.getAtributos(numero);
+                    arquivo.atualizaArquivo(presidente.atributosToString());
+
+                    presidente = Presidente();
+
+                    break;
                 } else {
 
                 }
