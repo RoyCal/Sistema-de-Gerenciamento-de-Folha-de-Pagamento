@@ -1,7 +1,13 @@
 #include "Diretor.h"
 
 Diretor::Diretor() : Funcionario("Diretor"){
-
+    codigo = "vazio";
+    nome = "vazio";
+    endereco = "vazio";
+    telefone = "vazio";
+    dataDeIngresso = "vazio";
+    salario = 0;
+    dataAniversario = "vazio";
 }
 
 void Diretor::setDesignacao(){
