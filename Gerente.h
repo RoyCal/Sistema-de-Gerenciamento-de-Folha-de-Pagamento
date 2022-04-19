@@ -12,4 +12,8 @@ class Gerente : public Funcionario{
 
         void setAreaSupervisao(string str);
         string getAreaSupervisao();
+
+        void getAtributos(string codigo);
+
+        virtual string atributosToString();
 };

@@ -63,3 +63,83 @@ string Funcionario::getDataDeIngresso(){
 string Funcionario::getDataAniversario(){
     return dataAniversario;
 }
+
+string Funcionario::CEPtoEndereco(string CEP){
+    int i;
+    
+    fstream arquivo;
+
+    string linhas[12];
+    string url = "https://viacep.com.br/ws/" + CEP + "/json/";
+    string comando = "wget " + url;
+
+    system(comando.c_str());
+
+    arquivo.open("index.html", ios::in);
+
+    for(i = 0; i < 12; i++){
+        getline(arquivo, linhas[i]);
+    }
+
+    arquivo.close();
+
+    system("del index.html");
+
+    linhas[2].erase(0, 17);
+    
+    i = 0;
+
+    while(1){
+        if(linhas[2][i] == '"'){
+            linhas[2].erase(i, 2);
+            break;
+        }
+
+        i++;
+    }
+
+    linhas[4].erase(0, 13);
+    
+    i = 0;
+
+    while(1){
+        if(linhas[4][i] == '"'){
+            linhas[4].erase(i, 2);
+            break;
+        }
+
+        i++;
+    }
+
+    linhas[5].erase(0, 17);
+    
+    i = 0;
+
+    while(1){
+        if(linhas[5][i] == '"'){
+            linhas[5].erase(i, 2);
+            break;
+        }
+
+        i++;
+    }
+
+    linhas[6].erase(0, 9);
+    
+    i = 0;
+
+    while(1){
+        if(linhas[6][i] == '"'){
+            linhas[6].erase(i, 2);
+            break;
+        }
+
+        i++;
+    }
+
+    return linhas[2] + ", " + linhas[4] + ", " + linhas[5] + ", " + linhas[6] + ", numero ";
+}
+
+string Funcionario::atributosToString(){
+    return codigo + " - " + nome + " - " + endereco + " - " + telefone + " - " + dataDeIngresso + " - " + designacao + " - " + to_string(salario).erase(to_string(salario).size()-4, 4) + " - " + dataAniversario;
+}

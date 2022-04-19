@@ -6,4 +6,6 @@ class Operador : public Funcionario{
         Operador();
 
         void setDesignacao();
+
+        void getAtributos(string codigo);
 };

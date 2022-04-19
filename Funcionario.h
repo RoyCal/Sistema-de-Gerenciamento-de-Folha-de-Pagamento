@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -40,4 +41,10 @@ class Funcionario{
 
         void setDataAniversario(string str);
         string getDataAniversario();
+
+        string CEPtoEndereco(string CEP);
+
+        virtual void getAtributos(string codigo) = 0;
+
+        virtual string atributosToString();
 };

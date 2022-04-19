@@ -2,4 +2,5 @@
 4321 - Vito Elias - Avenida Sergipe, Estados, Joao Pessoa, PB, numero 150 - 83987325043 - 19/04/2022 - Gerente - 10000 - 18/03 - TI
 1598 - Vito Elias - Avenida Sergipe, Estados, Joao Pessoa, PB, numero 150 - 83987325043 - 19/04/2022 - Diretor - 15000 - 18/03 - TI - Engenharia       
 8951 - Vito Elias - Avenida Sergipe, Estados, Joao Pessoa, PB, numero 150 - 83987325043 - 19/04/2022 - Presidente - 20000 - 18/03 - Engenheiro - doutorado
+0012 - Emilly - Avenida Sergipe, Estados, João Pessoa, PB, numero 150 - 999999999 - 19/04/2022 - Operador - 12000.00 - 23/01
 #

@@ -16,4 +16,8 @@ class Diretor : public Funcionario{
         
         void setAreaDeFormacao(string str);
         string getAreaDeFormacao();
+
+        void getAtributos(string codigo);
+
+        string atributosToString();
 };

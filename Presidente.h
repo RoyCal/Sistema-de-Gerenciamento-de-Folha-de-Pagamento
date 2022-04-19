@@ -16,4 +16,7 @@ class Presidente : public Funcionario{
         void setFormacaoMaxima(string str);
         string getFormacaoMaxima();
 
+        void getAtributos(string codigo);
+
+        string atributosToString();
 };
