@@ -3,7 +3,8 @@
 void Arquivo::imprimeArquivo(){
     int i;
 
-    arquivo.open("funcionarios.txt", ios::in);
+    arquivo.open("dados
+    .txt", ios::in);
     
     i = 0;                              //Colocando todas as linhas do arquivo em um vetor de strings
     while(getline(arquivo, linhas[i])){
@@ -20,10 +21,12 @@ void Arquivo::imprimeArquivo(){
 }
 
 void Arquivo::criaArquivo(){
-    arquivo.open("funcionarios.txt", ios::in);
+    arquivo.open("dados
+    .txt", ios::in);
 
     if(arquivo.is_open() == false){                 ///////////////////////////////////////////////
-        arquivo.open("funcionarios.txt", ios::out); //se o arquivo nao existe, ele cria o arquivo//
+        arquivo.open("dados
+        .txt", ios::out); //se o arquivo nao existe, ele cria o arquivo//
         arquivo.close();                            ///////////////////////////////////////////////
     }
 
