@@ -40,12 +40,33 @@ void Diretor::getAtributos(string codigo){
     system("cls");
 
     cout << "Qual o CEP do funcionario?" << endl;
-    getline(cin, CEP);
-    system("cls");
-    cout << "Qual o numero da residencia do funcionario?" << endl;
-    getline(cin, numero);
-    endereco = CEPtoEndereco(CEP) + numero;
-    system("cls");
+    
+    while(1){
+        getline(cin, CEP);
+
+        if(CEP.size() < 8 || CEP.size() > 8){
+            system("cls");
+            cout << "CEP invalido. Tente novamente" << endl;
+            continue;
+        }
+
+        endereco = CEPtoEndereco(CEP);
+
+        if(endereco == "CEP nao encontrado. Tente novamente"){
+            cout << endereco << endl;
+            continue;
+        }
+
+        system("cls");
+
+        cout << "Qual o numero da residencia do funcionario?" << endl;
+        getline(cin, numero);
+        endereco += numero;
+
+        system("cls");
+        
+        break;
+    }
 
     cout << "Qual o telefone do funcionario?" << endl;
     getline(cin, telefone);

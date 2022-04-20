@@ -81,6 +81,13 @@ string Funcionario::CEPtoEndereco(string CEP){
         getline(arquivo, linhas[i]);
     }
 
+    if(linhas[2] == "}"){
+        arquivo.close();
+        system("del index.html");
+        system("cls");
+        return "CEP nao encontrado. Tente novamente";
+    }
+
     arquivo.close();
 
     system("del index.html");
