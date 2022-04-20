@@ -287,17 +287,16 @@ int main(){
 
                                 presidente = Presidente();
 
-                            } else {
+                            }
+
+                            break;
+
+                        } else {
                                 system("cls");
 
                                 cout << "Funcionario nao encontrado" << endl;
 
-                                l = 0;
-
                                 break;
-                            }
-
-                            break;
                         }
                     }
                 }
