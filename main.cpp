@@ -144,8 +144,6 @@ int main(){
                     presidente = Presidente();
 
                     break;
-                } else {
-
                 }
             case 2:
             case 3:
@@ -159,6 +157,10 @@ int main(){
             case 0:
             break;
         }
+
+        arquivo.scanArquivo();
+        
+        imprimeMenuPrincipal();
     }
 
     return 0;

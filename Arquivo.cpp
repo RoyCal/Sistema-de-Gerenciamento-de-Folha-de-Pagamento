@@ -3,15 +3,6 @@
 void Arquivo::imprimeArquivo(){
     int i;
 
-    arquivo.open("dados.txt", ios::in);
-    
-    i = 0;                              //Colocando todas as linhas do arquivo em um vetor de strings
-    while(getline(arquivo, linhas[i])){
-        i++;
-    }
-
-    arquivo.close();
-
     for(i = 0; i < NUMERO_LINHAS; i++){         //imprimindo as linhas
         if(linhas[i] != ""){
             cout << linhas[i] << endl;
@@ -59,7 +50,7 @@ void Arquivo::atualizaArquivo(string str){
 
     arquivo.open("dados.txt", ios::out | ios::app);
 
-    for(i = 0; i < 100; i++){
+    for(i = 0; i < NUMERO_LINHAS; i++){
         if(linhas[i] != ""){
             if(linhas[i] == "#"){
                 arquivo << str << endl;
@@ -69,4 +60,6 @@ void Arquivo::atualizaArquivo(string str){
             }
         }
     }
+
+    arquivo.close();
 }
