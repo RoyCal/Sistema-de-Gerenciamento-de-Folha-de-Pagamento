@@ -51,14 +51,14 @@ int main(){
 
     arquivo.criaArquivo();
 
-    arquivo.scanArquivo();
-
     system("cls");
 
     imprimeMenuPrincipal();
 
     k = 1;
     while(k){
+        arquivo.scanArquivo();
+        
         cin >> escolha;
         getchar();
     
@@ -188,6 +188,9 @@ int main(){
 
                                 operador = Operador();
 
+                                l = 0;
+                                
+                                break;
                             } else if(arquivo.getDesignacao(i) == "Gerente"){
                                 system("cls");
 
@@ -219,6 +222,9 @@ int main(){
 
                                 gerente = Gerente();
 
+                                l = 0;
+
+                                break;
                             } else if(arquivo.getDesignacao(i) == "Diretor"){
                                 system("cls");
 
@@ -253,6 +259,9 @@ int main(){
 
                                 diretor = Diretor();
 
+                                l = 0;
+                                
+                                break;
                             } else if(arquivo.getDesignacao(i) == "Presidente"){
                                 system("cls");
 
@@ -287,18 +296,25 @@ int main(){
 
                                 presidente = Presidente();
 
-                            }
-
-                            break;
-
-                        } else {
-                                system("cls");
-
-                                cout << "Funcionario nao encontrado" << endl;
+                                l = 0;
 
                                 break;
+                            }
+
+                        } else if(i == NUMERO_LINHAS-1){
+                            system("cls");
+
+                            cout << "Funcionario nao encontrado" << endl;
+
+                            break;
                         }
                     }
+
+                    cout << "\nPresione \"ENTER\" para voltar para o menu principal" << endl;
+
+                    getchar();
+
+                    system("cls");
                 }
                 
                 break;
