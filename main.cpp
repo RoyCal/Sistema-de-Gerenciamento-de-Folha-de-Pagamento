@@ -38,7 +38,7 @@ string completaNumero(string numero){ //funcao que completa o numero caso o usua
 }
 
 int main(){ 
-    int i, j, k, escolha, count;
+    int i, j, k, l, escolha, count;
 
     string numero, designacao;
 
@@ -46,6 +46,7 @@ int main(){
     Gerente gerente;
     Diretor diretor;
     Presidente presidente;
+
     Arquivo arquivo;
 
     arquivo.criaArquivo();
@@ -146,6 +147,162 @@ int main(){
                     break;
                 }
             case 2:
+                system("cls");
+
+                l = 1;
+                while(l){
+                    cout << "Informe o codigo do funcionario para editar seu registro" << endl;
+
+                    getline(cin, numero);
+                    numero = completaNumero(numero);
+
+                    for(i = 0; i < NUMERO_LINHAS; i++){
+                        arquivo.stringToCode(i);
+
+                        if(numero == arquivo.linhaAux){
+                            if(arquivo.getDesignacao(i) == "Operador"){
+                                system("cls");
+
+                                arquivo.stringToCode(i);
+                                operador.setCodigo(arquivo.linhaAux);
+
+                                arquivo.stringToNome(i);
+                                operador.setNome(arquivo.linhaAux);
+
+                                arquivo.stringToEndereco(i);
+                                operador.setEndereco(arquivo.linhaAux); 
+
+                                arquivo.stringTotelefone(i);
+                                operador.setTelefone(arquivo.linhaAux);
+
+                                arquivo.stringToDataIngresso(i);
+                                operador.setDataDeIngresso(arquivo.linhaAux);
+
+                                arquivo.stringToSalario(i);
+                                operador.setSalario(stof(arquivo.linhaAux));
+
+                                arquivo.stringToDataAniversario(i);
+                                operador.setDataAniversario(arquivo.linhaAux);
+
+                                operador.imprimeRegistro();
+
+                                operador = Operador();
+
+                            } else if(arquivo.getDesignacao(i) == "Gerente"){
+                                system("cls");
+
+                                arquivo.stringToCode(i);
+                                gerente.setCodigo(arquivo.linhaAux);
+
+                                arquivo.stringToNome(i);
+                                gerente.setNome(arquivo.linhaAux);
+
+                                arquivo.stringToEndereco(i);
+                                gerente.setEndereco(arquivo.linhaAux); 
+
+                                arquivo.stringTotelefone(i);
+                                gerente.setTelefone(arquivo.linhaAux);
+
+                                arquivo.stringToDataIngresso(i);
+                                gerente.setDataDeIngresso(arquivo.linhaAux);
+
+                                arquivo.stringToSalario(i);
+                                gerente.setSalario(stof(arquivo.linhaAux));
+
+                                arquivo.stringToDataAniversario(i);
+                                gerente.setDataAniversario(arquivo.linhaAux);
+
+                                arquivo.stringToAreaSupervisao(i);
+                                gerente.setAreaSupervisao(arquivo.linhaAux);
+
+                                gerente.imprimeRegistro();
+
+                                gerente = Gerente();
+
+                            } else if(arquivo.getDesignacao(i) == "Diretor"){
+                                system("cls");
+
+                                arquivo.stringToCode(i);
+                                diretor.setCodigo(arquivo.linhaAux);
+
+                                arquivo.stringToNome(i);
+                                diretor.setNome(arquivo.linhaAux);
+
+                                arquivo.stringToEndereco(i);
+                                diretor.setEndereco(arquivo.linhaAux); 
+
+                                arquivo.stringTotelefone(i);
+                                diretor.setTelefone(arquivo.linhaAux);
+
+                                arquivo.stringToDataIngresso(i);
+                                diretor.setDataDeIngresso(arquivo.linhaAux);
+
+                                arquivo.stringToSalario(i);
+                                diretor.setSalario(stof(arquivo.linhaAux));
+
+                                arquivo.stringToDataAniversario(i);
+                                diretor.setDataAniversario(arquivo.linhaAux);
+
+                                arquivo.stringToAreaSupervisao(i);
+                                diretor.setAreaSupervisao(arquivo.linhaAux);
+
+                                arquivo.stringToAreaFormacaoDiretor(i);
+                                diretor.setAreaDeFormacao(arquivo.linhaAux);
+
+                                diretor.imprimeRegistro();
+
+                                diretor = Diretor();
+
+                            } else if(arquivo.getDesignacao(i) == "Presidente"){
+                                system("cls");
+
+                                arquivo.stringToCode(i);
+                                presidente.setCodigo(arquivo.linhaAux);
+
+                                arquivo.stringToNome(i);
+                                presidente.setNome(arquivo.linhaAux);
+
+                                arquivo.stringToEndereco(i);
+                                presidente.setEndereco(arquivo.linhaAux); 
+
+                                arquivo.stringTotelefone(i);
+                                presidente.setTelefone(arquivo.linhaAux);
+
+                                arquivo.stringToDataIngresso(i);
+                                presidente.setDataDeIngresso(arquivo.linhaAux);
+
+                                arquivo.stringToSalario(i);
+                                presidente.setSalario(stof(arquivo.linhaAux));
+
+                                arquivo.stringToDataAniversario(i);
+                                presidente.setDataAniversario(arquivo.linhaAux);
+
+                                arquivo.stringToAreaFormacaoPresidente(i);
+                                presidente.setAreaDeFormacao(arquivo.linhaAux);
+
+                                arquivo.stringToFormacaoAcadMax(i);
+                                presidente.setFormacaoMaxima(arquivo.linhaAux);
+
+                                presidente.imprimeRegistro();
+
+                                presidente = Presidente();
+
+                            } else {
+                                system("cls");
+
+                                cout << "Funcionario nao encontrado" << endl;
+
+                                l = 0;
+
+                                break;
+                            }
+
+                            break;
+                        }
+                    }
+                }
+                
+                break;
             case 3:
             case 4:
             case 5:

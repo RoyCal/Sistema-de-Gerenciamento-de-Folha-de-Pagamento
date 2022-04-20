@@ -41,6 +41,178 @@ void Arquivo::scanArquivo(){
     arquivo.close();
 }
 
+void Arquivo::stringToNome(int i){
+    int j;
+
+    if(linhas[i] != "" && linhas[i] != "#"){
+        linhaAux = linhas[i];
+        linhaAux.erase(0, 7);
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                linhaAux.erase(j-1, linhaAux.size());
+            }
+        }
+    }
+}
+
+void Arquivo::stringToEndereco(int i){
+    int j, count = 0;
+
+    if(linhas[i] != "" && linhas[i] != "#"){
+        linhaAux = linhas[i];
+        
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                count++;
+            }
+
+            if(count == 2){
+                linhaAux.erase(0, j+2);
+                break;
+            }
+        }
+
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                linhaAux.erase(j-1, linhaAux.size());
+                break;
+            }
+        }
+    }
+}
+
+void Arquivo::stringTotelefone(int i){
+    int j, count = 0;
+
+    if(linhas[i] != "" && linhas[i] != "#"){
+        linhaAux = linhas[i];
+        
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                count++;
+            }
+
+            if(count == 3){
+                linhaAux.erase(0, j+2);
+                break;
+            }
+        }
+
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                linhaAux.erase(j-1, linhaAux.size());
+                break;
+            }
+        }
+    }
+}
+
+void Arquivo::stringToDataIngresso(int i){
+    int j, count = 0;
+
+    if(linhas[i] != "" && linhas[i] != "#"){
+        linhaAux = linhas[i];
+        
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                count++;
+            }
+
+            if(count == 4){
+                linhaAux.erase(0, j+2);
+                break;
+            }
+        }
+
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                linhaAux.erase(j-1, linhaAux.size());
+                break;
+            }
+        }
+    }
+}
+
+string Arquivo::getDesignacao(int i){
+    int j, count = 0;
+
+    if(linhas[i] != "" && linhas[i] != "#"){
+        linhaAux = linhas[i];
+        
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                count++;
+            }
+
+            if(count == 5){
+                linhaAux.erase(0, j+2);
+                break;
+            }
+        }
+
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                linhaAux.erase(j-1, linhaAux.size());
+                break;
+            }
+        }
+    }
+
+    return linhaAux;
+}
+
+void Arquivo::stringToSalario(int i){
+    int j, count = 0;
+
+    if(linhas[i] != "" && linhas[i] != "#"){
+        linhaAux = linhas[i];
+        
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                count++;
+            }
+
+            if(count == 6){
+                linhaAux.erase(0, j+2);
+                break;
+            }
+        }
+
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                linhaAux.erase(j-1, linhaAux.size());
+                break;
+            }
+        }
+    }
+}
+
+void Arquivo::stringToDataAniversario(int i){
+    int j, count = 0;
+
+    if(linhas[i] != "" && linhas[i] != "#"){
+        linhaAux = linhas[i];
+        
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                count++;
+            }
+
+            if(count == 7){
+                linhaAux.erase(0, j+2);
+                break;
+            }
+        }
+
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                linhaAux.erase(j-1, linhaAux.size());
+                break;
+            }
+        }
+    }
+}
+
 void Arquivo::atualizaArquivo(string str){
     int i;
 
@@ -62,4 +234,108 @@ void Arquivo::atualizaArquivo(string str){
     }
 
     arquivo.close();
+}
+
+void Arquivo::stringToAreaSupervisao(int i){
+    int j, count = 0;
+
+    if(linhas[i] != "" && linhas[i] != "#"){
+        linhaAux = linhas[i];
+        
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                count++;
+            }
+
+            if(count == 8){
+                linhaAux.erase(0, j+2);
+                break;
+            }
+        }
+
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                linhaAux.erase(j-1, linhaAux.size());
+                break;
+            }
+        }
+    }
+}
+
+void Arquivo::stringToAreaFormacaoDiretor(int i){
+    int j, count = 0;
+
+    if(linhas[i] != "" && linhas[i] != "#"){
+        linhaAux = linhas[i];
+        
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                count++;
+            }
+
+            if(count == 9){
+                linhaAux.erase(0, j+2);
+                break;
+            }
+        }
+
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                linhaAux.erase(j-1, linhaAux.size());
+                break;
+            }
+        }
+    }
+}
+
+void Arquivo::stringToFormacaoAcadMax(int i){
+    int j, count = 0;
+
+    if(linhas[i] != "" && linhas[i] != "#"){
+        linhaAux = linhas[i];
+        
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                count++;
+            }
+
+            if(count == 9){
+                linhaAux.erase(0, j+2);
+                break;
+            }
+        }
+
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                linhaAux.erase(j-1, linhaAux.size());
+                break;
+            }
+        }
+    }
+}
+
+void Arquivo::stringToAreaFormacaoPresidente(int i){
+    int j, count = 0;
+
+    if(linhas[i] != "" && linhas[i] != "#"){
+        linhaAux = linhas[i];
+        
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                count++;
+            }
+
+            if(count == 8){
+                linhaAux.erase(0, j+2);
+                break;
+            }
+        }
+
+        for(j = 0; j < linhaAux.size(); j++){
+            if(linhaAux[j] == '-'){
+                linhaAux.erase(j-1, linhaAux.size());
+                break;
+            }
+        }
+    }
 }

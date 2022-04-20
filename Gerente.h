@@ -15,5 +15,7 @@ class Gerente : public Funcionario{
 
         void getAtributos(string codigo);
 
-        virtual string atributosToString();
+        string atributosToString();
+
+        void imprimeRegistro();
 };

@@ -19,4 +19,6 @@ class Presidente : public Funcionario{
         void getAtributos(string codigo);
 
         string atributosToString();
+
+        void imprimeRegistro();
 };

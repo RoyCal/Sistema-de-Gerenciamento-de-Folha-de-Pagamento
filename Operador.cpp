@@ -69,3 +69,14 @@ void Operador::getAtributos(string codigo){
     getline(cin, dataAniversario);
     system("cls");
 }
+
+void Operador::imprimeRegistro(){
+    cout << "Codigo: " << codigo << endl;
+    cout << "Nome: " << nome << endl;
+    cout << "Endereco: " << endereco << endl;
+    cout << "Telefone: " << telefone << endl;
+    cout << "Data de ingresso: " << dataDeIngresso << endl;
+    cout << "Designacao: " << designacao << endl;
+    cout << "Salario: " << salario << endl;
+    cout << "Aniversario: " << dataAniversario << endl;
+}

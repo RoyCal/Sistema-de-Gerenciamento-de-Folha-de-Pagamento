@@ -8,4 +8,6 @@ class Operador : public Funcionario{
         void setDesignacao();
 
         void getAtributos(string codigo);
+
+        void imprimeRegistro();
 };

@@ -47,4 +47,6 @@ class Funcionario{
         virtual void getAtributos(string codigo) = 0;
 
         virtual string atributosToString();
+
+        virtual void imprimeRegistro() = 0;
 };

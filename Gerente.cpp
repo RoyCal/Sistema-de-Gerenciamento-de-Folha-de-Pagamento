@@ -85,3 +85,15 @@ void Gerente::getAtributos(string codigo){
 string Gerente::atributosToString(){
     return codigo + " - " + nome + " - " + endereco + " - " + telefone + " - " + dataDeIngresso + " - " + designacao + " - " + to_string(salario).erase(to_string(salario).size()-4, 4) + " - " + dataAniversario + " - " + areaDeSupervisao;
 }
+
+void Gerente::imprimeRegistro(){
+    cout << "Codigo: " << codigo << endl;
+    cout << "Nome: " << nome << endl;
+    cout << "Endereco: " << endereco << endl;
+    cout << "Telefone: " << telefone << endl;
+    cout << "Data de ingresso: " << dataDeIngresso << endl;
+    cout << "Designacao: " << designacao << endl;
+    cout << "Salario: " << salario << endl;
+    cout << "Aniversario: " << dataAniversario << endl;
+    cout << "Area de supervisao: " << areaDeSupervisao << endl;
+}
