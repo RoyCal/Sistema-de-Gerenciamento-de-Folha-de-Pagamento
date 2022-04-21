@@ -11,7 +11,9 @@
 using namespace std;
 
 void imprimeMenuPrincipal(){
-    cout << "Menu principal\n" << endl;
+    cout << "-------------------------" << endl;
+    cout << "      Menu principal" << endl;
+    cout << "-------------------------\n" << endl;
     cout << "1 - Adicionar um funcionario" << endl;
     cout << "2 - Editar um registro" << endl;
     cout << "3 - Excluir um registro" << endl;
