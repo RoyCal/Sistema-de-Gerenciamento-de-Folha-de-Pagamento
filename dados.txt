@@ -1,6 +1,7 @@
-1234 - Vito Elias - Avenida Sergipe, Estados, Joao Pessoa, PB, numero 150 - 83987325043 - 19/04/2022 - Operador - 6000 - 18/03 
-4321 - Vito Elias - Avenida Sergipe, Estados, Joao Pessoa, PB, numero 150 - 83987325043 - 19/04/2022 - Gerente - 10000 - 18/03 - TI
-1598 - Vito Elias - Avenida Sergipe, Estados, Joao Pessoa, PB, numero 150 - 83987325043 - 19/04/2022 - Diretor - 15000 - 18/03 - TI - Engenharia       
-8951 - Vito Elias - Avenida Sergipe, Estados, Joao Pessoa, PB, numero 150 - 83987325043 - 19/04/2022 - Presidente - 20000 - 18/03 - Engenheiro - doutorado
-0012 - Emilly - Avenida Sergipe, Estados, João Pessoa, PB, numero 150 - 999999999 - 19/04/2022 - Operador - 12000.00 - 23/01
+1234 - Vito Elias - Avenida Sergipe, Estados, João Pessoa, PB, numero 150 - 83987325043 - 25/03/2005 - Gerente - 7500.00 - 18/03  - Formaturas
+0000 - Marcelo mopa - Rua Santo Antônio, Esperança, Santarém, PA, numero 123 - 999999991 - 48/48/4848 - Gerente - 6000.00 - 18/03 - Sala de robos
+4443 - Haron hermes - Avenida Sergipe, Estados, Joao Pessoa, PB, numero 150 - 83987325043 - 19/04/2022 - Diretor - 15000.00 - 18/03 - Strip club - Fisica
+8951 - Danilo - Avenida Sergipe, Estados, Joao Pessoa, PB, numero 150 - 83987325043 - 19/04/2022 - Presidente - 20000.00 - 18/03 - Engenharia - pos-doutorado
+4325 - Emilly Eduarda - Avenida Sergipe, Estados, João Pessoa, PB, numero 150 - 999999999 - 19/04/2022 - Operador - 7500.00 - 23/01
+0987 - Henrique Brabo - Avenida Rio de Janeiro, Estados, João Pessoa, PB, numero 2 - 988888888 - 48/03/0003 - Operador - 7499.00 - 47/45
 #

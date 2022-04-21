@@ -47,4 +47,12 @@ class Arquivo{
         fstream arquivo;
 
         string linhas[NUMERO_LINHAS], linhaAux;
+
+        string verificaCodigoRepetido();
+
+        string completaNumero(string numero);
+
+        void substituiLinha(string novaLinha, string numero);
+
+        void substituiArquivo();
 };

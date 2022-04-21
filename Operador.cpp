@@ -80,3 +80,24 @@ void Operador::imprimeRegistro(){
     cout << "Salario: " << salario << endl;
     cout << "Aniversario: " << dataAniversario << endl;
 }
+
+string Operador::operadorToGerente(){
+    string str;
+
+    Gerente gerente;
+
+    gerente.setCodigo(getCodigo());
+    gerente.setNome(getNome());
+    gerente.setEndereco(getEndereco());
+    gerente.setTelefone(getTelefone());
+    gerente.setDataDeIngresso(getDataDeIngresso());
+    gerente.setSalario(getSalario());
+    gerente.setDataAniversario(getDataAniversario());
+    
+    cout << "Qual sera a area de supervisao?" << endl;
+
+    getline(cin, str);
+    gerente.setAreaSupervisao(str);
+
+    return gerente.atributosToString();
+}

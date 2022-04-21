@@ -1,5 +1,8 @@
 #pragma once
 #include "Funcionario.h"
+#include "Operador.h"
+#include "Diretor.h"
+#include "Presidente.h"
 
 class Gerente : public Funcionario{
     private:

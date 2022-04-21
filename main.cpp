@@ -25,22 +25,11 @@ void imprimeMenuPrincipal(){
     cout << "0 - Sair do Sistema" << endl;
 }
 
-string completaNumero(string numero){ //funcao que completa o numero caso o usuario digite 
-    if(numero.size() == 3){           //um numero com menos de 4 digitos
-        numero = "0" + numero;
-    } else if(numero.size() == 2){
-        numero = "00" + numero;
-    } else if(numero.size() == 1){
-        numero = "000" + numero;
-    }
-
-    return numero;
-}
-
 int main(){ 
-    int i, j, k, l, escolha, count;
+    int i, j, k, l, m, escolha, escolha1, count;
+    int flag = 0;
 
-    string numero, designacao;
+    string numero, designacao, strAux1, strAux2;
 
     Operador operador;
     Gerente gerente;
@@ -53,14 +42,16 @@ int main(){
 
     system("cls");
 
-    imprimeMenuPrincipal();
-
     k = 1;
     while(k){
         arquivo.scanArquivo();
         
-        cin >> escolha;
-        getchar();
+        if(flag == 0){
+            imprimeMenuPrincipal();
+
+            cin >> escolha;
+            getchar();
+        }
     
         switch(escolha){
             case 1:
@@ -68,40 +59,7 @@ int main(){
 
                 cout << "Digite o codigo do novo funcionario" << endl;
 
-                while(1){           //verifica se o codigo digitado ja existe
-                    count = 0;
-
-                    while(1){
-                        getline(cin, numero);
-
-                        if(numero.size() > 4){
-                            system("cls");
-
-                            cout << "O codigo deve ter 4 digitos! Tente novamente" << endl;
-                        } else if(numero.size() == 4){
-                            break;
-                        } else {
-                            numero = completaNumero(numero);
-                            break;
-                        }
-                    }
-
-                    for(i = 0; i < NUMERO_LINHAS; i++){
-                        arquivo.stringToCode(i);
-
-                        if(numero == arquivo.linhaAux){  
-                            system("cls");
-
-                            cout << "Codigo ja existente. Tente novamente" << endl;
-                            count++;
-                            break;
-                        }
-                    }
-
-                    if(count == 0){ //se nenhum codigo igual for encontrado, o programa segue
-                        break;
-                    }
-                }
+                numero = arquivo.verificaCodigoRepetido();
 
                 system("cls");
 
@@ -151,12 +109,17 @@ int main(){
 
                 l = 1;
                 while(l){
-                    cout << "Informe o codigo do funcionario para editar seu registro" << endl;
 
-                    getline(cin, numero);
-                    numero = completaNumero(numero);
+                    if(flag == 0){
+                        cout << "Informe o codigo do funcionario para editar seu registro" << endl;
+
+                        getline(cin, numero);
+                        numero = arquivo.completaNumero(numero);
+                    } 
 
                     for(i = 0; i < NUMERO_LINHAS; i++){
+                        flag = 0;
+
                         arquivo.stringToCode(i);
 
                         if(numero == arquivo.linhaAux){
@@ -184,7 +147,205 @@ int main(){
                                 arquivo.stringToDataAniversario(i);
                                 operador.setDataAniversario(arquivo.linhaAux);
 
-                                operador.imprimeRegistro();
+                                j = 1;
+                                while(j){
+                                    system("cls");
+
+                                    operador.imprimeRegistro();
+
+                                    cout << "\nQual elemento deseja editar do funcionario?" << endl;
+                                    cout << "Codigo (1), data de ingresso (2), nome (3), endereco (4), telefone (5), designacao (6), salario (7)" << endl;
+
+                                    cin >> escolha;
+                                    getchar();
+
+                                    switch(escolha){
+                                        case 1:
+                                            system("cls");
+
+                                            strAux1 = operador.getCodigo();
+
+                                            cout << "Informe o novo codigo" << endl;
+
+                                            numero = arquivo.verificaCodigoRepetido();
+                                            operador.setCodigo(numero);
+
+                                            arquivo.substituiLinha(operador.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 2:
+                                            system("cls");
+
+                                            strAux1 = operador.getCodigo();
+
+                                            cout << "Informe a nova data de ingresso" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            operador.setDataDeIngresso(strAux2);
+
+                                            arquivo.substituiLinha(operador.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 3:
+                                            system("cls");
+
+                                            strAux1 = operador.getCodigo();
+
+                                            cout << "Informe o novo nome" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            operador.setNome(strAux2);
+
+                                            arquivo.substituiLinha(operador.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 4:
+                                            system("cls");
+
+                                            strAux1 = operador.getCodigo();
+
+                                            cout << "Informe o novo CEP" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            operador.setEndereco(operador.CEPtoEndereco(strAux2));
+
+                                            system("cls");
+
+                                            cout << "Qual o numero da nova residencia?" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            operador.setEndereco(operador.getEndereco() + strAux2);
+
+                                            arquivo.substituiLinha(operador.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 5:
+                                            system("cls");
+
+                                            strAux1 = operador.getCodigo();
+
+                                            cout << "Informe o novo telefone" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            operador.setTelefone(strAux2);
+
+                                            arquivo.substituiLinha(operador.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 6:
+                                            system("cls");
+
+                                            strAux1 = operador.getCodigo();
+
+                                            m = 1;
+                                            while(m){
+                                                cout << "Qual sera sua nova designacao?" << endl;
+
+                                                cout << "Gerente (1), diretor (2), presidente (3)" << endl;
+
+                                                cin >> escolha1;
+                                                getchar();
+
+                                                switch(escolha1){
+                                                    case 1:
+                                                        system("cls");
+
+                                                        arquivo.substituiLinha(operador.operadorToGerente(), strAux1);
+
+                                                        arquivo.substituiArquivo();
+
+                                                        m=0;
+
+                                                        break;
+                                                    case 2:
+                                                    case 3:
+                                                    default:
+                                                        system("cls");
+
+                                                        cout << "Escolha invalida" << endl;
+                                                        continue;
+                                                }
+                                            }
+
+                                            break;
+                                        case 7:
+                                            system("cls");
+
+                                            strAux1 = operador.getCodigo();
+
+                                            cout << "Informe o novo salario" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            operador.setSalario(stof(strAux2));
+
+                                            arquivo.substituiLinha(operador.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        default: 
+                                            system("cls");
+
+                                            cout << "Escolha invalida" << endl;
+                                            continue;
+                                    }
+
+                                    system("cls");
+
+                                    operador.imprimeRegistro();
+                                    cout << "\nDeseja editar mais algo?" << endl;
+                                    cout << "Sim (1), nao (2)" << endl;
+
+                                    cin >> escolha;
+                                    getchar();
+
+                                    switch(escolha){
+                                        case 1:
+                                            if(arquivo.getDesignacao(i) == "Operador"){
+                                                continue;
+                                            } else {
+                                                l = 0;
+                                                flag = 1;
+                                                escolha = 2;
+                                                arquivo.stringToCode(i);
+                                                numero = arquivo.linhaAux;
+                                            }
+                                        case 2:
+                                            j = 0;
+                                            break;
+                                        default:
+                                            j = 0;
+                                    }
+
+                                }
 
                                 operador = Operador();
 
@@ -218,7 +379,180 @@ int main(){
                                 arquivo.stringToAreaSupervisao(i);
                                 gerente.setAreaSupervisao(arquivo.linhaAux);
 
-                                gerente.imprimeRegistro();
+                                j = 1;
+                                while(j){
+                                    system("cls");
+
+                                    gerente.imprimeRegistro();
+
+                                    cout << "\nQual elemento deseja editar do funcionario?" << endl;
+                                    cout << "Codigo (1), data de ingresso (2), nome (3), endereco (4), telefone (5), designacao (6), salario (7), area de supervisao (8)" << endl;
+
+                                    cin >> escolha;
+                                    getchar();
+
+                                    switch(escolha){
+                                        case 1:
+                                            system("cls");
+
+                                            strAux1 = gerente.getCodigo();
+
+                                            cout << "Informe o novo codigo" << endl;
+
+                                            numero = arquivo.verificaCodigoRepetido();
+                                            gerente.setCodigo(numero);
+
+                                            arquivo.substituiLinha(gerente.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 2:
+                                            system("cls");
+
+                                            strAux1 = gerente.getCodigo();
+
+                                            cout << "Informe a nova data de ingresso" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            gerente.setDataDeIngresso(strAux2);
+
+                                            arquivo.substituiLinha(gerente.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 3:
+                                            system("cls");
+
+                                            strAux1 = gerente.getCodigo();
+
+                                            cout << "Informe o novo nome" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            gerente.setNome(strAux2);
+
+                                            arquivo.substituiLinha(gerente.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 4:
+                                            system("cls");
+
+                                            strAux1 = gerente.getCodigo();
+
+                                            cout << "Informe o novo CEP" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            gerente.setEndereco(gerente.CEPtoEndereco(strAux2));
+
+                                            system("cls");
+
+                                            cout << "Qual o numero da nova residencia?" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            gerente.setEndereco(gerente.getEndereco() + strAux2);
+
+                                            arquivo.substituiLinha(gerente.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 5:
+                                            system("cls");
+
+                                            strAux1 = gerente.getCodigo();
+
+                                            cout << "Informe o novo telefone" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            gerente.setTelefone(strAux2);
+
+                                            arquivo.substituiLinha(gerente.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 6:
+                                        case 7:
+                                            system("cls");
+
+                                            strAux1 = gerente.getCodigo();
+
+                                            cout << "Informe o novo salario" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            gerente.setSalario(stof(strAux2));
+
+                                            arquivo.substituiLinha(gerente.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 8:
+                                            system("cls");
+
+                                            strAux1 = gerente.getCodigo();
+
+                                            cout << "Informe a nova area de supervisao" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            gerente.setAreaSupervisao(strAux2);
+
+                                            arquivo.substituiLinha(gerente.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        default: 
+                                            system("cls");
+
+                                            cout << "Escolha invalida" << endl;
+                                            continue;
+                                    }
+
+                                    system("cls");
+
+                                    gerente.imprimeRegistro();
+                                    cout << "\nDeseja editar mais algo?" << endl;
+                                    cout << "Sim (1), nao (2)" << endl;
+
+                                    cin >> escolha;
+                                    getchar();
+
+                                    switch(escolha){
+                                        case 1:
+                                            continue;
+                                        case 2:
+                                            j = 0;
+                                            break;
+                                        default:
+                                            j = 0;
+                                    }
+
+                                }
 
                                 gerente = Gerente();
 
@@ -255,7 +589,198 @@ int main(){
                                 arquivo.stringToAreaFormacaoDiretor(i);
                                 diretor.setAreaDeFormacao(arquivo.linhaAux);
 
-                                diretor.imprimeRegistro();
+                                j = 1;
+                                while(j){
+                                    system("cls");
+
+                                    diretor.imprimeRegistro();
+
+                                    cout << "\nQual elemento deseja editar do funcionario?" << endl;
+                                    cout << "Codigo (1), data de ingresso (2), nome (3), endereco (4), telefone (5), designacao (6), salario (7), area de supervisao (8), area de formacao (9)" << endl;
+
+                                    cin >> escolha;
+                                    getchar();
+
+                                    switch(escolha){
+                                        case 1:
+                                            system("cls");
+
+                                            strAux1 = diretor.getCodigo();
+
+                                            cout << "Informe o novo codigo" << endl;
+
+                                            numero = arquivo.verificaCodigoRepetido();
+                                            diretor.setCodigo(numero);
+
+                                            arquivo.substituiLinha(diretor.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 2:
+                                            system("cls");
+
+                                            strAux1 = diretor.getCodigo();
+
+                                            cout << "Informe a nova data de ingresso" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            diretor.setDataDeIngresso(strAux2);
+
+                                            arquivo.substituiLinha(diretor.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 3:
+                                            system("cls");
+
+                                            strAux1 = diretor.getCodigo();
+
+                                            cout << "Informe o novo nome" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            diretor.setNome(strAux2);
+
+                                            arquivo.substituiLinha(diretor.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 4:
+                                            system("cls");
+
+                                            strAux1 = diretor.getCodigo();
+
+                                            cout << "Informe o novo CEP" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            diretor.setEndereco(diretor.CEPtoEndereco(strAux2));
+
+                                            system("cls");
+
+                                            cout << "Qual o numero da nova residencia?" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            diretor.setEndereco(diretor.getEndereco() + strAux2);
+
+                                            arquivo.substituiLinha(diretor.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 5:
+                                            system("cls");
+
+                                            strAux1 = diretor.getCodigo();
+
+                                            cout << "Informe o novo telefone" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            diretor.setTelefone(strAux2);
+
+                                            arquivo.substituiLinha(diretor.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 6:
+                                        case 7:
+                                            system("cls");
+
+                                            strAux1 = diretor.getCodigo();
+
+                                            cout << "Informe o novo salario" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            diretor.setSalario(stof(strAux2));
+
+                                            arquivo.substituiLinha(diretor.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 8:
+                                            system("cls");
+
+                                            strAux1 = diretor.getCodigo();
+
+                                            cout << "Informe a nova area de supervisao" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            diretor.setAreaSupervisao(strAux2);
+
+                                            arquivo.substituiLinha(diretor.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 9:
+                                            system("cls");
+
+                                            strAux1 = diretor.getCodigo();
+
+                                            cout << "Informe a nova area de formacao" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            diretor.setAreaDeFormacao(strAux2);
+
+                                            arquivo.substituiLinha(diretor.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        default: 
+                                            system("cls");
+
+                                            cout << "Escolha invalida" << endl;
+                                            continue;
+                                    }
+
+                                    system("cls");
+
+                                    diretor.imprimeRegistro();
+                                    cout << "\nDeseja editar mais algo?" << endl;
+                                    cout << "Sim (1), nao (2)" << endl;
+
+                                    cin >> escolha;
+                                    getchar();
+
+                                    switch(escolha){
+                                        case 1:
+                                            continue;
+                                        case 2:
+                                            j = 0;
+                                            break;
+                                        default:
+                                            j = 0;
+                                    }
+
+                                }
 
                                 diretor = Diretor();
 
@@ -292,7 +817,198 @@ int main(){
                                 arquivo.stringToFormacaoAcadMax(i);
                                 presidente.setFormacaoMaxima(arquivo.linhaAux);
 
-                                presidente.imprimeRegistro();
+                                j = 1;
+                                while(j){
+                                    system("cls");
+
+                                    presidente.imprimeRegistro();
+
+                                    cout << "\nQual elemento deseja editar do funcionario?" << endl;
+                                    cout << "Codigo (1), data de ingresso (2), nome (3), endereco (4), telefone (5), designacao (6), salario (7), area de formacao (8), formacao academica maxima (9)" << endl;
+
+                                    cin >> escolha;
+                                    getchar();
+
+                                    switch(escolha){
+                                        case 1:
+                                            system("cls");
+
+                                            strAux1 = presidente.getCodigo();
+
+                                            cout << "Informe o novo codigo" << endl;
+
+                                            numero = arquivo.verificaCodigoRepetido();
+                                            presidente.setCodigo(numero);
+
+                                            arquivo.substituiLinha(presidente.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 2:
+                                            system("cls");
+
+                                            strAux1 = presidente.getCodigo();
+
+                                            cout << "Informe a nova data de ingresso" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            presidente.setDataDeIngresso(strAux2);
+
+                                            arquivo.substituiLinha(presidente.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 3:
+                                            system("cls");
+
+                                            strAux1 = presidente.getCodigo();
+
+                                            cout << "Informe o novo nome" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            presidente.setNome(strAux2);
+
+                                            arquivo.substituiLinha(presidente.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 4:
+                                            system("cls");
+
+                                            strAux1 = presidente.getCodigo();
+
+                                            cout << "Informe o novo CEP" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            presidente.setEndereco(presidente.CEPtoEndereco(strAux2));
+
+                                            system("cls");
+
+                                            cout << "Qual o numero da nova residencia?" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            presidente.setEndereco(presidente.getEndereco() + strAux2);
+
+                                            arquivo.substituiLinha(presidente.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 5:
+                                            system("cls");
+
+                                            strAux1 = presidente.getCodigo();
+
+                                            cout << "Informe o novo telefone" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            presidente.setTelefone(strAux2);
+
+                                            arquivo.substituiLinha(presidente.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 6:
+                                        case 7:
+                                            system("cls");
+
+                                            strAux1 = presidente.getCodigo();
+
+                                            cout << "Informe o novo salario" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            presidente.setSalario(stof(strAux2));
+
+                                            arquivo.substituiLinha(presidente.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 8:
+                                            system("cls");
+
+                                            strAux1 = presidente.getCodigo();
+
+                                            cout << "Informe a nova area de formacao" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            presidente.setAreaDeFormacao(strAux2);
+
+                                            arquivo.substituiLinha(presidente.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        case 9:
+                                            system("cls");
+
+                                            strAux1 = presidente.getCodigo();
+
+                                            cout << "Informe a nova formacao academica maxima" << endl;
+
+                                            getline(cin, strAux2);
+
+                                            presidente.setFormacaoMaxima(strAux2);
+
+                                            arquivo.substituiLinha(presidente.atributosToString(), strAux1);
+
+                                            arquivo.substituiArquivo();
+
+                                            arquivo.scanArquivo();
+
+                                            break;
+                                        default: 
+                                            system("cls");
+
+                                            cout << "Escolha invalida" << endl;
+                                            continue;
+                                    }
+
+                                    system("cls");
+
+                                    presidente.imprimeRegistro();
+                                    cout << "\nDeseja editar mais algo?" << endl;
+                                    cout << "Sim (1), nao (2)" << endl;
+
+                                    cin >> escolha;
+                                    getchar();
+
+                                    switch(escolha){
+                                        case 1:
+                                            continue;
+                                        case 2:
+                                            j = 0;
+                                            break;
+                                        default:
+                                            j = 0;
+                                    }
+
+                                }
 
                                 presidente = Presidente();
 
@@ -309,10 +1025,6 @@ int main(){
                             break;
                         }
                     }
-
-                    cout << "\nPresione \"ENTER\" para voltar para o menu principal" << endl;
-
-                    getchar();
 
                     system("cls");
                 }
@@ -372,12 +1084,10 @@ int main(){
             case 9:
             case 10:
             case 0:
+                k = 0;
+                break;
             break;
         }
-
-        arquivo.scanArquivo();
-        
-        imprimeMenuPrincipal();
     }
 
     return 0;

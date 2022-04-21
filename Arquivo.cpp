@@ -339,3 +339,88 @@ void Arquivo::stringToAreaFormacaoPresidente(int i){
         }
     }
 }
+
+string Arquivo::completaNumero(string numero){ //funcao que completa o numero caso o usuario digite 
+    if(numero.size() == 3){                    //um numero com menos de 4 digitos
+        numero = "0" + numero;
+    } else if(numero.size() == 2){
+        numero = "00" + numero;
+    } else if(numero.size() == 1){
+        numero = "000" + numero;
+    }
+
+    return numero;
+}
+
+string Arquivo::verificaCodigoRepetido(){
+    int count, i;
+    string numero;
+
+    while(1){           //verifica se o codigo digitado ja existe
+        count = 0;
+
+        while(1){
+            getline(cin, numero);
+
+            if(numero.size() > 4){
+                system("cls");
+
+                cout << "O codigo deve ter 4 digitos! Tente novamente" << endl;
+            } else if(numero.size() == 4){
+                break;
+            } else {
+                numero = completaNumero(numero);
+                break;
+            }
+        }
+
+        for(i = 0; i < NUMERO_LINHAS; i++){
+            stringToCode(i);
+
+            if(numero == linhaAux){  
+                system("cls");
+
+                cout << "Codigo ja existente. Tente novamente" << endl;
+                count++;
+                break;
+            }
+        }
+
+        if(count == 0){ //se nenhum codigo igual for encontrado, o programa segue
+            break;
+        }
+    }
+
+    return numero;
+}
+
+void Arquivo::substituiLinha(string novaLinha, string numero){
+    int i;
+
+    for(i = 0; i < NUMERO_LINHAS; i++){
+        stringToCode(i);
+
+        if(numero == linhaAux){
+            linhas[i] = novaLinha;
+            break;
+        }
+    }
+}
+
+void Arquivo::substituiArquivo(){
+    int i;
+
+    for(i = 0; i < NUMERO_LINHAS; i++){
+        arquivo.open("dados.txt", ios::out);
+        arquivo.clear();
+        arquivo.close();
+
+        arquivo.open("dados.txt", ios::out | ios::app);
+
+        for(i = 0; i < NUMERO_LINHAS; i++){
+            if(linhas[i] != ""){
+                arquivo << linhas[i] << endl;
+            }
+        }
+    }
+}
