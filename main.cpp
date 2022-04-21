@@ -54,7 +54,7 @@ int main(){
         }
     
         switch(escolha){
-            case 1:
+            case 1: //adicionar funcionario 
                 system("cls");
 
                 cout << "Digite o codigo do novo funcionario" << endl;
@@ -104,7 +104,7 @@ int main(){
 
                     break;
                 }
-            case 2:
+            case 2: //editar atributos 
                 system("cls");
 
                 l = 1;
@@ -1030,7 +1030,7 @@ int main(){
                 }
                 
                 break;
-            case 3:
+            case 3: //excluir registro
             /***            
               system("cls");
 
