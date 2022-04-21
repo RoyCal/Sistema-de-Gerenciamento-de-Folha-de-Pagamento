@@ -1306,13 +1306,14 @@ int main(){
                 }
                 
                 break;
-            case 3: //excluir registro
-            /***            
+            case 3:      //excluir registro
+                        
               system("cls");
 
               cout << "Digite o codigo do funcionario que deseja excluir" << endl;
+              cin >> numero;
 
-              while(1){           //verifica se o codigo digitado ja existe
+              while(1){           
                 count = 0;
                 int count2 = 0;
 
@@ -1323,22 +1324,34 @@ int main(){
                     arquivo.stringToCode(i);
                     
                     if(arquivo.getDesignacao(i) == "Operador"){
+                      system("cls");
 
+                      arquivo.substituiLinha("", numero);
+                      arquivo.substituiArquivo();
+                      
                     } else if(arquivo.getDesignacao(i) == "Gerente"){
+                      system("cls");
+
+                      arquivo.substituiLinha("", numero);
+                      arquivo.substituiArquivo();
 
                     } else if(arquivo.getDesignacao(i) == "Diretor"){
+                      system("cls");
+
                       cout << "Nao e permitido excluir este funcionario!" << endl;  
                       count2++;                                                          //informa que nao e permitido excluir                                         
                     } else if(arquivo.getDesignacao(i) == "Presidente"){                 //funcionarios designados como "Diretor"
-                      cout << "Nao e permitido excluir este funcionario!" << endl;       //ou "Presidente".
+                      system("cls");                                                     //ou "Presidente".
+                                
+                      cout << "Nao e permitido excluir este funcionario!" << endl;       
                       count2++;                                                                                               
                     }
 
                     count++;
                     break;
-                  } else if(i == NUMERO_LINHAS-1){
-                    system("cls");
-
+                  } else if(i == NUMERO_LINHAS-1){                                       
+                    system("cls");                                                      
+                                            
                     cout << "Funcionario nao encontrado. Tente novamente" << endl;
                     count++;
                     break;
@@ -1351,7 +1364,7 @@ int main(){
                   cout << "Funcionario nao encontrado. Tente novamente" << endl; 
                 }
               }
-            ***/
+            
             case 4:
             case 5:
             case 6:
