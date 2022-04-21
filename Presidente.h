@@ -24,4 +24,10 @@ class Presidente : public Funcionario{
         string atributosToString();
 
         void imprimeRegistro();
+
+        string presidenteToOperador();
+
+        string presidenteToGerente();
+
+        string presidenteToDiretor();
 };

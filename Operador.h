@@ -15,4 +15,8 @@ class Operador : public Funcionario{
         void imprimeRegistro();
 
         string operadorToGerente();
+
+        string operadorToDiretor();
+
+        string operadorToPresidente();
 };

@@ -126,26 +126,7 @@ int main(){
                             if(arquivo.getDesignacao(i) == "Operador"){
                                 system("cls");
 
-                                arquivo.stringToCode(i);
-                                operador.setCodigo(arquivo.linhaAux);
-
-                                arquivo.stringToNome(i);
-                                operador.setNome(arquivo.linhaAux);
-
-                                arquivo.stringToEndereco(i);
-                                operador.setEndereco(arquivo.linhaAux); 
-
-                                arquivo.stringTotelefone(i);
-                                operador.setTelefone(arquivo.linhaAux);
-
-                                arquivo.stringToDataIngresso(i);
-                                operador.setDataDeIngresso(arquivo.linhaAux);
-
-                                arquivo.stringToSalario(i);
-                                operador.setSalario(stof(arquivo.linhaAux));
-
-                                arquivo.stringToDataAniversario(i);
-                                operador.setDataAniversario(arquivo.linhaAux);
+                                operador = arquivo.stringToOperador(i);
 
                                 j = 1;
                                 while(j){
@@ -176,6 +157,10 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+
+                                            operador.imprimeRegistro();
+
                                             break;
                                         case 2:
                                             system("cls");
@@ -194,6 +179,10 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+
+                                            operador.imprimeRegistro();
+
                                             break;
                                         case 3:
                                             system("cls");
@@ -211,6 +200,10 @@ int main(){
                                             arquivo.substituiArquivo();
 
                                             arquivo.scanArquivo();
+
+                                            system("cls");
+
+                                            operador.imprimeRegistro();
 
                                             break;
                                         case 4:
@@ -238,6 +231,10 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+
+                                            operador.imprimeRegistro();
+
                                             break;
                                         case 5:
                                             system("cls");
@@ -255,6 +252,10 @@ int main(){
                                             arquivo.substituiArquivo();
 
                                             arquivo.scanArquivo();
+
+                                            system("cls");
+
+                                            operador.imprimeRegistro();
 
                                             break;
                                         case 6:
@@ -279,11 +280,49 @@ int main(){
 
                                                         arquivo.substituiArquivo();
 
-                                                        m=0;
+                                                        m = 0;
+
+                                                        system("cls");
+
+                                                        gerente = arquivo.stringToGerente(i);
+
+                                                        gerente.imprimeRegistro();
+
+                                                        gerente = Gerente();
 
                                                         break;
                                                     case 2:
+                                                        system("cls");
+
+                                                        arquivo.substituiLinha(operador.operadorToDiretor(), strAux1);
+
+                                                        arquivo.substituiArquivo();
+
+                                                        m = 0;
+
+                                                        diretor = arquivo.stringToDiretor(i);
+
+                                                        diretor.imprimeRegistro();
+
+                                                        diretor = Diretor();
+
+                                                        break;
                                                     case 3:
+                                                        system("cls");
+
+                                                        arquivo.substituiLinha(operador.operadorToPresidente(), strAux1);
+
+                                                        arquivo.substituiArquivo();
+
+                                                        m = 0;
+
+                                                        presidente = arquivo.stringToPresidente(i);
+
+                                                        presidente.imprimeRegistro();
+
+                                                        presidente = Presidente();
+
+                                                        break;
                                                     default:
                                                         system("cls");
 
@@ -310,6 +349,10 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+
+                                            operador.imprimeRegistro();
+
                                             break;
                                         default: 
                                             system("cls");
@@ -318,33 +361,25 @@ int main(){
                                             continue;
                                     }
 
-                                    system("cls");
-
-                                    operador.imprimeRegistro();
                                     cout << "\nDeseja editar mais algo?" << endl;
                                     cout << "Sim (1), nao (2)" << endl;
 
                                     cin >> escolha;
                                     getchar();
 
-                                    switch(escolha){
-                                        case 1:
-                                            if(arquivo.getDesignacao(i) == "Operador"){
-                                                continue;
-                                            } else {
-                                                l = 0;
-                                                flag = 1;
-                                                escolha = 2;
-                                                arquivo.stringToCode(i);
-                                                numero = arquivo.linhaAux;
-                                            }
-                                        case 2:
-                                            j = 0;
-                                            break;
-                                        default:
-                                            j = 0;
-                                    }
+                                    if(escolha == 1){
+                                        if(arquivo.getDesignacao(i) == "Operador"){
+                                            continue;
+                                        } else {
+                                            l = 0;
+                                            flag = 1;
+                                            escolha = 2;
+                                            arquivo.stringToCode(i);
+                                            numero = arquivo.linhaAux;
+                                        }
+                                    }   
 
+                                    j = 0;
                                 }
 
                                 operador = Operador();
@@ -355,29 +390,7 @@ int main(){
                             } else if(arquivo.getDesignacao(i) == "Gerente"){
                                 system("cls");
 
-                                arquivo.stringToCode(i);
-                                gerente.setCodigo(arquivo.linhaAux);
-
-                                arquivo.stringToNome(i);
-                                gerente.setNome(arquivo.linhaAux);
-
-                                arquivo.stringToEndereco(i);
-                                gerente.setEndereco(arquivo.linhaAux); 
-
-                                arquivo.stringTotelefone(i);
-                                gerente.setTelefone(arquivo.linhaAux);
-
-                                arquivo.stringToDataIngresso(i);
-                                gerente.setDataDeIngresso(arquivo.linhaAux);
-
-                                arquivo.stringToSalario(i);
-                                gerente.setSalario(stof(arquivo.linhaAux));
-
-                                arquivo.stringToDataAniversario(i);
-                                gerente.setDataAniversario(arquivo.linhaAux);
-
-                                arquivo.stringToAreaSupervisao(i);
-                                gerente.setAreaSupervisao(arquivo.linhaAux);
+                                gerente = arquivo.stringToGerente(i);
 
                                 j = 1;
                                 while(j){
@@ -408,6 +421,10 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+
+                                            gerente.imprimeRegistro();
+
                                             break;
                                         case 2:
                                             system("cls");
@@ -426,6 +443,10 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+
+                                            gerente.imprimeRegistro();
+
                                             break;
                                         case 3:
                                             system("cls");
@@ -443,6 +464,10 @@ int main(){
                                             arquivo.substituiArquivo();
 
                                             arquivo.scanArquivo();
+
+                                            system("cls");
+
+                                            gerente.imprimeRegistro();
 
                                             break;
                                         case 4:
@@ -470,6 +495,10 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+
+                                            gerente.imprimeRegistro();
+
                                             break;
                                         case 5:
                                             system("cls");
@@ -488,8 +517,85 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+
+                                            gerente.imprimeRegistro();
+
                                             break;
                                         case 6:
+                                            system("cls");
+
+                                            strAux1 = gerente.getCodigo();
+
+                                            m = 1;
+                                            while(m){
+                                                cout << "Qual sera sua nova designacao?" << endl;
+
+                                                cout << "Operador (1), diretor (2), presidente (3)" << endl;
+
+                                                cin >> escolha1;
+                                                getchar();
+
+                                                switch(escolha1){
+                                                    case 1:
+                                                        system("cls");
+
+                                                        arquivo.substituiLinha(gerente.gerenteToOperador(), strAux1);
+
+                                                        arquivo.substituiArquivo();
+
+                                                        m = 0;
+
+                                                        system("cls");
+
+                                                        operador = arquivo.stringToOperador(i);
+
+                                                        operador.imprimeRegistro();
+
+                                                        operador = Operador();
+
+                                                        break;
+                                                    case 2:
+                                                        system("cls");
+
+                                                        arquivo.substituiLinha(gerente.gerenteToDiretor(), strAux1);
+
+                                                        arquivo.substituiArquivo();
+
+                                                        m = 0;
+
+                                                        diretor = arquivo.stringToDiretor(i);
+
+                                                        diretor.imprimeRegistro();
+
+                                                        diretor = Diretor();
+
+                                                        break;
+                                                    case 3:
+                                                        system("cls");
+
+                                                        arquivo.substituiLinha(gerente.gerenteToPresidente(), strAux1);
+
+                                                        arquivo.substituiArquivo();
+
+                                                        m = 0;
+
+                                                        presidente = arquivo.stringToPresidente(i);
+
+                                                        presidente.imprimeRegistro();
+
+                                                        presidente = Presidente();
+
+                                                        break;
+                                                    default:
+                                                        system("cls");
+
+                                                        cout << "Escolha invalida" << endl;
+                                                        continue;
+                                                }
+                                            }
+
+                                            break;
                                         case 7:
                                             system("cls");
 
@@ -506,6 +612,10 @@ int main(){
                                             arquivo.substituiArquivo();
 
                                             arquivo.scanArquivo();
+
+                                            system("cls");
+
+                                            gerente.imprimeRegistro();
 
                                             break;
                                         case 8:
@@ -525,6 +635,10 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+
+                                            gerente.imprimeRegistro();
+
                                             break;
                                         default: 
                                             system("cls");
@@ -533,25 +647,25 @@ int main(){
                                             continue;
                                     }
 
-                                    system("cls");
-
-                                    gerente.imprimeRegistro();
                                     cout << "\nDeseja editar mais algo?" << endl;
                                     cout << "Sim (1), nao (2)" << endl;
 
                                     cin >> escolha;
                                     getchar();
 
-                                    switch(escolha){
-                                        case 1:
+                                    if(escolha == 1){
+                                        if(arquivo.getDesignacao(i) == "Gerente"){
                                             continue;
-                                        case 2:
-                                            j = 0;
-                                            break;
-                                        default:
-                                            j = 0;
-                                    }
+                                        } else {
+                                            l = 0;
+                                            flag = 1;
+                                            escolha = 2;
+                                            arquivo.stringToCode(i);
+                                            numero = arquivo.linhaAux;
+                                        }
+                                    }   
 
+                                    j = 0;
                                 }
 
                                 gerente = Gerente();
@@ -562,32 +676,7 @@ int main(){
                             } else if(arquivo.getDesignacao(i) == "Diretor"){
                                 system("cls");
 
-                                arquivo.stringToCode(i);
-                                diretor.setCodigo(arquivo.linhaAux);
-
-                                arquivo.stringToNome(i);
-                                diretor.setNome(arquivo.linhaAux);
-
-                                arquivo.stringToEndereco(i);
-                                diretor.setEndereco(arquivo.linhaAux); 
-
-                                arquivo.stringTotelefone(i);
-                                diretor.setTelefone(arquivo.linhaAux);
-
-                                arquivo.stringToDataIngresso(i);
-                                diretor.setDataDeIngresso(arquivo.linhaAux);
-
-                                arquivo.stringToSalario(i);
-                                diretor.setSalario(stof(arquivo.linhaAux));
-
-                                arquivo.stringToDataAniversario(i);
-                                diretor.setDataAniversario(arquivo.linhaAux);
-
-                                arquivo.stringToAreaSupervisao(i);
-                                diretor.setAreaSupervisao(arquivo.linhaAux);
-
-                                arquivo.stringToAreaFormacaoDiretor(i);
-                                diretor.setAreaDeFormacao(arquivo.linhaAux);
+                                diretor = arquivo.stringToDiretor(i);
 
                                 j = 1;
                                 while(j){
@@ -618,6 +707,10 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+
+                                            diretor.imprimeRegistro();
+
                                             break;
                                         case 2:
                                             system("cls");
@@ -636,6 +729,10 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+
+                                            diretor.imprimeRegistro();
+
                                             break;
                                         case 3:
                                             system("cls");
@@ -653,6 +750,10 @@ int main(){
                                             arquivo.substituiArquivo();
 
                                             arquivo.scanArquivo();
+
+                                            system("cls");
+
+                                            diretor.imprimeRegistro();
 
                                             break;
                                         case 4:
@@ -680,6 +781,10 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+
+                                            diretor.imprimeRegistro();
+
                                             break;
                                         case 5:
                                             system("cls");
@@ -698,8 +803,85 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+
+                                            diretor.imprimeRegistro();
+
                                             break;
                                         case 6:
+                                            system("cls");
+
+                                            strAux1 = diretor.getCodigo();
+
+                                            m = 1;
+                                            while(m){
+                                                cout << "Qual sera sua nova designacao?" << endl;
+
+                                                cout << "Operador (1), gerente (2), presidente (3)" << endl;
+
+                                                cin >> escolha1;
+                                                getchar();
+
+                                                switch(escolha1){
+                                                    case 1:
+                                                        system("cls");
+
+                                                        arquivo.substituiLinha(diretor.diretorToOperador(), strAux1);
+
+                                                        arquivo.substituiArquivo();
+
+                                                        m = 0;
+
+                                                        system("cls");
+
+                                                        operador = arquivo.stringToOperador(i);
+
+                                                        operador.imprimeRegistro();
+
+                                                        operador = Operador();
+
+                                                        break;
+                                                    case 2:
+                                                        system("cls");
+
+                                                        arquivo.substituiLinha(diretor.diretorToGerente(), strAux1);
+
+                                                        arquivo.substituiArquivo();
+
+                                                        m = 0;
+
+                                                        gerente = arquivo.stringToGerente(i);
+
+                                                        gerente.imprimeRegistro();
+
+                                                        gerente = Gerente();
+
+                                                        break;
+                                                    case 3:
+                                                        system("cls");
+
+                                                        arquivo.substituiLinha(diretor.diretorToPresidente(), strAux1);
+
+                                                        arquivo.substituiArquivo();
+
+                                                        m = 0;
+
+                                                        presidente = arquivo.stringToPresidente(i);
+
+                                                        presidente.imprimeRegistro();
+
+                                                        presidente = Presidente();
+
+                                                        break;
+                                                    default:
+                                                        system("cls");
+
+                                                        cout << "Escolha invalida" << endl;
+                                                        continue;
+                                                }
+                                            }
+
+                                            break;
                                         case 7:
                                             system("cls");
 
@@ -716,6 +898,10 @@ int main(){
                                             arquivo.substituiArquivo();
 
                                             arquivo.scanArquivo();
+
+                                            system("cls");
+
+                                            diretor.imprimeRegistro();
 
                                             break;
                                         case 8:
@@ -735,6 +921,10 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+
+                                            diretor.imprimeRegistro();
+
                                             break;
                                         case 9:
                                             system("cls");
@@ -753,6 +943,10 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+                                            
+                                            diretor.imprimeRegistro();
+
                                             break;
                                         default: 
                                             system("cls");
@@ -761,25 +955,25 @@ int main(){
                                             continue;
                                     }
 
-                                    system("cls");
-
-                                    diretor.imprimeRegistro();
                                     cout << "\nDeseja editar mais algo?" << endl;
                                     cout << "Sim (1), nao (2)" << endl;
 
                                     cin >> escolha;
                                     getchar();
 
-                                    switch(escolha){
-                                        case 1:
+                                    if(escolha == 1){
+                                        if(arquivo.getDesignacao(i) == "Diretor"){
                                             continue;
-                                        case 2:
-                                            j = 0;
-                                            break;
-                                        default:
-                                            j = 0;
-                                    }
+                                        } else {
+                                            l = 0;
+                                            flag = 1;
+                                            escolha = 2;
+                                            arquivo.stringToCode(i);
+                                            numero = arquivo.linhaAux;
+                                        }
+                                    }   
 
+                                    j = 0;
                                 }
 
                                 diretor = Diretor();
@@ -790,32 +984,7 @@ int main(){
                             } else if(arquivo.getDesignacao(i) == "Presidente"){
                                 system("cls");
 
-                                arquivo.stringToCode(i);
-                                presidente.setCodigo(arquivo.linhaAux);
-
-                                arquivo.stringToNome(i);
-                                presidente.setNome(arquivo.linhaAux);
-
-                                arquivo.stringToEndereco(i);
-                                presidente.setEndereco(arquivo.linhaAux); 
-
-                                arquivo.stringTotelefone(i);
-                                presidente.setTelefone(arquivo.linhaAux);
-
-                                arquivo.stringToDataIngresso(i);
-                                presidente.setDataDeIngresso(arquivo.linhaAux);
-
-                                arquivo.stringToSalario(i);
-                                presidente.setSalario(stof(arquivo.linhaAux));
-
-                                arquivo.stringToDataAniversario(i);
-                                presidente.setDataAniversario(arquivo.linhaAux);
-
-                                arquivo.stringToAreaFormacaoPresidente(i);
-                                presidente.setAreaDeFormacao(arquivo.linhaAux);
-
-                                arquivo.stringToFormacaoAcadMax(i);
-                                presidente.setFormacaoMaxima(arquivo.linhaAux);
+                                presidente = arquivo.stringToPresidente(i);
 
                                 j = 1;
                                 while(j){
@@ -846,6 +1015,10 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+
+                                            presidente.imprimeRegistro();
+
                                             break;
                                         case 2:
                                             system("cls");
@@ -864,6 +1037,10 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+
+                                            presidente.imprimeRegistro();
+
                                             break;
                                         case 3:
                                             system("cls");
@@ -881,6 +1058,10 @@ int main(){
                                             arquivo.substituiArquivo();
 
                                             arquivo.scanArquivo();
+
+                                            system("cls");
+
+                                            presidente.imprimeRegistro();
 
                                             break;
                                         case 4:
@@ -908,6 +1089,10 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+
+                                            presidente.imprimeRegistro();
+
                                             break;
                                         case 5:
                                             system("cls");
@@ -926,8 +1111,85 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+
+                                            presidente.imprimeRegistro();
+
                                             break;
                                         case 6:
+                                            system("cls");
+
+                                            strAux1 = presidente.getCodigo();
+
+                                            m = 1;
+                                            while(m){
+                                                cout << "Qual sera sua nova designacao?" << endl;
+
+                                                cout << "Operador (1), gerente (2), diretor (3)" << endl;
+
+                                                cin >> escolha1;
+                                                getchar();
+
+                                                switch(escolha1){
+                                                    case 1:
+                                                        system("cls");
+
+                                                        arquivo.substituiLinha(presidente.presidenteToOperador(), strAux1);
+
+                                                        arquivo.substituiArquivo();
+
+                                                        m = 0;
+
+                                                        system("cls");
+
+                                                        operador = arquivo.stringToOperador(i);
+
+                                                        operador.imprimeRegistro();
+
+                                                        operador = Operador();
+
+                                                        break;
+                                                    case 2:
+                                                        system("cls");
+
+                                                        arquivo.substituiLinha(presidente.presidenteToGerente(), strAux1);
+
+                                                        arquivo.substituiArquivo();
+
+                                                        m = 0;
+
+                                                        gerente = arquivo.stringToGerente(i);
+
+                                                        gerente.imprimeRegistro();
+
+                                                        gerente = Gerente();
+
+                                                        break;
+                                                    case 3:
+                                                        system("cls");
+
+                                                        arquivo.substituiLinha(presidente.presidenteToDiretor(), strAux1);
+
+                                                        arquivo.substituiArquivo();
+
+                                                        m = 0;
+
+                                                        diretor = arquivo.stringToDiretor(i);
+
+                                                        diretor.imprimeRegistro();
+
+                                                        diretor = Diretor();
+
+                                                        break;
+                                                    default:
+                                                        system("cls");
+
+                                                        cout << "Escolha invalida" << endl;
+                                                        continue;
+                                                }
+                                            }
+
+                                            break;
                                         case 7:
                                             system("cls");
 
@@ -944,6 +1206,10 @@ int main(){
                                             arquivo.substituiArquivo();
 
                                             arquivo.scanArquivo();
+                                            
+                                            system("cls");
+
+                                            presidente.imprimeRegistro();
 
                                             break;
                                         case 8:
@@ -963,6 +1229,10 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+
+                                            presidente.imprimeRegistro();
+
                                             break;
                                         case 9:
                                             system("cls");
@@ -981,6 +1251,10 @@ int main(){
 
                                             arquivo.scanArquivo();
 
+                                            system("cls");
+
+                                            presidente.imprimeRegistro();
+
                                             break;
                                         default: 
                                             system("cls");
@@ -989,25 +1263,25 @@ int main(){
                                             continue;
                                     }
 
-                                    system("cls");
-
-                                    presidente.imprimeRegistro();
                                     cout << "\nDeseja editar mais algo?" << endl;
                                     cout << "Sim (1), nao (2)" << endl;
 
                                     cin >> escolha;
                                     getchar();
 
-                                    switch(escolha){
-                                        case 1:
+                                    if(escolha == 1){
+                                        if(arquivo.getDesignacao(i) == "Presidente"){
                                             continue;
-                                        case 2:
-                                            j = 0;
-                                            break;
-                                        default:
-                                            j = 0;
-                                    }
+                                        } else {
+                                            l = 0;
+                                            flag = 1;
+                                            escolha = 2;
+                                            arquivo.stringToCode(i);
+                                            numero = arquivo.linhaAux;
+                                        }
+                                    }   
 
+                                    j = 0;
                                 }
 
                                 presidente = Presidente();

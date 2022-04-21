@@ -97,3 +97,71 @@ void Gerente::imprimeRegistro(){
     cout << "Aniversario: " << dataAniversario << endl;
     cout << "Area de supervisao: " << areaDeSupervisao << endl;
 }
+
+string Gerente::gerenteToOperador(){
+    string str;
+
+    Operador operador;
+
+    operador.setCodigo(getCodigo());
+    operador.setNome(getNome());
+    operador.setEndereco(getEndereco());
+    operador.setTelefone(getTelefone());
+    operador.setDataDeIngresso(getDataDeIngresso());
+    operador.setSalario(getSalario());
+    operador.setDataAniversario(getDataAniversario());
+
+    return operador.atributosToString();
+}
+
+string Gerente::gerenteToDiretor(){
+    string str;
+
+    Diretor diretor;
+
+    diretor.setCodigo(getCodigo());
+    diretor.setNome(getNome());
+    diretor.setEndereco(getEndereco());
+    diretor.setTelefone(getTelefone());
+    diretor.setDataDeIngresso(getDataDeIngresso());
+    diretor.setSalario(getSalario());
+    diretor.setDataAniversario(getDataAniversario());
+    diretor.setAreaSupervisao(getAreaSupervisao());
+
+    system("cls");
+
+    cout << "Qual eh a sua area de formacao?" << endl;
+
+    getline(cin, str);
+    diretor.setAreaDeFormacao(str);
+
+    return diretor.atributosToString();
+}
+
+string Gerente::gerenteToPresidente(){
+    string str;
+
+    Presidente presidente;
+
+    presidente.setCodigo(getCodigo());
+    presidente.setNome(getNome());
+    presidente.setEndereco(getEndereco());
+    presidente.setTelefone(getTelefone());
+    presidente.setDataDeIngresso(getDataDeIngresso());
+    presidente.setSalario(getSalario());
+    presidente.setDataAniversario(getDataAniversario());
+    
+    cout << "Qual eh a sua area de formacao?" << endl;
+
+    getline(cin, str);
+    presidente.setAreaDeFormacao(str);
+
+    system("cls");
+
+    cout << "Qual eh a sua formacao academica maxima?" << endl;
+
+    getline(cin, str);
+    presidente.setFormacaoMaxima(str);
+
+    return presidente.atributosToString();
+}

@@ -12,6 +12,8 @@ using namespace std;
 
 class Arquivo{
     public:
+        string linhas[NUMERO_LINHAS], linhaAux;
+
         void criaArquivo();
 
         void imprimeArquivo();
@@ -46,8 +48,6 @@ class Arquivo{
 
         fstream arquivo;
 
-        string linhas[NUMERO_LINHAS], linhaAux;
-
         string verificaCodigoRepetido();
 
         string completaNumero(string numero);
@@ -55,4 +55,12 @@ class Arquivo{
         void substituiLinha(string novaLinha, string numero);
 
         void substituiArquivo();
+
+        Gerente stringToGerente(int i);
+
+        Operador stringToOperador(int i);
+
+        Diretor stringToDiretor(int i);
+
+        Presidente stringToPresidente(int i);
 };

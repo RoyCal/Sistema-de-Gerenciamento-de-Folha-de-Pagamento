@@ -401,6 +401,7 @@ void Arquivo::substituiLinha(string novaLinha, string numero){
         stringToCode(i);
 
         if(numero == linhaAux){
+            linhas[i] = "";
             linhas[i] = novaLinha;
             break;
         }
@@ -423,4 +424,127 @@ void Arquivo::substituiArquivo(){
             }
         }
     }
+}
+
+Gerente Arquivo::stringToGerente(int i){
+    Gerente gerente;
+
+    stringToCode(i);
+    gerente.setCodigo(linhaAux);
+
+    stringToNome(i);
+    gerente.setNome(linhaAux);
+
+    stringToEndereco(i);
+    gerente.setEndereco(linhaAux); 
+
+    stringTotelefone(i);
+    gerente.setTelefone(linhaAux);
+
+    stringToDataIngresso(i);
+    gerente.setDataDeIngresso(linhaAux);
+
+    stringToSalario(i);
+    gerente.setSalario(stof(linhaAux));
+
+    stringToDataAniversario(i);
+    gerente.setDataAniversario(linhaAux);
+
+    stringToAreaSupervisao(i);
+    gerente.setAreaSupervisao(linhaAux);
+
+    return gerente;
+}
+
+Operador Arquivo::stringToOperador(int i){
+    Operador operador;
+
+    stringToCode(i);
+    operador.setCodigo(linhaAux);
+
+    stringToNome(i);
+    operador.setNome(linhaAux);
+
+    stringToEndereco(i);
+    operador.setEndereco(linhaAux); 
+
+    stringTotelefone(i);
+    operador.setTelefone(linhaAux);
+
+    stringToDataIngresso(i);
+    operador.setDataDeIngresso(linhaAux);
+
+    stringToSalario(i);
+    operador.setSalario(stof(linhaAux));
+
+    stringToDataAniversario(i);
+    operador.setDataAniversario(linhaAux);
+
+    return operador;
+}
+
+Diretor Arquivo::stringToDiretor(int i){
+    Diretor diretor;
+
+    stringToCode(i);
+    diretor.setCodigo(linhaAux);
+
+    stringToNome(i);
+    diretor.setNome(linhaAux);
+
+    stringToEndereco(i);
+    diretor.setEndereco(linhaAux); 
+
+    stringTotelefone(i);
+    diretor.setTelefone(linhaAux);
+
+    stringToDataIngresso(i);
+    diretor.setDataDeIngresso(linhaAux);
+
+    stringToSalario(i);
+    diretor.setSalario(stof(linhaAux));
+
+    stringToDataAniversario(i);
+    diretor.setDataAniversario(linhaAux);
+
+    stringToAreaSupervisao(i);
+    diretor.setAreaSupervisao(linhaAux);
+
+    stringToAreaFormacaoDiretor(i);
+    diretor.setAreaDeFormacao(linhaAux);
+
+    return diretor;
+}
+
+Presidente Arquivo::stringToPresidente(int i){
+    Presidente presidente;
+
+    stringToCode(i);
+    presidente.setCodigo(linhaAux);
+
+    stringToNome(i);
+    presidente.setNome(linhaAux);
+
+    stringToEndereco(i);
+    presidente.setEndereco(linhaAux); 
+
+    stringTotelefone(i);
+    presidente.setTelefone(linhaAux);
+
+    stringToDataIngresso(i);
+    presidente.setDataDeIngresso(linhaAux);
+
+    stringToSalario(i);
+    presidente.setSalario(stof(linhaAux));
+
+    stringToDataAniversario(i);
+    presidente.setDataAniversario(linhaAux);
+
+    stringToAreaFormacaoPresidente(i);
+    presidente.setAreaDeFormacao(linhaAux);
+
+    stringToFormacaoAcadMax(i);
+    presidente.setFormacaoMaxima(linhaAux);
+
+    return presidente;
 }
