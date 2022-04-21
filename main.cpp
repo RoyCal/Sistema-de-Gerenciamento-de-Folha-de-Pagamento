@@ -319,6 +319,51 @@ int main(){
                 
                 break;
             case 3:
+            /***            
+              system("cls");
+
+              cout << "Digite o codigo do funcionario que deseja excluir" << endl;
+
+              while(1){           //verifica se o codigo digitado ja existe
+                count = 0;
+                int count2 = 0;
+
+                for(i = 0; i < NUMERO_LINHAS; i++){
+                  arquivo.stringToCode(i);
+
+                  if(numero == arquivo.linhaAux){  //codigo encontrado.
+                    arquivo.stringToCode(i);
+                    
+                    if(arquivo.getDesignacao(i) == "Operador"){
+
+                    } else if(arquivo.getDesignacao(i) == "Gerente"){
+
+                    } else if(arquivo.getDesignacao(i) == "Diretor"){
+                      cout << "Nao e permitido excluir este funcionario!" << endl;  
+                      count2++;                                                          //informa que nao e permitido excluir                                         
+                    } else if(arquivo.getDesignacao(i) == "Presidente"){                 //funcionarios designados como "Diretor"
+                      cout << "Nao e permitido excluir este funcionario!" << endl;       //ou "Presidente".
+                      count2++;                                                                                               
+                    }
+
+                    count++;
+                    break;
+                  } else if(i == NUMERO_LINHAS-1){
+                    system("cls");
+
+                    cout << "Funcionario nao encontrado. Tente novamente" << endl;
+                    count++;
+                    break;
+                  }
+                }
+
+                if(count == 0 || count2 == 0){       //caso o codigo inserido nao seja encontrado, o programa informara por 
+                  system("cls");                     //uma mensagem e retornara para o inicio da opçao de excluir registro.
+                                                                                  
+                  cout << "Funcionario nao encontrado. Tente novamente" << endl; 
+                }
+              }
+            ***/
             case 4:
             case 5:
             case 6:
