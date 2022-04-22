@@ -1605,6 +1605,82 @@ int main(){
 
                 break;
             case 4:
+                system("cls");
+
+                l = 1;
+                while(l){
+                    cout << "Informe o codigo do funcionario que deseja exibir o registro" << endl;
+
+                    getline(cin, numero);
+                    numero = arquivo.completaNumero(numero);
+
+                    for(i = 0; i < NUMERO_LINHAS; i++){
+                        arquivo.stringToCode(i);
+
+                        if(arquivo.linhaAux == numero){
+                            strAux1 = arquivo.getDesignacao(i);
+
+                            if(strAux1 == "Operador"){
+                                system("cls");
+
+                                operador = arquivo.stringToOperador(i);
+                                operador.imprimeRegistro();
+                                operador = Operador();
+
+                                break;
+                            } else if(strAux1 == "Gerente"){
+                                system("cls");
+
+                                gerente = arquivo.stringToGerente(i);
+                                gerente.imprimeRegistro();
+                                gerente = Gerente();
+
+                                break;
+                            } else if(strAux1 == "Diretor"){
+                                system("cls");
+
+                                diretor = arquivo.stringToDiretor(i);
+                                diretor.imprimeRegistro();
+                                diretor = Diretor();
+
+                                break;
+                            } else if(strAux1 == "Presidente"){
+                                system("cls");
+
+                                presidente = arquivo.stringToPresidente(i);
+                                presidente.imprimeRegistro();
+                                presidente = Presidente();
+
+                                break;
+                            }
+                        } else if(i == NUMERO_LINHAS-1){
+                            system("cls");
+
+                            cout << "Funcionario nao encontrado, Tente novamente" << endl;
+                        }
+                    }
+
+                    cout << "\nDeseja exibir outro registro (1) ou voltar para o menu principal (2)?" << endl;
+
+                    cin >> escolha;
+                    getchar();
+
+                    switch(escolha){
+                        case 1:
+                            system("cls");
+
+                            continue;
+                            break;
+                        case 2:
+                            l = 0; 
+
+                            break;
+                        default:
+                            l = 0;
+                    }
+                }
+
+                break;
             case 5:
             case 6:
             case 7:
