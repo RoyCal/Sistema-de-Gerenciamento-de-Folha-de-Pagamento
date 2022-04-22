@@ -1,9 +1,6 @@
-1234 - Vito Elias - Avenida Sergipe, Estados, João Pessoa, PB, numero 150 - 83987325043 - 25/03/2005 - Gerente - 7500.00 - 18/03  - Formaturas
-0000 - Marcelo mopa - Rua Santo Antônio, Esperança, Santarém, PA, numero 123 - 999999991 - 48/48/4848 - Gerente - 6000.00 - 18/03 - Sala de robosclear
-4443 - Haron hermes - Avenida Sergipe, Estados, Joao Pessoa, PB, numero 150 - 83987325043 - 19/04/2022 - Diretor - 15000.00 - 18/03 - Strip club - Fisica
-8951 - Danilo - Avenida Sergipe, Estados, Joao Pessoa, PB, numero 150 - 83987325043 - 19/04/2022 - Presidente - 20000.00 - 18/03 - Engenharia - pos-doutorado
-4325 - Emilly Eduarda - Avenida Sergipe, Estados, João Pessoa, PB, numero 150 - 999999999 - 19/04/2022 - Operador - 7500.00 - 23/01
-0987 - Henrique Brabo - Avenida Rio de Janeiro, Estados, João Pessoa, PB, numero 2 - 988888888 - 48/03/0003 - Presidente - 7499.00 - 47/45 - Alcoolicos - Doutorado
-9999 - Emilly - Avenida Sergipe, Estados, João Pessoa, PB, numero 150 - 988881276 - 48/48/4848 - Diretor - 300.00 - 12/48 - Pimba - Direito
-7777 - Noob master - Rua Santo Antônio, Esperança, Santarém, PA, numero 321 - 999999999 - 12/12/2002 - Diretor - 5000.00 - 15/12 - pimba - dedetive
+0001 - Vito Elias - Avenida Sergipe, Estados, João Pessoa, PB, numero 150 - 83987325043 - 22/04/2022 - Presidente - 10000.00 - 18/03 - Engenharia - Bacharelando
+0002 - Emilly Eduarda - Rua Maurício de Araújo Gama Filho, Portal do Sol, João Pessoa, PB, numero 201 - 84994751155 - 22/04/2022 - Diretor - 8000.00 - 23/01 - Sala de computadores - Engenharia
+0003 - Henrique Andrade - Rua Maurício de Araújo Gama Filho, Portal do Sol, João Pessoa, PB, numero 201 -  - 22/04/2022 - Diretor - 8000.00 - 18/06 - Sala de servidores - Engenharia
+0004 - Iago Roberto - Rua Santo Antônio, Esperança, Santarém, PA, numero 56 - 987654010 - 22/04/2022 - Gerente - 6500.00 - 05/05 - Cafeteria
+0005 - Aranha - Rua Elísio de Souza, Roger, João Pessoa, PB, numero 7 - 988881276 - 21/04/2022 - Operador - 4500.00 - 30/02
 #

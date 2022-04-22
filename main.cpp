@@ -76,8 +76,15 @@ int main(){
 
                     operador.getAtributos(numero);
                     arquivo.atualizaArquivo(operador.atributosToString());
+                    operador.imprimeRegistro();
 
                     operador = Operador();
+
+                    cout << "\nFuncionario adicionado com sucesso!\n" << endl;
+
+                    cout << "Pressione ENTER para voltar para o menu principal" << endl;
+
+                    getchar();
 
                     break;
                 } else if(designacao == "Gerente"){
@@ -85,8 +92,15 @@ int main(){
 
                     gerente.getAtributos(numero);
                     arquivo.atualizaArquivo(gerente.atributosToString());
+                    gerente.imprimeRegistro();
 
                     gerente = Gerente();
+
+                    cout << "\nFuncionario adicionado com sucesso!\n" << endl;
+
+                    cout << "Pressione ENTER para voltar para o menu principal" << endl;
+
+                    getchar();
 
                     break;
                 } else if(designacao == "Diretor"){
@@ -94,8 +108,15 @@ int main(){
 
                     diretor.getAtributos(numero);
                     arquivo.atualizaArquivo(diretor.atributosToString());
+                    diretor.imprimeRegistro();
 
                     diretor = Diretor();
+
+                    cout << "\nFuncionario adicionado com sucesso!\n" << endl;
+
+                    cout << "Pressione ENTER para voltar para o menu principal" << endl;
+
+                    getchar();
 
                     break;
                 } else if(designacao == "Presidente"){
@@ -103,8 +124,15 @@ int main(){
 
                     presidente.getAtributos(numero);
                     arquivo.atualizaArquivo(presidente.atributosToString());
+                    presidente.imprimeRegistro();
 
                     presidente = Presidente();
+
+                    cout << "\nFuncionario adicionado com sucesso!\n" << endl;
+
+                    cout << "Pressione ENTER para voltar para o menu principal" << endl;
+
+                    getchar();
 
                     break;
                 }
@@ -215,11 +243,32 @@ int main(){
 
                                             strAux1 = operador.getCodigo();
 
-                                            cout << "Informe o novo CEP" << endl;
+                                            while(1){
+                                                cout << "Informe o novo CEP" << endl;
 
-                                            getline(cin, strAux2);
+                                                getline(cin, strAux2);
 
-                                            operador.setEndereco(operador.CEPtoEndereco(strAux2));
+                                                if(strAux2.size() < 8 || strAux2.size() >
+                                                 8){
+                                                    system("cls");
+
+                                                    cout << "CEP invalido. Tente novamente" << endl;
+                                                    continue;
+                                                }
+
+                                                strAux2 = operador.CEPtoEndereco(strAux2);
+
+                                                if(strAux2 == "CEP nao encontrado. Tente novamente"){
+                                                    system("cls");
+
+                                                    cout << strAux2 << endl;
+                                                    continue;
+                                                }
+
+                                                break;
+                                            }
+
+                                            operador.setEndereco(strAux2);
 
                                             system("cls");
 
@@ -479,11 +528,32 @@ int main(){
 
                                             strAux1 = gerente.getCodigo();
 
-                                            cout << "Informe o novo CEP" << endl;
+                                            while(1){
+                                                cout << "Informe o novo CEP" << endl;
 
-                                            getline(cin, strAux2);
+                                                getline(cin, strAux2);
 
-                                            gerente.setEndereco(gerente.CEPtoEndereco(strAux2));
+                                                if(strAux2.size() < 8 || strAux2.size() >
+                                                 8){
+                                                    system("cls");
+
+                                                    cout << "CEP invalido. Tente novamente" << endl;
+                                                    continue;
+                                                }
+
+                                                strAux2 = gerente.CEPtoEndereco(strAux2);
+
+                                                if(strAux2 == "CEP nao encontrado. Tente novamente"){
+                                                    system("cls");
+
+                                                    cout << strAux2 << endl;
+                                                    continue;
+                                                }
+
+                                                break;
+                                            }
+
+                                            gerente.setEndereco(strAux2);
 
                                             system("cls");
 
@@ -765,11 +835,32 @@ int main(){
 
                                             strAux1 = diretor.getCodigo();
 
-                                            cout << "Informe o novo CEP" << endl;
+                                            while(1){
+                                                cout << "Informe o novo CEP" << endl;
 
-                                            getline(cin, strAux2);
+                                                getline(cin, strAux2);
 
-                                            diretor.setEndereco(diretor.CEPtoEndereco(strAux2));
+                                                if(strAux2.size() < 8 || strAux2.size() >
+                                                 8){
+                                                    system("cls");
+
+                                                    cout << "CEP invalido. Tente novamente" << endl;
+                                                    continue;
+                                                }
+
+                                                strAux2 = diretor.CEPtoEndereco(strAux2);
+
+                                                if(strAux2 == "CEP nao encontrado. Tente novamente"){
+                                                    system("cls");
+
+                                                    cout << strAux2 << endl;
+                                                    continue;
+                                                }
+
+                                                break;
+                                            }
+
+                                            diretor.setEndereco(strAux2);
 
                                             system("cls");
 
@@ -1073,11 +1164,32 @@ int main(){
 
                                             strAux1 = presidente.getCodigo();
 
-                                            cout << "Informe o novo CEP" << endl;
+                                            while(1){
+                                                cout << "Informe o novo CEP" << endl;
 
-                                            getline(cin, strAux2);
+                                                getline(cin, strAux2);
 
-                                            presidente.setEndereco(presidente.CEPtoEndereco(strAux2));
+                                                if(strAux2.size() < 8 || strAux2.size() >
+                                                 8){
+                                                    system("cls");
+
+                                                    cout << "CEP invalido. Tente novamente" << endl;
+                                                    continue;
+                                                }
+
+                                                strAux2 = presidente.CEPtoEndereco(strAux2);
+
+                                                if(strAux2 == "CEP nao encontrado. Tente novamente"){
+                                                    system("cls");
+
+                                                    cout << strAux2 << endl;
+                                                    continue;
+                                                }
+
+                                                break;
+                                            }
+
+                                            presidente.setEndereco(strAux2);
 
                                             system("cls");
 
