@@ -1,6 +1,6 @@
 0001 - Vito Elias - Avenida Sergipe, Estados, João Pessoa, PB, numero 150 - 83987325043 - 22/04/2022 - Presidente - 10000.00 - 18/03 - Engenharia - Bacharelando
 0002 - Emilly Eduarda - Rua Maurício de Araújo Gama Filho, Portal do Sol, João Pessoa, PB, numero 201 - 84994751155 - 22/04/2022 - Diretor - 8000.00 - 23/01 - Sala de computadores - Engenharia
 0003 - Henrique Andrade - Rua Maurício de Araújo Gama Filho, Portal do Sol, João Pessoa, PB, numero 201 -  - 22/04/2022 - Diretor - 8000.00 - 18/06 - Sala de servidores - Engenharia
-0004 - Iago Roberto - Rua Santo Antônio, Esperança, Santarém, PA, numero 56 - 987654010 - 22/04/2022 - Gerente - 6500.00 - 05/05 - Cafeteria
-0005 - Aranha - Rua Elísio de Souza, Roger, João Pessoa, PB, numero 7 - 988881276 - 21/04/2022 - Operador - 4500.00 - 30/02
+0004 - Iago - Avenida Sergipe, Estados, João Pessoa, PB, numero 150 - 987654010 - 20/04/2022 - Gerente - 6500.00 - 05/05 - Cafeteria
+0006 - Aranha - Avenida Sergipe, Estados, João Pessoa, PB, numero 150 - 993024042 - 21/04/2022 - Operador - 4600.00 - 30/02
 #

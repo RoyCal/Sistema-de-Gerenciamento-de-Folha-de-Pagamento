@@ -1410,13 +1410,11 @@ int main(){
                         } else if(i == NUMERO_LINHAS-1){
                             system("cls");
 
-                            cout << "Funcionario nao encontrado" << endl;
+                            cout << "Funcionario nao encontrado. Tente novamente\n" << endl;
 
                             break;
                         }
                     }
-
-                    system("cls");
                 }
                 
                 break;
