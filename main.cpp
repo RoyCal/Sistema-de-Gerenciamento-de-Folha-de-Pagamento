@@ -11,6 +11,8 @@
 using namespace std;
 
 void imprimeMenuPrincipal(){
+    system("cls");
+
     cout << "-------------------------" << endl;
     cout << "      Menu principal" << endl;
     cout << "-------------------------\n" << endl;
@@ -28,7 +30,7 @@ void imprimeMenuPrincipal(){
 }
 
 int main(){ 
-    int i, j, k, l, m, escolha, escolha1, count;
+    int i, j, k, l, m, escolha, escolha1, count, count2, count3;
     int flag = 0;
 
     string numero, designacao, strAux1, strAux2;
@@ -1308,63 +1310,190 @@ int main(){
                 break;
             case 3:      //excluir registro
                         
-              system("cls");
+                system("cls");
 
-              cout << "Digite o codigo do funcionario que deseja excluir" << endl;
-              cin >> numero;
+                j = 1;
+                while(j){           
+                    cout << "Digite o codigo do funcionario que deseja excluir" << endl;
+                    cin >> numero;
+                    getchar();
 
-              while(1){           
-                count = 0;
-                int count2 = 0;
+                    numero = arquivo.completaNumero(numero);
 
-                for(i = 0; i < NUMERO_LINHAS; i++){
-                  arquivo.stringToCode(i);
+                    count = count2 = count3 = 0;
 
-                  if(numero == arquivo.linhaAux){  //codigo encontrado.
-                    arquivo.stringToCode(i);
-                    
-                    if(arquivo.getDesignacao(i) == "Operador"){
-                      system("cls");
+                    for(i = 0; i < NUMERO_LINHAS; i++){
+                        arquivo.stringToCode(i);
 
-                      arquivo.substituiLinha("", numero);
-                      arquivo.substituiArquivo();
-                      
-                    } else if(arquivo.getDesignacao(i) == "Gerente"){
-                      system("cls");
+                        if(numero == arquivo.linhaAux){  //codigo encontrado.
+                            if(arquivo.getDesignacao(i) == "Operador"){
+                                system("cls");
 
-                      arquivo.substituiLinha("", numero);
-                      arquivo.substituiArquivo();
-
-                    } else if(arquivo.getDesignacao(i) == "Diretor"){
-                      system("cls");
-
-                      cout << "Nao e permitido excluir este funcionario!" << endl;  
-                      count2++;                                                          //informa que nao e permitido excluir                                         
-                    } else if(arquivo.getDesignacao(i) == "Presidente"){                 //funcionarios designados como "Diretor"
-                      system("cls");                                                     //ou "Presidente".
+                                operador = arquivo.stringToOperador(i);
+                                operador.imprimeRegistro();
+                                operador = Operador();
                                 
-                      cout << "Nao e permitido excluir este funcionario!" << endl;       
-                      count2++;                                                                                               
+                                m = 1;
+                                while(m){
+                                    cout << "\nDeseja mesmo excluir esse funcionario?" << endl;
+                                    cout << "Sim (1) nao (2)" << endl;
+
+                                    cin >> escolha1;
+                                    getchar();
+
+                                    switch(escolha1){
+                                        case 1:
+                                            m = 0;
+
+                                            break;
+                                        case 2:
+                                            count3++;
+
+                                            count++;
+
+                                            m = 0;
+
+                                            j = 0;
+
+                                            cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+
+                                            getchar();
+
+                                            break;
+                                        default:
+                                            continue;
+                                    }
+                                } 
+
+                                if(count3 != 0){
+                                    break;
+                                }
+
+                                arquivo.substituiLinha("", numero);
+                                arquivo.substituiArquivo(); 
+
+                                system("cls");
+
+                                cout << "Funcionario excluido com sucesso!" << endl;
+
+                                cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+
+                                getchar(); 
+
+                                j = 0; 
+
+                                count++;
+
+                                break;
+                            } else if(arquivo.getDesignacao(i) == "Gerente"){
+                                system("cls");
+
+                                gerente = arquivo.stringToGerente(i);
+                                gerente.imprimeRegistro();
+                                gerente = Gerente();
+
+                                m = 1;
+                                while(m){
+                                    cout << "\nDeseja mesmo excluir esse funcionario?" << endl;
+                                    cout << "Sim (1) nao (2)" << endl;
+
+                                    cin >> escolha1;
+                                    getchar();
+
+                                    switch(escolha1){
+                                        case 1:
+                                            m = 0;
+
+                                            break;
+                                        case 2:
+                                            count3++;
+
+                                            count++;
+
+                                            m = 0;
+
+                                            j = 0;
+
+                                            cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+
+                                            getchar();
+
+                                            break;
+                                        default:
+                                            continue;
+                                    }
+                                }
+
+                                if(count3 != 0){
+                                    break;
+                                }
+
+                                arquivo.substituiLinha("", numero);
+                                arquivo.substituiArquivo();
+
+                                system("cls");
+
+                                cout << "Funcionario excluido com sucesso!" << endl;
+
+                                cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+
+                                getchar(); 
+
+                                j = 0;
+
+                                count++;
+
+                                break;
+                            } else if(arquivo.getDesignacao(i) == "Diretor"){
+                                system("cls");
+
+                                cout << "Nao e permitido excluir este funcionario, Ele eh um Diretor!" << endl;  
+                                count2++; 
+
+                                cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+
+                                getchar(); 
+
+                                j = 0;
+
+                                break;                                                                                            
+                            } else if(arquivo.getDesignacao(i) == "Presidente"){                 
+                                system("cls");                                                     
+                                            
+                                cout << "Nao e permitido excluir este funcionario, ele eh um Presidente!" << endl;       
+                                count2++;  
+
+                                cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+
+                                getchar(); 
+
+                                j = 0;
+
+                                break;                                                                                             
+                            }
+
+                            count++;
+                            
+                            break;
+                        } else if(i == NUMERO_LINHAS-1){                                       
+                            system("cls");                                                      
+                                                    
+                            cout << "Funcionario nao encontrado. Tente novamente\n" << endl;
+                        }
                     }
 
-                    count++;
-                    break;
-                  } else if(i == NUMERO_LINHAS-1){                                       
-                    system("cls");                                                      
-                                            
-                    cout << "Funcionario nao encontrado. Tente novamente" << endl;
-                    count++;
-                    break;
-                  }
+                    if(count != 0 || count2 != 0){
+                        break;
+                    } else {                             //caso o codigo inserido nao seja encontrado, o programa informara por
+                        system("cls");                   //uma mensagem e retornara para o inicio da opçao de excluir registro.
+                                                                                        
+                        cout << "Funcionario nao encontrado. Tente novamente\n" << endl; 
+                    }
                 }
 
-                if(count == 0 || count2 == 0){       //caso o codigo inserido nao seja encontrado, o programa informara por 
-                  system("cls");                     //uma mensagem e retornara para o inicio da opçao de excluir registro.
-                                                                                  
-                  cout << "Funcionario nao encontrado. Tente novamente" << endl; 
-                }
-              }
-            
+                arquivo.scanArquivo();
+
+                break;
             case 4:
             case 5:
             case 6:
