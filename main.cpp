@@ -198,10 +198,20 @@ int main(){
                                             system("cls");
 
                                             strAux1 = operador.getCodigo();
+                                            
+                                            while(1){
+                                                cout << "Informe a nova data de ingresso" << endl;
 
-                                            cout << "Informe a nova data de ingresso" << endl;
+                                                getline(cin, strAux2);
 
-                                            getline(cin, strAux2);
+                                                if(operador.verificaValidadeData(strAux2)){
+                                                    break;
+                                                } else {
+                                                    system("cls");
+
+                                                    cout << "Data invalida. Tente novamente\n" << endl;
+                                                }
+                                            }
 
                                             operador.setDataDeIngresso(strAux2);
 
@@ -484,9 +494,19 @@ int main(){
 
                                             strAux1 = gerente.getCodigo();
 
-                                            cout << "Informe a nova data de ingresso" << endl;
+                                            while(1){
+                                                cout << "Informe a nova data de ingresso" << endl;
 
-                                            getline(cin, strAux2);
+                                                getline(cin, strAux2);
+
+                                                if(gerente.verificaValidadeData(strAux2)){
+                                                    break;
+                                                } else {
+                                                    system("cls");
+
+                                                    cout << "Data invalida. Tente novamente\n" << endl;
+                                                }
+                                            }
 
                                             gerente.setDataDeIngresso(strAux2);
 
@@ -791,9 +811,19 @@ int main(){
 
                                             strAux1 = diretor.getCodigo();
 
-                                            cout << "Informe a nova data de ingresso" << endl;
+                                            while(1){
+                                                cout << "Informe a nova data de ingresso" << endl;
 
-                                            getline(cin, strAux2);
+                                                getline(cin, strAux2);
+
+                                                if(diretor.verificaValidadeData(strAux2)){
+                                                    break;
+                                                } else {
+                                                    system("cls");
+
+                                                    cout << "Data invalida. Tente novamente\n" << endl;
+                                                }
+                                            }
 
                                             diretor.setDataDeIngresso(strAux2);
 
@@ -1120,9 +1150,19 @@ int main(){
 
                                             strAux1 = presidente.getCodigo();
 
-                                            cout << "Informe a nova data de ingresso" << endl;
+                                            while(1){
+                                                cout << "Informe a nova data de ingresso" << endl;
 
-                                            getline(cin, strAux2);
+                                                getline(cin, strAux2);
+
+                                                if(presidente.verificaValidadeData(strAux2)){
+                                                    break;
+                                                } else {
+                                                    system("cls");
+
+                                                    cout << "Data invalida. Tente novamente\n" << endl;
+                                                }
+                                            }
 
                                             presidente.setDataDeIngresso(strAux2);
 

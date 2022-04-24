@@ -72,18 +72,34 @@ void Diretor::getAtributos(string codigo){
     getline(cin, telefone);
     system("cls");
 
-    cout << "Qual a data de ingresso do funcionario? __/__/__" << endl;
-    getline(cin, dataDeIngresso);
-    system("cls");
+    while(1){
+        cout << "Qual a data de ingresso do funcionario? __/__/__" << endl;
+        getline(cin, dataDeIngresso);
+        system("cls");
+
+        if(verificaValidadeData(dataDeIngresso)){
+            break;
+        } else {
+            cout << "Data invalida. Tente novamente\n" << endl;
+        }
+    }
 
     cout << "Qual sera o seu salario inicial?" << endl;
     cin >> salario;
     getchar();
     system("cls");
 
-    cout << "Qual a data de aniversario do funcionario? __/__" << endl;
-    getline(cin, dataAniversario);
-    system("cls");
+    while(1){
+        cout << "Qual a data de aniversario do funcionario? __/__" << endl;
+        getline(cin, dataAniversario);
+        system("cls");
+
+        if(verificaValidadeDataAniversario(dataAniversario)){
+            break;
+        } else {
+            cout << "Data invalida. Tente novamente\n" << endl;
+        }
+    }
 
     cout << "Qual sera sua area de supervisao?" << endl;
     getline(cin, areaDeSupervisao);

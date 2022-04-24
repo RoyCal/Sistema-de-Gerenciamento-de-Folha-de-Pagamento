@@ -50,5 +50,11 @@ class Funcionario{
 
         virtual void imprimeRegistro() = 0;
 
-        virtual void aumentaSalario() = 0; 
+        virtual void aumentaSalario() = 0;
+
+        bool verificaValidadeData(string str);
+
+        bool verificaValidadeDataAniversario(string str);
+
+        bool verificaAnoBisexto(int ano);
 };

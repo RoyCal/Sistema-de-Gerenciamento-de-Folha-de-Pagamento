@@ -150,3 +150,129 @@ string Funcionario::CEPtoEndereco(string CEP){
 string Funcionario::atributosToString(){
     return codigo + " - " + nome + " - " + endereco + " - " + telefone + " - " + dataDeIngresso + " - " + designacao + " - " + to_string(salario).erase(to_string(salario).size()-4, 4) + " - " + dataAniversario;
 }
+
+bool Funcionario::verificaAnoBisexto(int ano){
+    if(ano % 4 != 0){
+        return false;
+    }
+
+    if(ano % 4 == 0 && ano % 100 != 0){
+        return true;
+    }
+
+    if(ano % 4 == 0 && ano % 100 == 0 && ano % 400 == 0){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool Funcionario::verificaValidadeData(string str){
+    int dia, mes, ano;
+    string aux;
+
+    if(str.size() != 10){
+        return false;
+    }
+
+    aux = str;
+    dia = stoi(aux.erase(2, 8));
+
+    aux = str;
+    aux = aux.erase(0, 3);
+    mes = stoi(aux.erase(2, 5));
+
+    aux = str;
+    ano = stoi(aux.erase(0, 6));
+
+    if(str[2] != '/' || str[5] != '/'){
+        return false;
+    }
+
+    if(dia < 1 || dia > 31){
+        return false;
+    }
+
+    if(mes < 1 || mes > 12){
+        return false;
+    }
+
+    if(ano < 1){
+        return false;
+    }
+
+    switch(mes){
+        case 2:
+            if(verificaAnoBisexto(ano)){
+                if(dia > 29){
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+               if(dia > 28){
+                    return false;
+                } else {
+                    return true;
+                } 
+            }
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            if(dia > 30){
+                return false;
+            } else {
+                return true;
+            }
+        default:
+            return true;
+    }
+}
+
+bool Funcionario::verificaValidadeDataAniversario(string str){
+    int dia, mes;
+    string aux;
+
+    if(str.size() != 5){
+        return false;
+    }
+
+    aux = str;
+    dia = stoi(aux.erase(2, 3));
+
+    aux = str;
+    mes = stoi(aux.erase(0, 3));
+
+    if(str[2] != '/'){
+        return false;
+    }
+
+    if(dia < 1 || dia > 31){
+        return false;
+    }
+
+    if(mes < 1 || mes > 12){
+        return false;
+    }
+
+    switch(mes){
+        case 2:
+            if(dia > 29){
+                return false;
+            } else {
+                return true;
+            }
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            if(dia > 30){
+                return false;
+            } else {
+                return true;
+            }
+        default:
+            return true;
+    }   
+}
