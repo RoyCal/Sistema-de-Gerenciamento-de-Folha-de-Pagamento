@@ -67,9 +67,43 @@ int main(){
 
                 system("cls");
 
-                cout << "Qual sera a sua designacao na empresa?" << endl;
+                m = 1;
+                while(m){
+                    cout << "Qual sera a sua designacao na empresa?" << endl;
+                    cout << "Operador(1) gerente(2) diretor (3) presidente(4)" << endl;
 
-                getline(cin, designacao);
+                    cin >> escolha1;
+                    getchar();
+
+                    switch(escolha1){
+                        case 1:
+                            designacao = "Operador";
+
+                            m = 0;
+
+                            break;
+                        case 2:
+                            designacao = "Gerente";
+
+                            m = 0;
+
+                            break;
+                        case 3:
+                            designacao = "Diretor";
+
+                            m = 0;
+
+                            break;
+                        case 4:
+                            designacao = "Presidente";
+
+                            m = 0;
+
+                            break;
+                        default:
+                            system("cls");
+                    }
+                }
 
                 if(designacao == "Operador"){
                     system("cls");
