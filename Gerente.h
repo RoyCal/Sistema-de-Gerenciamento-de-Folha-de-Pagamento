@@ -27,4 +27,6 @@ class Gerente : public Funcionario{
         string gerenteToDiretor();
 
         string gerenteToPresidente();
+
+        void aumentaSalario();
 };

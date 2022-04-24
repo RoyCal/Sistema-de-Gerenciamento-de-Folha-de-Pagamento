@@ -171,3 +171,7 @@ string Presidente::presidenteToDiretor(){
 
     return diretor.atributosToString();
 }
+
+void Presidente::aumentaSalario(){
+    salario *= 1.30;
+}

@@ -1683,6 +1683,79 @@ int main(){
                 break;
             case 5:
             case 6:
+                system("cls");
+
+                m = 1;
+                while(m){
+                    count = 0;
+
+                    cout << "Deseja rodar a rotina de aumento?" << endl;
+                    cout << "Sim (1) nao(2)" << endl;
+
+                    cin >> escolha;
+                    getchar();
+
+                    switch(escolha){
+                        case 1:
+                            m = 0;
+                            break;
+                        case 2:
+                            m = 0;
+
+                            count++;
+
+                            break;
+                        default:
+                        system("cls");
+                    }
+                }
+
+                if(count != 0){
+                    break;
+                } else {
+                    for(i = 0; i < NUMERO_LINHAS; i++){
+                        if(arquivo.linhas[i] == "#"){
+                            break;
+                        }
+
+                        if(arquivo.getDesignacao(i) == "Operador"){
+                            operador = arquivo.stringToOperador(i);
+                            operador.aumentaSalario();
+                            arquivo.substituiLinha(operador.atributosToString(), operador.getCodigo());
+
+                            operador = Operador();
+                        } else if(arquivo.getDesignacao(i) == "Gerente"){
+                            gerente = arquivo.stringToGerente(i);
+                            gerente.aumentaSalario();
+                            arquivo.substituiLinha(gerente.atributosToString(), gerente.getCodigo());
+
+                            gerente = Gerente();
+                        } else if(arquivo.getDesignacao(i) == "Diretor"){
+                            diretor = arquivo.stringToDiretor(i);
+                            diretor.aumentaSalario();
+                            arquivo.substituiLinha(diretor.atributosToString(), diretor.getCodigo());
+
+                            diretor = Diretor();
+                        } else if(arquivo.getDesignacao(i) == "Presidente"){
+                            presidente = arquivo.stringToPresidente(i);
+                            presidente.aumentaSalario();
+                            arquivo.substituiLinha(presidente.atributosToString(), presidente.getCodigo());
+
+                            presidente = Presidente();
+                        }
+                    }
+
+                    arquivo.substituiArquivo();
+                }
+
+                system("cls");
+
+                cout << "Aumento concedido com sucesso!" << endl;
+                cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+
+                getchar();
+
+                break;
             case 7:
             case 8:
             case 9:

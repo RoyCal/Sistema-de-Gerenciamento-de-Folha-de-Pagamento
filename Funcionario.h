@@ -12,7 +12,7 @@ class Funcionario{
         string telefone;
         string dataDeIngresso;
         string designacao;
-        double salario;
+        float salario;
         string dataAniversario;
 
     public:
@@ -49,4 +49,6 @@ class Funcionario{
         virtual string atributosToString();
 
         virtual void imprimeRegistro() = 0;
+
+        virtual void aumentaSalario() = 0; 
 };

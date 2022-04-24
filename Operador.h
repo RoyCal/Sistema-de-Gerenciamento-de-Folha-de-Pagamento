@@ -19,4 +19,6 @@ class Operador : public Funcionario{
         string operadorToDiretor();
 
         string operadorToPresidente();
+
+        void aumentaSalario();
 };

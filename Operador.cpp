@@ -157,3 +157,7 @@ string Operador::operadorToPresidente(){
 
     return presidente.atributosToString();
 }
+
+void Operador::aumentaSalario(){
+    salario *= 1.05;
+}

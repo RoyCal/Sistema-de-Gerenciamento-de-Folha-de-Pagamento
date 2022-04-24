@@ -30,4 +30,6 @@ class Presidente : public Funcionario{
         string presidenteToGerente();
 
         string presidenteToDiretor();
+
+        void aumentaSalario();
 };
