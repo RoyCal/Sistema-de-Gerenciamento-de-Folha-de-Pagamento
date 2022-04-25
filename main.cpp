@@ -1755,7 +1755,92 @@ int main(){
                 }
 
                 break;
-            case 5:
+            
+            /***
+            case 5:       //exibe lista de funcionarios
+              
+              system("cls");
+
+              while(1){
+                system("cls");
+                
+                cout << "Deseja filtrar a lista de funcionarios por tipo?" << endl;
+                cout << "(1)Sim (2)Nao" << endl;
+
+                cin >> escolha;
+                getchar();
+
+                switch(escolha){
+                  case 1:
+                    system("cls");
+                    
+                    i = 1;
+                    while(i){
+                      cout << "Qual o tipo dos funcionarios a serem filtrados?" << endl;
+                      cout << "(1)Operador (2)Gerente (3)Diretor (4)Presidente" << endl;
+                      cin >> escolha1;
+
+                      switch(escolha1){
+                        case 1:
+                          for(i = 0; i < NUMERO_LINHAS; i++){
+                            if(arquivo.getDesignacao(i) == "Operador"){
+                              cout << arquivo.linhas[i] << endl;
+                            }
+                          }
+                          cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+                          getchar();
+                    
+                          break;
+                        case 2:
+                          for(i = 0; i < NUMERO_LINHAS; i++){
+                            if(arquivo.getDesignacao(i) == "Gerente"){
+                              cout << arquivo.linhas[i] << endl;
+                            }
+                          }
+                          cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+                          getchar();
+                    
+                          break;
+                        case 3:
+                          for(i = 0; i < NUMERO_LINHAS; i++){
+                            if(arquivo.getDesignacao(i) == "Diretor"){
+                              cout << arquivo.linhas[i] << endl;
+                            }
+                          }
+                          cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+                          getchar();
+                    
+                          break;
+                        case 4:
+                          for(i = 0; i < NUMERO_LINHAS; i++){
+                            if(arquivo.getDesignacao(i) == "Presidente"){
+                              cout << arquivo.linhas[i] << endl;
+                            }
+                          }
+                          cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+                          getchar();
+                    
+                          break;
+                        default:
+                          cout << "Opcao invalida! Digite novamente." << endl;
+                      }
+                    }
+
+                    break;
+                  case 2:
+                    system("cls");
+
+                    arquivo.imprimeArquivo();
+                    cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+                    getchar();
+                    
+                    break;
+                  default:
+                    cout << "Opcao invalida! Digite novamente." << endl;
+                }
+              }
+            ***/  
+
             case 6:
                 system("cls");
 
