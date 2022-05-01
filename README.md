@@ -1,7 +1,7 @@
 # Sistema-de-Gerenciamento-de-Folha-de-Pagamento
 Projeto de Linguagem de Programação 1 2021.2 professor Marcelo Iury
 
-Projeto da Disciplina Linguagem de Programação I
+Projeto da Disciplina Linguagem de Programação I.
 A ideia aqui é criar um aplicativo de console chamado Sistema de Gerenciamento de Folha de
 Pagamento. Além disso, este projeto deve muitas classes e subclasses. Ele também vem com
 muitos recursos interessantes e interessantes.
