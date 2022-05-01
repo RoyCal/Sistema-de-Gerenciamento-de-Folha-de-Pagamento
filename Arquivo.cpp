@@ -375,6 +375,10 @@ string Arquivo::verificaCodigoRepetido(){
         }
 
         for(i = 0; i < NUMERO_LINHAS; i++){
+            if(linhas[i] == "#"){
+                break;
+            }
+            
             stringToCode(i);
 
             if(numero == linhaAux){  
@@ -547,4 +551,16 @@ Presidente Arquivo::stringToPresidente(int i){
     presidente.setFormacaoMaxima(linhaAux);
 
     return presidente;
+}
+
+bool Arquivo::verificaCalculoFolha(string str){
+    int i;
+
+    for(i = 0; i < NUMERO_LINHAS; i++){
+        if(linhas[i] == "/" + str + "/"){
+            return true;
+        }
+    }
+
+    return false;
 }

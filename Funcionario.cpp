@@ -276,3 +276,72 @@ bool Funcionario::verificaValidadeDataAniversario(string str){
             return true;
     }   
 }
+
+string Funcionario::calculaFolhaSalarial(int i){
+    unsigned seed = (i+1)*time(0);
+
+    srand(seed);
+
+    int diasTrabalhados;
+
+    while(1){
+        diasTrabalhados = 1 + rand() % MAXIMO_DIAS_TRABALHADOS;
+
+        if(diasTrabalhados < 17){
+            continue;
+        } else {
+            break;
+        }
+    }
+
+    int horaExtra = 1 + rand() % MAXIMO_HORA_EXTRA;
+    
+    float valorHora = salario / 160;
+
+    float INSS;
+
+    if(salario <= 1212){
+        INSS = salario*0.075;
+    } else if(salario > 1212 && salario <= 2427.35){
+        INSS = 90.9 + (salario - 1212)*0.09;
+    } else if(salario > 2427.35 && salario <= 3641.03){
+        INSS = 90.9 + 109.38 + (salario - 2427.36)*0.12;
+    } else if(salario > 3641.03 && salario <= 7087.22){
+        INSS = 90.9 + 109.38 + 145.64 + (salario - 3641.03)*0.14;
+    } else {
+        INSS = 90.9 + 109.38 + 145.64 + (salario - 3641.03)*0.14;
+    }
+
+    float IRRF;
+
+    if(salario <= 1903.98){
+        IRRF = 0;
+    } else if(salario > 1903.98 && salario <= 2826.65){
+        IRRF = (salario - INSS)*0.075;
+    } else if(salario > 2826.65 && salario <= 3751.05){
+        IRRF = (salario - INSS)*0.15;
+    } else if(salario > 3751.05 && salario <= 4664.68){
+        IRRF = (salario - INSS)*0.225;
+    } else {
+        IRRF = (salario - INSS)*0.275;
+    }
+
+    float salarioLiquido = salario - INSS - IRRF + horaExtra*valorHora;
+
+    this->salarioLiquido = salarioLiquido;
+
+    string sal, prev, imp, hex, daysw, salal;
+
+    sal = to_string(salario).erase(to_string(salario).size()-4, 4);
+    prev = to_string(INSS).erase(to_string(INSS).size()-4, 4);
+    imp = to_string(IRRF).erase(to_string(IRRF).size()-4, 4);
+    hex = to_string(horaExtra*valorHora).erase(to_string(horaExtra*valorHora).size()-4, 4);
+    daysw = to_string(diasTrabalhados);
+    salal = to_string(salarioLiquido).erase(to_string(salarioLiquido).size()-4, 4);
+
+    return codigo + " - " + nome + " - " + sal + " - " + prev + " - " + imp + " - " +  hex + " - " +  daysw + " - " + salal;
+}
+
+float Funcionario::getSalarioLiquido(){
+    return salarioLiquido;
+}

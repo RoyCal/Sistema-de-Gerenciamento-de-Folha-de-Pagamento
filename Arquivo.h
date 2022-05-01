@@ -63,4 +63,6 @@ class Arquivo{
         Diretor stringToDiretor(int i);
 
         Presidente stringToPresidente(int i);
+
+        bool verificaCalculoFolha(string str);
 };

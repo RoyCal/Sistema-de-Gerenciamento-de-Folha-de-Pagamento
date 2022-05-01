@@ -25,15 +25,17 @@ void imprimeMenuPrincipal(){
     cout << "7 - Calcular folha salarial" << endl;
     cout << "8 - Consultar folha salarial do funcionario" << endl;
     cout << "9 - Consultar folha salarial da empresa" << endl;
-    cout << "10 - Buscar funcionario" << endl;
+    cout << "10 - Limpar registro das folhas salariais" << endl;
+    cout << "11 - Buscar funcionario" << endl;
     cout << "0 - Sair do Sistema" << endl;
 }
 
 int main(){ 
     int i, j, k, l, m, escolha, escolha1, count, count2, count3;
     int flag = 0;
+    float somaSalarios;
 
-    string numero, designacao, strAux1, strAux2;
+    string numero, designacao, strAux1, strAux2, mes;
 
     Operador operador;
     Gerente gerente;
@@ -64,7 +66,7 @@ int main(){
                 cout << "Digite o codigo do novo funcionario" << endl;
 
                 numero = arquivo.verificaCodigoRepetido();
-
+                
                 system("cls");
 
                 m = 1;
@@ -2005,9 +2007,256 @@ int main(){
 
                 break;
             case 7:
+                count2 = 0;
+
+                system("cls");
+
+                cout << "Deseja calcular a folha salarial referente a qual mes?" << endl;
+                
+                j = 1;
+                while(j){
+                    cout << "\nJaneiro(01), Fevereiro(02), Marco(03), Abril(04)" << endl;
+                    cout << "Maio(05), Junho(06), Julho(07), Agosto(08)" << endl;
+                    cout << "Setembro(09), Outubro(10), Novembro(11), Dezembro(12)" << endl;
+                    cout << "Sair(0)" << endl;
+
+                    cin >> escolha;
+                    getchar();
+
+                    switch(escolha){
+                        case 1:
+                            mes = "Janeiro";
+                            j = 0;
+                            break;
+                        case 2:
+                            if(arquivo.verificaCalculoFolha("Janeiro")){
+                                mes = "Fevereiro";
+                                j = 0;
+                                break;
+                            } else {
+                                system("cls");
+
+                                cout << "Para calcular a folha de Fevereiro deve ser calculada antes a folha de Janeiro" << endl;
+
+                                break;
+                            }
+                        case 3:
+                            if(arquivo.verificaCalculoFolha("Fevereiro")){
+                                mes = "Marco";
+                                j = 0;
+                                break;
+                            } else {
+                                system("cls");
+
+                                cout << "Para calcular a folha de Marco deve ser calculada antes a folha de Fevereiro" << endl;
+
+                                break;
+                            }
+                        case 4:
+                            if(arquivo.verificaCalculoFolha("Marco")){
+                                mes = "Abril";
+                                j = 0;
+                                break;
+                            } else {
+                                system("cls");
+
+                                cout << "Para calcular a folha de Abril deve ser calculada antes a folha de Marco" << endl;
+
+                                break;
+                            }
+                        case 5:
+                            if(arquivo.verificaCalculoFolha("Abril")){
+                                mes = "Maio";
+                                j = 0;
+                                break;
+                            } else {
+                                system("cls");
+
+                                cout << "Para calcular a folha de Maio deve ser calculada antes a folha de Abril" << endl;
+
+                                break;
+                            }
+                        case 6:
+                            if(arquivo.verificaCalculoFolha("Maio")){
+                                mes = "Junho";
+                                j = 0;
+                                break;
+                            } else {
+                                system("cls");
+
+                                cout << "Para calcular a folha de Junho deve ser calculada antes a folha de Maio" << endl;
+
+                                break;
+                            }
+                        case 7:
+                            if(arquivo.verificaCalculoFolha("Junho")){
+                                mes = "Julho";
+                                j = 0;
+                                break;
+                            } else {
+                                system("cls");
+
+                                cout << "Para calcular a folha de Julho deve ser calculada antes a folha de Junho" << endl;
+
+                                break;
+                            }
+                        case 8:
+                            if(arquivo.verificaCalculoFolha("Julho")){
+                                mes = "Agosto";
+                                j = 0;
+                                break;
+                            } else {
+                                system("cls");
+
+                                cout << "Para calcular a folha de Agosto deve ser calculada antes a folha de Julho" << endl;
+
+                                break;
+                            }
+                        case 9:
+                            if(arquivo.verificaCalculoFolha("Agosto")){
+                                mes = "Setembro";
+                                j = 0;
+                                break;
+                            } else {
+                                system("cls");
+
+                                cout << "Para calcular a folha de Setembro deve ser calculada antes a folha de Agosto" << endl;
+
+                                break;
+                            }
+                        case 10:
+                            if(arquivo.verificaCalculoFolha("Setembro")){
+                                mes = "Outubro";
+                                j = 0;
+                                break;
+                            } else {
+                                system("cls");
+
+                                cout << "Para calcular a folha de Outubro deve ser calculada antes a folha de Setembro" << endl;
+
+                                break;
+                            }
+                        case 11:
+                            if(arquivo.verificaCalculoFolha("Outubro")){
+                                mes = "Novembro";
+                                j = 0;
+                                break;
+                            } else {
+                                system("cls");
+
+                                cout << "Para calcular a folha de Novembro deve ser calculada antes a folha de Outubro" << endl;
+
+                                break;
+                            }
+                        case 12:
+                            if(arquivo.verificaCalculoFolha("Novembro")){
+                                mes = "Dezembro";
+                                j = 0;
+                                break;
+                            } else {
+                                system("cls");
+
+                                cout << "Para calcular a folha de Dezembro deve ser calculada antes a folha de Novembro" << endl;
+
+                                break;
+                            }
+                        case 0:
+                            j = 0;
+
+                            count2++;
+
+                            break;
+                        default:
+                            system("cls");
+
+                            cout << "Escolha invalida! Tente novamente" << endl;
+                    }
+                }
+
+                if(count2 != 0){
+                    break;
+                }
+
+                if(arquivo.verificaCalculoFolha(mes)){
+                    system("cls");
+
+                    cout << "A folha para esse mes ja foi calculada!" << endl;
+
+                    cout << "\nPressiona ENTER para voltar para o menu principal" << endl;
+
+                    getchar();
+
+                    break;
+                } else {
+                    for(i = 0; i < NUMERO_LINHAS; i++){
+                        if(arquivo.linhas[i] == ""){
+                            arquivo.linhas[i] = "\\" + mes + "\\";
+
+                            m = i + 1;
+
+                            break;
+                        }
+                    }
+
+                    count = 0;
+                    somaSalarios = 0;
+
+                    for(i = 0, j = m; i < NUMERO_LINHAS; i++, j++){
+                        if(arquivo.linhas[i] != "#"){
+                            count++;
+
+
+                            if(arquivo.getDesignacao(i) == "Operador"){
+                                operador = arquivo.stringToOperador(i);
+
+                                arquivo.linhas[j] = operador.calculaFolhaSalarial(i);
+
+                                somaSalarios += operador.getSalarioLiquido();
+
+                                operador = Operador();
+                            } else if(arquivo.getDesignacao(i) == "Gerente"){
+                                gerente = arquivo.stringToGerente(i);
+
+                                arquivo.linhas[j] = gerente.calculaFolhaSalarial(i);
+
+                                somaSalarios += gerente.getSalarioLiquido();
+
+                                gerente = Gerente();
+                            } else if(arquivo.getDesignacao(i) == "Diretor"){
+                                diretor = arquivo.stringToDiretor(i);
+
+                                arquivo.linhas[j] = diretor.calculaFolhaSalarial(i);
+
+                                somaSalarios += diretor.getSalarioLiquido();
+
+                                diretor = Diretor();
+                            } else if(arquivo.getDesignacao(i) == "Presidente"){
+                                presidente = arquivo.stringToPresidente(i);
+
+                                arquivo.linhas[j] = presidente.calculaFolhaSalarial(i);
+
+                                somaSalarios += presidente.getSalarioLiquido();
+
+                                presidente = Presidente();
+                            }
+                        } else {
+                            strAux1 = to_string(somaSalarios).erase(to_string(somaSalarios).size()-4, 4);
+                            strAux2 = to_string(somaSalarios/count).erase(to_string(somaSalarios/count).size()-4, 4);
+
+                            arquivo.linhas[j] = "++++ - " + strAux1 + " - " + to_string(count) + " - " + strAux2;
+                            arquivo.linhas[j+1] = "/" + mes + "/";
+                            break;
+                        }
+                    }
+                    
+                    arquivo.substituiArquivo();
+                }
+
+                break;
             case 8:
             case 9:
             case 10:
+            case 11:
             case 0:
                 k = 0;
                 break;

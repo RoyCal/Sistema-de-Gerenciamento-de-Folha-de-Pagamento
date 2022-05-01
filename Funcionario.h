@@ -1,6 +1,11 @@
+#define MAXIMO_HORA_EXTRA 8
+#define MAXIMO_DIAS_TRABALHADOS 22
+
 #pragma once
 #include <iostream>
 #include <fstream>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -14,6 +19,7 @@ class Funcionario{
         string designacao;
         float salario;
         string dataAniversario;
+        float salarioLiquido;
 
     public:
         Funcionario(string designacao);
@@ -42,6 +48,8 @@ class Funcionario{
         void setDataAniversario(string str);
         string getDataAniversario();
 
+        float getSalarioLiquido();
+
         string CEPtoEndereco(string CEP);
 
         virtual void getAtributos(string codigo) = 0;
@@ -57,4 +65,6 @@ class Funcionario{
         bool verificaValidadeDataAniversario(string str);
 
         bool verificaAnoBisexto(int ano);
+
+        string calculaFolhaSalarial(int i);
 };
