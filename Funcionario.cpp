@@ -309,7 +309,7 @@ string Funcionario::calculaFolhaSalarial(int i){
     } else if(salario > 3641.03 && salario <= 7087.22){
         INSS = 90.9 + 109.38 + 145.64 + (salario - 3641.03)*0.14;
     } else {
-        INSS = 90.9 + 109.38 + 145.64 + (salario - 3641.03)*0.14;
+        INSS = 828.38;
     }
 
     float IRRF;
