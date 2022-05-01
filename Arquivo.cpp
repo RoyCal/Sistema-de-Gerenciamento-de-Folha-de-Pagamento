@@ -564,3 +564,23 @@ bool Arquivo::verificaCalculoFolha(string str){
 
     return false;
 }
+
+void Arquivo::limpaFolhas(){
+    int i, j;
+
+    for(i = 0; i < NUMERO_LINHAS; i++){
+        if(linhas[i] == "#"){
+            j = i + 1;
+            break;
+        }   
+    } 
+
+    while(1){
+        if(linhas[j] != ""){
+            linhas[j] = "";
+            j++;
+        } else {
+            break;
+        }
+    }
+}

@@ -65,4 +65,6 @@ class Arquivo{
         Presidente stringToPresidente(int i);
 
         bool verificaCalculoFolha(string str);
+
+        void limpaFolhas();
 };

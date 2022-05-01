@@ -2256,6 +2256,40 @@ int main(){
             case 8:
             case 9:
             case 10:
+                system("cls");
+
+                j = 1;
+                while(j){
+                    cout << "Deseja mesmo limpar os registros das folhas salariais?" << endl;
+                    cout << "Sim(1) nao(2)" << endl;
+
+                    cin >> escolha;
+                    getchar();
+                    
+                    switch(escolha){
+                        case 1:
+                            arquivo.limpaFolhas();
+                            arquivo.substituiArquivo();
+                            
+                            system("cls");
+                            cout << "Registro de folhas limpo!" << endl;
+                            cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+
+                            j = 0;
+
+                            getchar();
+
+                            break;
+                        case 2:
+                            j = 0;
+
+                            break;
+                        default:
+                            system("cls");
+                    }
+                }
+
+                break;
             case 11:
             case 0:
                 k = 0;
