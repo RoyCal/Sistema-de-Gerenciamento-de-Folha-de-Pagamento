@@ -326,7 +326,7 @@ string Funcionario::calculaFolhaSalarial(int i){
         IRRF = (salario - INSS)*0.275;
     }
 
-    float salarioLiquido = salario - INSS - IRRF + horaExtra*valorHora;
+    float salarioLiquido = salario - INSS - IRRF + horaExtra*valorHora*2;
 
     this->salarioLiquido = salarioLiquido;
 
@@ -335,7 +335,7 @@ string Funcionario::calculaFolhaSalarial(int i){
     sal = to_string(salario).erase(to_string(salario).size()-4, 4);
     prev = to_string(INSS).erase(to_string(INSS).size()-4, 4);
     imp = to_string(IRRF).erase(to_string(IRRF).size()-4, 4);
-    hex = to_string(horaExtra*valorHora).erase(to_string(horaExtra*valorHora).size()-4, 4);
+    hex = to_string(horaExtra*valorHora*2).erase(to_string(horaExtra*valorHora*2).size()-4, 4);
     daysw = to_string(diasTrabalhados);
     salal = to_string(salarioLiquido).erase(to_string(salarioLiquido).size()-4, 4);
 
