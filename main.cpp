@@ -1680,7 +1680,7 @@ int main(){
                 arquivo.scanArquivo();
 
                 break;
-            case 4:
+            case 4:  //exibir um registro
                 system("cls");
 
                 l = 1;
@@ -1932,7 +1932,7 @@ int main(){
                 }
               
                 break;
-            case 6:
+            case 6:  //conceder aumento
                 system("cls");
 
                 m = 1;
@@ -2006,7 +2006,7 @@ int main(){
                 getchar();
 
                 break;
-            case 7:
+            case 7:  //calcular folha salarial
                 count2 = 0;
 
                 system("cls");
@@ -2253,9 +2253,9 @@ int main(){
                 }
 
                 break;
-            case 8:
-            case 9:
-            case 10:
+            case 8:  //consultar folha salarial de um funcionario
+            case 9:  //consultar folha salarial da empresa
+            case 10: //limpar registro das folhas
                 system("cls");
 
                 j = 1;
@@ -2290,8 +2290,8 @@ int main(){
                 }
 
                 break;
-            case 11:
-            case 0:
+            case 11:  //buscar funcionario
+            case 0:  //sair do sistema
                 k = 0;
                 break;
             break;
