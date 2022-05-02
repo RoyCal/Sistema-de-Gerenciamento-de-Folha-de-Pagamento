@@ -2471,7 +2471,155 @@ int main(){
                 }
                 
                 break;
-            case 9:  //consultar folha salarial da empresa
+            case 9:     //consultar folha salarial da empresa
+              /***
+              system("cls");
+
+              count = 0;
+              j= 1;
+              while(j){
+                cout << "Deseja exibir a folha salarial mensal ou anual da empresa?" << endl;
+                cout << "Mensal(1), Anual(2)" << endl;
+                cout << "Sair(0)" << endl;
+
+                cin >> escolha;
+                getchar();
+
+                switch(escolha){
+                  case 1:
+                    j = 0;
+                    cout << "Para qual mes deseja exibir a folha salarial da empresa?" << endl;
+                    cout << "\nJaneiro(01), Fevereiro(02), Marco(03), Abril(04)" << endl;
+                    cout << "Maio(05), Junho(06), Julho(07), Agosto(08)" << endl;
+                    cout << "Setembro(09), Outubro(10), Novembro(11), Dezembro(12)" << endl;
+                    cout << "Sair(0)" << endl;
+
+                    cin >> escolha;
+                    getchar();
+
+                    i = 1;
+                    while(i){
+                      switch(escolha){
+                        case 1:
+                          mes = "Janeiro";
+                          i = 0;
+                          break;
+                        case 2:
+                          mes = "Fevereiro";
+                          i = 0;
+                          break;
+                        case 3:
+                          mes = "Marco";
+                          i = 0;
+                          break;
+                        case 4:
+                          mes = "Abril";
+                          i = 0;
+                          break;
+                        case 5:
+                          mes = "Maio";
+                          i = 0;
+                          break;
+                        case 6:
+                          mes = "Junho";
+                          i = 0;
+                          break;
+                        case 7:
+                          mes = "Julho";
+                          i = 0;
+                          break;
+                        case 8:
+                          mes = "Agosto";
+                          i = 0;
+                          break;
+                        case 9:
+                          mes = "Setembro";
+                          i = 0;
+                          break;
+                        case 10:
+                          mes = "Outubro";
+                          i = 0;
+                          break;
+                        case 11:
+                          mes = "Novembro";
+                          i = 0;
+                          break;
+                        case 12:
+                          mes = "Dezembro";
+                          i = 0;
+                          break;
+                        case 0:
+                          i = 0;
+                          count++;
+
+                          break;
+                        default:
+                          system("cls");
+
+                          cout << "Escolha invalida. Tente novamente" << endl;
+                      }
+                    }
+
+                    if(!arquivo.verificaCalculoFolha(mes)){
+                      system("cls");
+                      
+                      cout << "A folha para " << mes << " ainda nao foi calculada!" << endl;
+                      cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+                      getchar();
+
+                    } else {
+                      system("cls");
+
+                      cout << "\\" << mes << "\\" << endl;
+                      
+                      /////////////////////////////////////////////////////////////
+                      // Imprimir funcionarios                                   //
+                      // aqui no estilo igual                                    //
+                      // ao do dados.txt                                         //
+                      //                                                         //
+                      // cout << "++++ - " <<  << " - " <<  << " - " <<  << endl;//
+                      /////////////////////////////////////////////////////////////
+                      
+                      cout << "/" << mes << "/" << endl;
+                    }
+                    break;
+                  case 2:
+                    if(!arquivo.verificaCalculoFolha("Dezembro")){
+                      system("cls");
+                      
+                      cout << "Não foi possivel calcular a folha anual da empresa!" << endl;
+                      cout << "A folha para Dezembro ainda nao foi calculada!" << endl;
+                      cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+                      getchar();
+                      
+                    } else {
+                      
+                      ///////////////////////////
+                      // Imprimir funcionarios //
+                      // aqui no estilo igual  //
+                      // ao do dados.txt       //
+                      ///////////////////////////
+
+                    }
+                    break;
+                  case 0:
+                    j = 0;
+                    count++;
+                    
+                    break;
+                  default:
+                    system("cls");
+                    
+                    cout << "Escolha invalida. Tente novamente" << endl;
+                }
+              }
+
+              if(count){
+                break;
+              }
+
+              break;
+              ***/
             case 10: //limpar registro das folhas
                 system("cls");
 
