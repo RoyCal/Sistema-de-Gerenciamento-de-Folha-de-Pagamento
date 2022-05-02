@@ -6,3 +6,13 @@
 0009 - Van Dame - Avenida Rio de Janeiro, Estados, João Pessoa, PB, numero 15 - 988772255 - 15/02/2022 - Operador - 4500.00 - 15/04
 0005 - Elidio - Avenida Amazonas, Estados, João Pessoa, PB, numero 10 - 988881276 - 12/12/2020 - Diretor - 9600.00 - 14/02 - Central de stand up - Artes
 #
+\Janeiro\
+0001 - Vito Elias - 13000.00 - 828.38 - 3347.19 - 975.00 - 21 - 9799.42
+0002 - Emilly Eduarda - 13000.00 - 828.38 - 3347.19 - 812.50 - 21 - 9636.92
+0003 - Henrique Andrade - 9600.00 - 828.38 - 2412.19 - 480.00 - 22 - 6839.42
+0004 - Iago - 7150.00 - 828.38 - 1738.44 - 268.12 - 22 - 4851.29
+0006 - Aranha - 4830.00 - 512.37 - 1187.34 - 362.25 - 22 - 3492.52
+0009 - Van Dame - 4500.00 - 466.17 - 907.61 - 168.75 - 19 - 3294.96
+0005 - Elidio - 9600.00 - 828.38 - 2412.19 - 840.00 - 18 - 7199.42
+++++ - 45113.99 - 7 - 6444.85
+/Janeiro/

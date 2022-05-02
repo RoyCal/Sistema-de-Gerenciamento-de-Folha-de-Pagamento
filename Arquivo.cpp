@@ -584,3 +584,39 @@ void Arquivo::limpaFolhas(){
         }
     }
 }
+void Arquivo::imprimeFolhaFuncionario(int i){
+    string codigo, nome, salarioBase, INSS, IRRF, horasExtra, diasTrab, salarioLiquido;
+
+    stringToCode(i);
+    codigo = linhaAux;
+
+    stringToNome(i);
+    nome = linhaAux;
+
+    stringToEndereco(i);
+    salarioBase = linhaAux;
+
+    stringTotelefone(i);
+    INSS = linhaAux;
+
+    stringToDataIngresso(i);
+    IRRF = linhaAux;
+
+    horasExtra = getDesignacao(i);
+
+    stringToSalario(i);
+    diasTrab = linhaAux;
+
+    stringToDataAniversario(i);
+    salarioLiquido = linhaAux;
+
+    cout << "Codigo: " << codigo << endl;
+    cout << "Nome: " << nome << endl;
+    cout << "Salario bruto: " << salarioBase << endl;
+    cout << "Desconto INSS: -" << INSS << endl;
+    cout << "Desconto IRRF: -" << IRRF << endl;
+    cout << "Bonus de horas extras: +" << horasExtra << endl;
+    cout << "Dias trabalhados: " << diasTrab << endl;
+    cout << "Salario liquido: " << salarioLiquido << endl;
+    cout << "\n";
+}

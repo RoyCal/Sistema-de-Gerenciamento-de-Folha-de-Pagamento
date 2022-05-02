@@ -35,7 +35,7 @@ int main(){
     int flag = 0;
     float somaSalarios;
 
-    string numero, designacao, strAux1, strAux2, mes;
+    string numero, designacao, strAux1, strAux2, mes, nome;
 
     Operador operador;
     Gerente gerente;
@@ -2254,6 +2254,223 @@ int main(){
 
                 break;
             case 8:  //consultar folha salarial de um funcionario
+                system("cls");
+
+                count = 0;
+
+                j = 1;
+                while(j){
+                    cout << "Deseja exibir a folha salarial do funcionario para qual mes?" << endl;
+                    cout << "\nJaneiro(01), Fevereiro(02), Marco(03), Abril(04)" << endl;
+                    cout << "Maio(05), Junho(06), Julho(07), Agosto(08)" << endl;
+                    cout << "Setembro(09), Outubro(10), Novembro(11), Dezembro(12)" << endl;
+                    cout << "Sair(0)" << endl;
+
+                    cin >> escolha;
+                    getchar();
+
+                    switch(escolha){
+                        case 1:
+                            mes = "Janeiro";
+                            j = 0;
+                            break;
+                        case 2:
+                            mes = "Fevereiro";
+                            j = 0;
+                            break;
+                        case 3:
+                            mes = "Marco";
+                            j = 0;
+                            break;
+                        case 4:
+                            mes = "Abril";
+                            j = 0;
+                            break;
+                        case 5:
+                            mes = "Maio";
+                            j = 0;
+                            break;
+                        case 6:
+                            mes = "Junho";
+                            j = 0;
+                            break;
+                        case 7:
+                            mes = "Julho";
+                            j = 0;
+                            break;
+                        case 8:
+                            mes = "Agosto";
+                            j = 0;
+                            break;
+                        case 9:
+                            mes = "Setembro";
+                            j = 0;
+                            break;
+                        case 10:
+                            mes = "Outubro";
+                            j = 0;
+                            break;
+                        case 11:
+                            mes = "Novembro";
+                            j = 0;
+                            break;
+                        case 12:
+                            mes = "Dezembro";
+                            j = 0;
+                            break;
+                        case 0:
+                            j = 0;
+
+                            count++;
+
+                            break;
+                        default:
+                            system("cls");
+
+                            cout << "Escolha invalida. Tente novamente" << endl;
+                    }
+                }
+
+                if(count != 0){
+                    break;
+                }
+
+                if(!arquivo.verificaCalculoFolha(mes)){
+                    system("cls");
+
+                    cout << "A folha para " << mes << " ainda nao foi calculada!" << endl;
+                    cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+
+                    getchar();
+
+                    break;
+                }
+
+                system("cls");
+                
+                j = 1;
+                while(j){
+                    count = 0;
+
+                    cout << "Inserir o codigo (1) ou o nome (2) do funcionario que deseja exibir a folha salarial?" << endl;
+                    cout << "Voltar para o menu (0)" << endl;
+                    
+                    cin >> escolha;
+                    getchar();
+
+                    switch(escolha){
+                        case 1:
+                            system("cls");
+
+                            cout << "Informe o codigo do funcionario" << endl;
+
+                            getline(cin, numero);
+                            numero = arquivo.completaNumero(numero);
+
+                            for(i = 0; i < NUMERO_LINHAS; i++){
+                                if(arquivo.linhas[i] == "\\" + mes + "\\"){
+                                    l = i + 1;
+                                    break;
+                                }
+                            }
+
+                            for(i = l; i < NUMERO_LINHAS; i++){
+                                arquivo.stringToCode(i);
+
+                                if(arquivo.linhaAux == numero){
+                                    system("cls");
+
+                                    count++;
+
+                                    arquivo.imprimeFolhaFuncionario(i);
+                                    break;
+                                }
+                            }
+
+                            if(count == 0){
+                                system("cls");
+
+                                cout << "Funcionario nao encontrado" << endl;
+                            }
+                            
+                            cout << "Deseja exibir outro registro (1) ou voltar para o menu (2)?" << endl;
+
+                            cin >> escolha;
+                            getchar();
+
+                            switch(escolha){
+                                case 1:
+                                    system("cls");
+                                    j = 1;
+                                    break;
+                                case 2:
+                                default:
+                                    j = 0;
+                                    
+                            }
+
+                            break;
+                        case 2:
+                            system("cls");
+
+                            cout << "Informe o nome do funcionario" << endl;
+
+                            getline(cin, nome);
+
+                            for(i = 0; i < NUMERO_LINHAS; i++){
+                                if(arquivo.linhas[i] == "\\" + mes + "\\"){
+                                    l = i + 1;
+                                    break;
+                                }
+                            }
+
+                            for(i = l; i < NUMERO_LINHAS; i++){
+                                arquivo.stringToNome(i);
+
+                                if(arquivo.linhaAux == nome){
+                                    system("cls");
+
+                                    count++;
+
+                                    arquivo.imprimeFolhaFuncionario(i);
+                                    break;
+                                }
+                            }
+
+                            if(count == 0){
+                                system("cls");
+
+                                cout << "Funcionario nao encontrado" << endl;
+                            }
+                            
+                            cout << "Deseja exibir outro registro (1) ou voltar para o menu (2)?" << endl;
+
+                            cin >> escolha;
+                            getchar();
+
+                            switch(escolha){
+                                case 1:
+                                    system("cls");
+                                    j = 1;
+                                    break;
+                                case 2:
+                                default:
+                                    j = 0;
+                                    
+                            }
+
+                            break;
+                        case 0:
+                            j = 0;
+                            break;
+                        default:
+                            system("cls");
+
+                            cout << "Escolha invalida. Tente novamente" << endl;
+                    }
+                }
+                
+                break;
             case 9:  //consultar folha salarial da empresa
             case 10: //limpar registro das folhas
                 system("cls");

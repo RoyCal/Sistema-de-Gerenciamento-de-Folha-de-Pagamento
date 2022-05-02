@@ -67,4 +67,6 @@ class Arquivo{
         bool verificaCalculoFolha(string str);
 
         void limpaFolhas();
+
+        void imprimeFolhaFuncionario(int i);
 };
