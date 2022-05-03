@@ -399,21 +399,22 @@ void Arquivo::imprimeFolhaFuncionario(int i){
     stringToNome(i);
     nome = linhaAux;
 
-    stringToEndereco(i);
+    percorrerString(i, 2);
     salarioBase = linhaAux;
 
-    stringTotelefone(i);
+    percorrerString(i, 3);
     INSS = linhaAux;
 
-    stringToDataIngresso(i);
+    percorrerString(i, 4);
     IRRF = linhaAux;
 
-    horasExtra = getDesignacao(i);
+    percorrerString(i, 5);
+    horasExtra = linhaAux;
 
-    stringToSalario(i);
+    percorrerString(i, 6);
     diasTrab = linhaAux;
 
-    stringToDataAniversario(i);
+    percorrerString(i, 7);
     salarioLiquido = linhaAux;
 
     cout << "Codigo: " << codigo << endl;
