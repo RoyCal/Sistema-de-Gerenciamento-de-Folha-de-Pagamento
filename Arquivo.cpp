@@ -55,7 +55,7 @@ void Arquivo::stringToNome(int i){
     }
 }
 
-void Arquivo::stringToEndereco(int i){
+void Arquivo::percorrerString(int i, int cont){
     int j, count = 0;
 
     if(linhas[i] != "" && linhas[i] != "#"){
@@ -66,7 +66,7 @@ void Arquivo::stringToEndereco(int i){
                 count++;
             }
 
-            if(count == 2){
+            if(count == cont){
                 linhaAux.erase(0, j+2);
                 break;
             }
@@ -79,138 +79,32 @@ void Arquivo::stringToEndereco(int i){
             }
         }
     }
+}
+
+void Arquivo::stringToEndereco(int i){
+    percorrerString(i, 2);
 }
 
 void Arquivo::stringTotelefone(int i){
-    int j, count = 0;
-
-    if(linhas[i] != "" && linhas[i] != "#"){
-        linhaAux = linhas[i];
-        
-        for(j = 0; j < linhaAux.size(); j++){
-            if(linhaAux[j] == '-'){
-                count++;
-            }
-
-            if(count == 3){
-                linhaAux.erase(0, j+2);
-                break;
-            }
-        }
-
-        for(j = 0; j < linhaAux.size(); j++){
-            if(linhaAux[j] == '-'){
-                linhaAux.erase(j-1, linhaAux.size());
-                break;
-            }
-        }
-    }
+    percorrerString(i, 3);
 }
 
 void Arquivo::stringToDataIngresso(int i){
-    int j, count = 0;
-
-    if(linhas[i] != "" && linhas[i] != "#"){
-        linhaAux = linhas[i];
-        
-        for(j = 0; j < linhaAux.size(); j++){
-            if(linhaAux[j] == '-'){
-                count++;
-            }
-
-            if(count == 4){
-                linhaAux.erase(0, j+2);
-                break;
-            }
-        }
-
-        for(j = 0; j < linhaAux.size(); j++){
-            if(linhaAux[j] == '-'){
-                linhaAux.erase(j-1, linhaAux.size());
-                break;
-            }
-        }
-    }
+    percorrerString(i, 4);
 }
 
 string Arquivo::getDesignacao(int i){
-    int j, count = 0;
-
-    if(linhas[i] != "" && linhas[i] != "#"){
-        linhaAux = linhas[i];
-        
-        for(j = 0; j < linhaAux.size(); j++){
-            if(linhaAux[j] == '-'){
-                count++;
-            }
-
-            if(count == 5){
-                linhaAux.erase(0, j+2);
-                break;
-            }
-        }
-
-        for(j = 0; j < linhaAux.size(); j++){
-            if(linhaAux[j] == '-'){
-                linhaAux.erase(j-1, linhaAux.size());
-                break;
-            }
-        }
-    }
+    percorrerString(i, 5);
 
     return linhaAux;
 }
 
 void Arquivo::stringToSalario(int i){
-    int j, count = 0;
-
-    if(linhas[i] != "" && linhas[i] != "#"){
-        linhaAux = linhas[i];
-        
-        for(j = 0; j < linhaAux.size(); j++){
-            if(linhaAux[j] == '-'){
-                count++;
-            }
-
-            if(count == 6){
-                linhaAux.erase(0, j+2);
-                break;
-            }
-        }
-
-        for(j = 0; j < linhaAux.size(); j++){
-            if(linhaAux[j] == '-'){
-                linhaAux.erase(j-1, linhaAux.size());
-                break;
-            }
-        }
-    }
+    percorrerString(i, 6);
 }
 
 void Arquivo::stringToDataAniversario(int i){
-    int j, count = 0;
-
-    if(linhas[i] != "" && linhas[i] != "#"){
-        linhaAux = linhas[i];
-        
-        for(j = 0; j < linhaAux.size(); j++){
-            if(linhaAux[j] == '-'){
-                count++;
-            }
-
-            if(count == 7){
-                linhaAux.erase(0, j+2);
-                break;
-            }
-        }
-
-        for(j = 0; j < linhaAux.size(); j++){
-            if(linhaAux[j] == '-'){
-                linhaAux.erase(j-1, linhaAux.size());
-                break;
-            }
-        }
-    }
+    percorrerString(i, 7);
 }
 
 void Arquivo::atualizaArquivo(string str){
@@ -237,107 +131,19 @@ void Arquivo::atualizaArquivo(string str){
 }
 
 void Arquivo::stringToAreaSupervisao(int i){
-    int j, count = 0;
-
-    if(linhas[i] != "" && linhas[i] != "#"){
-        linhaAux = linhas[i];
-        
-        for(j = 0; j < linhaAux.size(); j++){
-            if(linhaAux[j] == '-'){
-                count++;
-            }
-
-            if(count == 8){
-                linhaAux.erase(0, j+2);
-                break;
-            }
-        }
-
-        for(j = 0; j < linhaAux.size(); j++){
-            if(linhaAux[j] == '-'){
-                linhaAux.erase(j-1, linhaAux.size());
-                break;
-            }
-        }
-    }
+    percorrerString(i, 8);
 }
 
 void Arquivo::stringToAreaFormacaoDiretor(int i){
-    int j, count = 0;
-
-    if(linhas[i] != "" && linhas[i] != "#"){
-        linhaAux = linhas[i];
-        
-        for(j = 0; j < linhaAux.size(); j++){
-            if(linhaAux[j] == '-'){
-                count++;
-            }
-
-            if(count == 9){
-                linhaAux.erase(0, j+2);
-                break;
-            }
-        }
-
-        for(j = 0; j < linhaAux.size(); j++){
-            if(linhaAux[j] == '-'){
-                linhaAux.erase(j-1, linhaAux.size());
-                break;
-            }
-        }
-    }
+    percorrerString(i, 9);
 }
 
 void Arquivo::stringToFormacaoAcadMax(int i){
-    int j, count = 0;
-
-    if(linhas[i] != "" && linhas[i] != "#"){
-        linhaAux = linhas[i];
-        
-        for(j = 0; j < linhaAux.size(); j++){
-            if(linhaAux[j] == '-'){
-                count++;
-            }
-
-            if(count == 9){
-                linhaAux.erase(0, j+2);
-                break;
-            }
-        }
-
-        for(j = 0; j < linhaAux.size(); j++){
-            if(linhaAux[j] == '-'){
-                linhaAux.erase(j-1, linhaAux.size());
-                break;
-            }
-        }
-    }
+    percorrerString(i, 9);
 }
 
 void Arquivo::stringToAreaFormacaoPresidente(int i){
-    int j, count = 0;
-
-    if(linhas[i] != "" && linhas[i] != "#"){
-        linhaAux = linhas[i];
-        
-        for(j = 0; j < linhaAux.size(); j++){
-            if(linhaAux[j] == '-'){
-                count++;
-            }
-
-            if(count == 8){
-                linhaAux.erase(0, j+2);
-                break;
-            }
-        }
-
-        for(j = 0; j < linhaAux.size(); j++){
-            if(linhaAux[j] == '-'){
-                linhaAux.erase(j-1, linhaAux.size());
-                break;
-            }
-        }
-    }
+    percorrerString(i, 8);
 }
 
 string Arquivo::completaNumero(string numero){ //funcao que completa o numero caso o usuario digite 

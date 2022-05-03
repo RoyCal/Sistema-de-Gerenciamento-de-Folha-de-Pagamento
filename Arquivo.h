@@ -14,11 +14,15 @@ class Arquivo{
     public:
         string linhas[NUMERO_LINHAS], linhaAux;
 
+        fstream arquivo;
+
         void criaArquivo();
 
         void imprimeArquivo();
 
         void scanArquivo();
+
+        void percorrerString(int i, int cont);
 
         void stringToCode(int i);
 
@@ -45,8 +49,6 @@ class Arquivo{
         void stringToDataAniversario(int i);
 
         void atualizaArquivo(string str);
-
-        fstream arquivo;
 
         string verificaCodigoRepetido();
 
