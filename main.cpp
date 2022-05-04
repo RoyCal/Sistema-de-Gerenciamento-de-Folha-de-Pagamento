@@ -13,9 +13,9 @@ using namespace std;
 void imprimeMenuPrincipal(){
     system("cls");
 
-    cout << "-------------------------" << endl;
+    cout << "--------------------------" << endl;
     cout << "      Menu principal" << endl;
-    cout << "-------------------------\n" << endl;
+    cout << "--------------------------\n" << endl;
     cout << "1 - Adicionar um funcionario" << endl;
     cout << "2 - Editar um registro" << endl;
     cout << "3 - Excluir um registro" << endl;
@@ -2472,869 +2472,191 @@ int main(){
                 
                 break;
             case 9:     //consultar folha salarial da empresa
-              
-              system("cls");
+                system("cls");
 
-              count = 0;
-              j= 1;
-              while(j){
-                cout << "Deseja exibir a folha salarial mensal ou anual da empresa?" << endl;
-                cout << "Mensal(1), Anual(2)" << endl;
-                cout << "Sair(0)" << endl;
-
-                cin >> escolha;
-                getchar();
-
-                switch(escolha){
-                  case 1:
-                    j = 0;
-                    cout << "Para qual mes deseja exibir a folha salarial da empresa?" << endl;
-                    cout << "\nJaneiro(01), Fevereiro(02), Marco(03), Abril(04)" << endl;
-                    cout << "Maio(05), Junho(06), Julho(07), Agosto(08)" << endl;
-                    cout << "Setembro(09), Outubro(10), Novembro(11), Dezembro(12)" << endl;
+                j= 1;
+                while(j){
+                    cout << "Deseja exibir a folha salarial mensal ou anual da empresa?" << endl;
+                    cout << "Mensal(1) anual(2)" << endl;
                     cout << "Sair(0)" << endl;
 
                     cin >> escolha;
                     getchar();
 
-                    i = 1;
-                    while(i){
-                      switch(escolha){
-                        case 1:
-                          mes = "Janeiro";
-                          i = 0;
-                          break;
-                        case 2:
-                          mes = "Fevereiro";
-                          i = 0;
-                          break;
-                        case 3:
-                          mes = "Marco";
-                          i = 0;
-                          break;
-                        case 4:
-                          mes = "Abril";
-                          i = 0;
-                          break;
-                        case 5:
-                          mes = "Maio";
-                          i = 0;
-                          break;
-                        case 6:
-                          mes = "Junho";
-                          i = 0;
-                          break;
-                        case 7:
-                          mes = "Julho";
-                          i = 0;
-                          break;
-                        case 8:
-                          mes = "Agosto";
-                          i = 0;
-                          break;
-                        case 9:
-                          mes = "Setembro";
-                          i = 0;
-                          break;
-                        case 10:
-                          mes = "Outubro";
-                          i = 0;
-                          break;
-                        case 11:
-                          mes = "Novembro";
-                          i = 0;
-                          break;
-                        case 12:
-                          mes = "Dezembro";
-                          i = 0;
-                          break;
-                        case 0:
-                          i = 0;
-                          count++;
+                    switch(escolha){
+                    case 1:
+                        system("cls");
 
-                          break;
-                        default:
-                          system("cls");
+                        j = 0;
+                        cout << "Para qual mes deseja exibir a folha salarial da empresa?" << endl;
+                        cout << "\nJaneiro(01), Fevereiro(02), Marco(03), Abril(04)" << endl;
+                        cout << "Maio(05), Junho(06), Julho(07), Agosto(08)" << endl;
+                        cout << "Setembro(09), Outubro(10), Novembro(11), Dezembro(12)" << endl;
+                        cout << "Sair(0)" << endl;
 
-                          cout << "Escolha invalida. Tente novamente" << endl;
-                      }
-                    }
+                        cin >> escolha;
+                        getchar();
 
-                    if(!arquivo.verificaCalculoFolha(mes)){
-                      system("cls");
-                      
-                      cout << "A folha para " << mes << " ainda nao foi calculada!" << endl;
-                      cout << "\nPressione ENTER para voltar para o menu principal" << endl;
-                      getchar();
+                        i = 1;
+                        while(i){
+                            switch(escolha){
+                                case 1:
+                                    mes = "Janeiro";
+                                    i = 0;
+                                    break;
+                                case 2:
+                                    mes = "Fevereiro";
+                                    i = 0;
+                                    break;
+                                case 3:
+                                    mes = "Marco";
+                                    i = 0;
+                                    break;
+                                case 4:
+                                    mes = "Abril";
+                                    i = 0;
+                                    break;
+                                case 5:
+                                    mes = "Maio";
+                                    i = 0;
+                                    break;
+                                case 6:
+                                    mes = "Junho";
+                                    i = 0;
+                                    break;
+                                case 7:
+                                    mes = "Julho";
+                                    i = 0;
+                                    break;
+                                case 8:
+                                    mes = "Agosto";
+                                    i = 0;
+                                    break;
+                                case 9:
+                                    mes = "Setembro";
+                                    i = 0;
+                                    break;
+                                case 10:
+                                    mes = "Outubro";
+                                    i = 0;
+                                    break;
+                                case 11:
+                                    mes = "Novembro";
+                                    i = 0;
+                                    break;
+                                case 12:
+                                    mes = "Dezembro";
+                                    i = 0;
+                                    break;
+                                case 0:
+                                    i = 0;
+                                    count++;
 
-                    } else {
-                      system("cls");
+                                    break;
+                                default:
+                                    system("cls");
 
-                      for(i = 0; i < NUMERO_LINHAS; i++){
-                        if(arquivo.linhas[i] == ""){
-                          cout << "\\" + mes + "\\" << endl;
-
-                          m = i + 1;
-                          break;
+                                    cout << "Escolha invalida. Tente novamente" << endl;
+                            }
                         }
-                      }
 
-                      count2 = 0;
-                      somaSalarios = 0;
-
-                      for(i = 0, j = m; i < NUMERO_LINHAS; i++, j++){
-                        if(arquivo.linhas[i] != "#"){
-                          count2++;
-
-                          if(arquivo.getDesignacao(i) == "Operador"){
+                        if(!arquivo.verificaCalculoFolha(mes)){
+                            system("cls");
                             
-                            operador = arquivo.stringToOperador(i);
-                            operador.calculaFolhaSalarial(i);
-                            somaSalarios += operador.getSalarioLiquido();
+                            cout << "A folha para " << mes << " ainda nao foi calculada!" << endl;
+                            cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+                            getchar();
 
-                          } else if(arquivo.getDesignacao(i) == "Gerente"){
-                            
-                            gerente = arquivo.stringToGerente(i);
-                            gerente.calculaFolhaSalarial(i);
-                            somaSalarios += gerente.getSalarioLiquido();
-
-                          } else if(arquivo.getDesignacao(i) == "Diretor"){
-                            
-                            diretor = arquivo.stringToDiretor(i);
-                            diretor.calculaFolhaSalarial(i);
-                            somaSalarios += diretor.getSalarioLiquido();
-
-                          } else if(arquivo.getDesignacao(i) == "Presidente"){
-                            
-                            presidente = arquivo.stringToPresidente(i);
-                            presidente.calculaFolhaSalarial(i);
-                            somaSalarios += presidente.getSalarioLiquido();
-
-                          }
                         } else {
-                          strAux1 = to_string(somaSalarios).erase(to_string(somaSalarios).size()-4, 4);
-                          strAux2 = to_string(somaSalarios/count2).erase(to_string(somaSalarios/count2).size()-4, 4);
+                            system("cls");
 
-                          cout << "++++ - " + strAux1 + " - " + to_string(count2) + " - " + strAux2 << endl;
-                          cout << "/" + mes + "/" << endl;
-                          break;
+                            for(i = 0; i < NUMERO_LINHAS; i++){
+                                if(arquivo.linhas[i] == "\\" + mes + "\\"){
+                                    for(j = i; j < NUMERO_LINHAS; j++){
+                                        arquivo.stringToCode(j);
+
+                                        if(arquivo.linhaAux == "++++"){
+                                            cout << mes << ":" << endl;
+
+                                            arquivo.percorrerString(j, 1);
+                                            cout << "Total a pagar: " << arquivo.linhaAux << endl;
+
+                                            arquivo.percorrerString(j, 2);
+                                            cout << "Total de servidores: " << arquivo.linhaAux << endl;
+
+                                            arquivo.percorrerString(j, 3);
+                                            cout << "Media de salarios: " << arquivo.linhaAux << endl;
+
+                                            i = NUMERO_LINHAS;
+
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+
+                            cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+
+                            getchar();
+
+                            j = 0;
                         }
-                      }
-                    }
-                    break;
-                  case 2:
-                    if(!arquivo.verificaCalculoFolha("Dezembro")){
-                      system("cls");
-                      
-                      cout << "Não foi possivel calcular a folha anual da empresa!" << endl;
-                      cout << "A folha para Dezembro ainda nao foi calculada!" << endl;
-                      cout << "\nPressione ENTER para voltar para o menu principal" << endl;
-                      getchar();
-                      
-                    } else {
-                      system("cls");
-
-                      float somaSalarioAnual = 0;
-                      
-                      for(k = 1; k <= 12; k++){
-                        switch(k){
-                          case 1:
-                            mes = "Janeiro";
-
-                            for(i = 0; i < NUMERO_LINHAS; i++){
-                              if(arquivo.linhas[i] == ""){
-                                cout << "\\" + mes + "\\" << endl;
-
-                                m = i + 1;
-                                break;
-                              }
-                            }
-
-                            count2 = 0;
-                            somaSalarios = 0;
-
-                            for(i = 0, j = m; i < NUMERO_LINHAS; i++, j++){
-                              if(arquivo.linhas[i] != "#"){
-                                count2++;
-
-                                if(arquivo.getDesignacao(i) == "Operador"){
-                                  
-                                  operador = arquivo.stringToOperador(i);
-                                  operador.calculaFolhaSalarial(i);
-                                  somaSalarios += operador.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Gerente"){
-                                  
-                                  gerente = arquivo.stringToGerente(i);
-                                  gerente.calculaFolhaSalarial(i);
-                                  somaSalarios += gerente.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Diretor"){
-                                  
-                                  diretor = arquivo.stringToDiretor(i);
-                                  diretor.calculaFolhaSalarial(i);
-                                  somaSalarios += diretor.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Presidente"){
-                                  
-                                  presidente = arquivo.stringToPresidente(i);
-                                  presidente.calculaFolhaSalarial(i);
-                                  somaSalarios += presidente.getSalarioLiquido();
-
-                                }
-                              } else {
-                                strAux1 = to_string(somaSalarios).erase(to_string(somaSalarios).size()-4, 4);
-                                strAux2 = to_string(somaSalarios/count2).erase(to_string(somaSalarios/count2).size()-4, 4);
-
-                                cout << "++++ - " + strAux1 + " - " + to_string(count2) + " - " + strAux2 << endl;
-                                cout << "/" + mes + "/" << endl;
-                                break;
-                              }
-                            }
+                        
+                        break;
+                    case 2:
+                        if(!arquivo.verificaCalculoFolha("Dezembro")){
+                            system("cls");
                             
-                            somaSalarioAnual += somaSalarios;
-                            break;
-                          case 2:
-                            mes = "Fevereiro";
+                            cout << "Nao foi possivel calcular a folha anual da empresa!" << endl;
+                            cout << "A folha para Dezembro ainda nao foi calculada!" << endl;
+                            cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+                            getchar();
 
-                            for(i = 0; i < NUMERO_LINHAS; i++){
-                              if(arquivo.linhas[i] == ""){
-                                cout << "\\" + mes + "\\" << endl;
+                            j = 0;
+                        
+                        } else {
+                            float somaSalarios = 0;
 
-                                m = i + 1;
-                                break;
-                              }
-                            }
+                            i = 0;
+                            while(arquivo.linhas[i] != "/Dezembro/"){
+                                arquivo.stringToCode(i);
 
-                            count2 = 0;
-                            somaSalarios = 0;
+                                if(arquivo.linhaAux == "++++"){
+                                    arquivo.percorrerString(i, 1);
 
-                            for(i = 0, j = m; i < NUMERO_LINHAS; i++, j++){
-                              if(arquivo.linhas[i] != "#"){
-                                count2++;
-
-                                if(arquivo.getDesignacao(i) == "Operador"){
-                                  
-                                  operador = arquivo.stringToOperador(i);
-                                  operador.calculaFolhaSalarial(i);
-                                  somaSalarios += operador.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Gerente"){
-                                  
-                                  gerente = arquivo.stringToGerente(i);
-                                  gerente.calculaFolhaSalarial(i);
-                                  somaSalarios += gerente.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Diretor"){
-                                  
-                                  diretor = arquivo.stringToDiretor(i);
-                                  diretor.calculaFolhaSalarial(i);
-                                  somaSalarios += diretor.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Presidente"){
-                                  
-                                  presidente = arquivo.stringToPresidente(i);
-                                  presidente.calculaFolhaSalarial(i);
-                                  somaSalarios += presidente.getSalarioLiquido();
-
+                                    somaSalarios += stof(arquivo.linhaAux);
                                 }
-                              } else {
-                                strAux1 = to_string(somaSalarios).erase(to_string(somaSalarios).size()-4, 4);
-                                strAux2 = to_string(somaSalarios/count2).erase(to_string(somaSalarios/count2).size()-4, 4);
 
-                                cout << "++++ - " + strAux1 + " - " + to_string(count2) + " - " + strAux2 << endl;
-                                cout << "/" + mes + "/" << endl;
-                                break;
-                              }
-                            }
-                            
-                            somaSalarioAnual += somaSalarios;
-                            break;
-                          case 3:
-                            mes = "Marco";
-
-                            for(i = 0; i < NUMERO_LINHAS; i++){
-                              if(arquivo.linhas[i] == ""){
-                                cout << "\\" + mes + "\\" << endl;
-
-                                m = i + 1;
-                                break;
-                              }
+                                i++;
                             }
 
-                            count2 = 0;
-                            somaSalarios = 0;
-
-                            for(i = 0, j = m; i < NUMERO_LINHAS; i++, j++){
-                              if(arquivo.linhas[i] != "#"){
-                                count2++;
-
-                                if(arquivo.getDesignacao(i) == "Operador"){
-                                  
-                                  operador = arquivo.stringToOperador(i);
-                                  operador.calculaFolhaSalarial(i);
-                                  somaSalarios += operador.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Gerente"){
-                                  
-                                  gerente = arquivo.stringToGerente(i);
-                                  gerente.calculaFolhaSalarial(i);
-                                  somaSalarios += gerente.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Diretor"){
-                                  
-                                  diretor = arquivo.stringToDiretor(i);
-                                  diretor.calculaFolhaSalarial(i);
-                                  somaSalarios += diretor.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Presidente"){
-                                  
-                                  presidente = arquivo.stringToPresidente(i);
-                                  presidente.calculaFolhaSalarial(i);
-                                  somaSalarios += presidente.getSalarioLiquido();
-
-                                }
-                              } else {
-                                strAux1 = to_string(somaSalarios).erase(to_string(somaSalarios).size()-4, 4);
-                                strAux2 = to_string(somaSalarios/count2).erase(to_string(somaSalarios/count2).size()-4, 4);
-
-                                cout << "++++ - " + strAux1 + " - " + to_string(count2) + " - " + strAux2 << endl;
-                                cout << "/" + mes + "/" << endl;
-                                break;
-                              }
-                            }
-                            
-                            somaSalarioAnual += somaSalarios;
-                            break;
-                          case 4:
-                            mes = "Abril";
-
-                            for(i = 0; i < NUMERO_LINHAS; i++){
-                              if(arquivo.linhas[i] == ""){
-                                cout << "\\" + mes + "\\" << endl;
-
-                                m = i + 1;
-                                break;
-                              }
-                            }
-
-                            count2 = 0;
-                            somaSalarios = 0;
-
-                            for(i = 0, j = m; i < NUMERO_LINHAS; i++, j++){
-                              if(arquivo.linhas[i] != "#"){
-                                count2++;
-
-                                if(arquivo.getDesignacao(i) == "Operador"){
-                                  
-                                  operador = arquivo.stringToOperador(i);
-                                  operador.calculaFolhaSalarial(i);
-                                  somaSalarios += operador.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Gerente"){
-                                  
-                                  gerente = arquivo.stringToGerente(i);
-                                  gerente.calculaFolhaSalarial(i);
-                                  somaSalarios += gerente.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Diretor"){
-                                  
-                                  diretor = arquivo.stringToDiretor(i);
-                                  diretor.calculaFolhaSalarial(i);
-                                  somaSalarios += diretor.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Presidente"){
-                                  
-                                  presidente = arquivo.stringToPresidente(i);
-                                  presidente.calculaFolhaSalarial(i);
-                                  somaSalarios += presidente.getSalarioLiquido();
-
-                                }
-                              } else {
-                                strAux1 = to_string(somaSalarios).erase(to_string(somaSalarios).size()-4, 4);
-                                strAux2 = to_string(somaSalarios/count2).erase(to_string(somaSalarios/count2).size()-4, 4);
-
-                                cout << "++++ - " + strAux1 + " - " + to_string(count2) + " - " + strAux2 << endl;
-                                cout << "/" + mes + "/" << endl;
-                                break;
-                              }
-                            }
-                            
-                            somaSalarioAnual += somaSalarios;
-                            break;
-                          case 5:
-                            mes = "Maio";
-
-                            for(i = 0; i < NUMERO_LINHAS; i++){
-                              if(arquivo.linhas[i] == ""){
-                                cout << "\\" + mes + "\\" << endl;
-
-                                m = i + 1;
-                                break;
-                              }
-                            }
-
-                            count2 = 0;
-                            somaSalarios = 0;
-
-                            for(i = 0, j = m; i < NUMERO_LINHAS; i++, j++){
-                              if(arquivo.linhas[i] != "#"){
-                                count2++;
-
-                                if(arquivo.getDesignacao(i) == "Operador"){
-                                  
-                                  operador = arquivo.stringToOperador(i);
-                                  operador.calculaFolhaSalarial(i);
-                                  somaSalarios += operador.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Gerente"){
-                                  
-                                  gerente = arquivo.stringToGerente(i);
-                                  gerente.calculaFolhaSalarial(i);
-                                  somaSalarios += gerente.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Diretor"){
-                                  
-                                  diretor = arquivo.stringToDiretor(i);
-                                  diretor.calculaFolhaSalarial(i);
-                                  somaSalarios += diretor.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Presidente"){
-                                  
-                                  presidente = arquivo.stringToPresidente(i);
-                                  presidente.calculaFolhaSalarial(i);
-                                  somaSalarios += presidente.getSalarioLiquido();
-
-                                }
-                              } else {
-                                strAux1 = to_string(somaSalarios).erase(to_string(somaSalarios).size()-4, 4);
-                                strAux2 = to_string(somaSalarios/count2).erase(to_string(somaSalarios/count2).size()-4, 4);
-
-                                cout << "++++ - " + strAux1 + " - " + to_string(count2) + " - " + strAux2 << endl;
-                                cout << "/" + mes + "/" << endl;
-                                break;
-                              }
-                            }
-                            
-                            somaSalarioAnual += somaSalarios;
-                            break;
-                          case 6:
-                            mes = "Junho";
-
-                            for(i = 0; i < NUMERO_LINHAS; i++){
-                              if(arquivo.linhas[i] == ""){
-                                cout << "\\" + mes + "\\" << endl;
-
-                                m = i + 1;
-                                break;
-                              }
-                            }
-
-                            count2 = 0;
-                            somaSalarios = 0;
-
-                            for(i = 0, j = m; i < NUMERO_LINHAS; i++, j++){
-                              if(arquivo.linhas[i] != "#"){
-                                count2++;
-
-                                if(arquivo.getDesignacao(i) == "Operador"){
-                                  
-                                  operador = arquivo.stringToOperador(i);
-                                  operador.calculaFolhaSalarial(i);
-                                  somaSalarios += operador.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Gerente"){
-                                  
-                                  gerente = arquivo.stringToGerente(i);
-                                  gerente.calculaFolhaSalarial(i);
-                                  somaSalarios += gerente.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Diretor"){
-                                  
-                                  diretor = arquivo.stringToDiretor(i);
-                                  diretor.calculaFolhaSalarial(i);
-                                  somaSalarios += diretor.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Presidente"){
-                                  
-                                  presidente = arquivo.stringToPresidente(i);
-                                  presidente.calculaFolhaSalarial(i);
-                                  somaSalarios += presidente.getSalarioLiquido();
-
-                                }
-                              } else {
-                                strAux1 = to_string(somaSalarios).erase(to_string(somaSalarios).size()-4, 4);
-                                strAux2 = to_string(somaSalarios/count2).erase(to_string(somaSalarios/count2).size()-4, 4);
-
-                                cout << "++++ - " + strAux1 + " - " + to_string(count2) + " - " + strAux2 << endl;
-                                cout << "/" + mes + "/" << endl;
-                                break;
-                              }
-                            }
-
-                            somaSalarioAnual += somaSalarios;
-                            break;
-                          case 7:
-                            mes = "Julho";
-
-                            for(i = 0; i < NUMERO_LINHAS; i++){
-                              if(arquivo.linhas[i] == ""){
-                                cout << "\\" + mes + "\\" << endl;
-
-                                m = i + 1;
-                                break;
-                              }
-                            }
-
-                            count2 = 0;
-                            somaSalarios = 0;
-
-                            for(i = 0, j = m; i < NUMERO_LINHAS; i++, j++){
-                              if(arquivo.linhas[i] != "#"){
-                                count2++;
-
-                                if(arquivo.getDesignacao(i) == "Operador"){
-                                  
-                                  operador = arquivo.stringToOperador(i);
-                                  operador.calculaFolhaSalarial(i);
-                                  somaSalarios += operador.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Gerente"){
-                                  
-                                  gerente = arquivo.stringToGerente(i);
-                                  gerente.calculaFolhaSalarial(i);
-                                  somaSalarios += gerente.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Diretor"){
-                                  
-                                  diretor = arquivo.stringToDiretor(i);
-                                  diretor.calculaFolhaSalarial(i);
-                                  somaSalarios += diretor.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Presidente"){
-                                  
-                                  presidente = arquivo.stringToPresidente(i);
-                                  presidente.calculaFolhaSalarial(i);
-                                  somaSalarios += presidente.getSalarioLiquido();
-
-                                }
-                              } else {
-                                strAux1 = to_string(somaSalarios).erase(to_string(somaSalarios).size()-4, 4);
-                                strAux2 = to_string(somaSalarios/count2).erase(to_string(somaSalarios/count2).size()-4, 4);
-
-                                cout << "++++ - " + strAux1 + " - " + to_string(count2) + " - " + strAux2 << endl;
-                                cout << "/" + mes + "/" << endl;
-                                break;
-                              }
-                            }
-                            
-                            somaSalarioAnual += somaSalarios;
-                            break;
-                          case 8:
-                            mes = "Agosto";
-
-                            for(i = 0; i < NUMERO_LINHAS; i++){
-                              if(arquivo.linhas[i] == ""){
-                                cout << "\\" + mes + "\\" << endl;
-
-                                m = i + 1;
-                                break;
-                              }
-                            }
-
-                            count2 = 0;
-                            somaSalarios = 0;
-
-                            for(i = 0, j = m; i < NUMERO_LINHAS; i++, j++){
-                              if(arquivo.linhas[i] != "#"){
-                                count2++;
-
-                                if(arquivo.getDesignacao(i) == "Operador"){
-                                  
-                                  operador = arquivo.stringToOperador(i);
-                                  operador.calculaFolhaSalarial(i);
-                                  somaSalarios += operador.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Gerente"){
-                                  
-                                  gerente = arquivo.stringToGerente(i);
-                                  gerente.calculaFolhaSalarial(i);
-                                  somaSalarios += gerente.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Diretor"){
-                                  
-                                  diretor = arquivo.stringToDiretor(i);
-                                  diretor.calculaFolhaSalarial(i);
-                                  somaSalarios += diretor.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Presidente"){
-                                  
-                                  presidente = arquivo.stringToPresidente(i);
-                                  presidente.calculaFolhaSalarial(i);
-                                  somaSalarios += presidente.getSalarioLiquido();
-
-                                }
-                              } else {
-                                strAux1 = to_string(somaSalarios).erase(to_string(somaSalarios).size()-4, 4);
-                                strAux2 = to_string(somaSalarios/count2).erase(to_string(somaSalarios/count2).size()-4, 4);
-
-                                cout << "++++ - " + strAux1 + " - " + to_string(count2) + " - " + strAux2 << endl;
-                                cout << "/" + mes + "/" << endl;
-                                break;
-                              }
-                            }
-                            
-                            somaSalarioAnual += somaSalarios;
-                            break;
-                          case 9:
-                            mes = "Setembro";
-
-                            for(i = 0; i < NUMERO_LINHAS; i++){
-                              if(arquivo.linhas[i] == ""){
-                                cout << "\\" + mes + "\\" << endl;
-
-                                m = i + 1;
-                                break;
-                              }
-                            }
-
-                            count2 = 0;
-                            somaSalarios = 0;
-
-                            for(i = 0, j = m; i < NUMERO_LINHAS; i++, j++){
-                              if(arquivo.linhas[i] != "#"){
-                                count2++;
-
-                                if(arquivo.getDesignacao(i) == "Operador"){
-                                  
-                                  operador = arquivo.stringToOperador(i);
-                                  operador.calculaFolhaSalarial(i);
-                                  somaSalarios += operador.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Gerente"){
-                                  
-                                  gerente = arquivo.stringToGerente(i);
-                                  gerente.calculaFolhaSalarial(i);
-                                  somaSalarios += gerente.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Diretor"){
-                                  
-                                  diretor = arquivo.stringToDiretor(i);
-                                  diretor.calculaFolhaSalarial(i);
-                                  somaSalarios += diretor.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Presidente"){
-                                  
-                                  presidente = arquivo.stringToPresidente(i);
-                                  presidente.calculaFolhaSalarial(i);
-                                  somaSalarios += presidente.getSalarioLiquido();
-
-                                }
-                              } else {
-                                strAux1 = to_string(somaSalarios).erase(to_string(somaSalarios).size()-4, 4);
-                                strAux2 = to_string(somaSalarios/count2).erase(to_string(somaSalarios/count2).size()-4, 4);
-
-                                cout << "++++ - " + strAux1 + " - " + to_string(count2) + " - " + strAux2 << endl;
-                                cout << "/" + mes + "/" << endl;
-                                break;
-                              }
-                            }
-                            
-                            somaSalarioAnual += somaSalarios;
-                            break;
-                          case 10:
-                            mes = "Outubro";
-
-                            for(i = 0; i < NUMERO_LINHAS; i++){
-                              if(arquivo.linhas[i] == ""){
-                                cout << "\\" + mes + "\\" << endl;
-
-                                m = i + 1;
-                                break;
-                              }
-                            }
-
-                            count2 = 0;
-                            somaSalarios = 0;
-
-                            for(i = 0, j = m; i < NUMERO_LINHAS; i++, j++){
-                              if(arquivo.linhas[i] != "#"){
-                                count2++;
-
-                                if(arquivo.getDesignacao(i) == "Operador"){
-                                  
-                                  operador = arquivo.stringToOperador(i);
-                                  operador.calculaFolhaSalarial(i);
-                                  somaSalarios += operador.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Gerente"){
-                                  
-                                  gerente = arquivo.stringToGerente(i);
-                                  gerente.calculaFolhaSalarial(i);
-                                  somaSalarios += gerente.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Diretor"){
-                                  
-                                  diretor = arquivo.stringToDiretor(i);
-                                  diretor.calculaFolhaSalarial(i);
-                                  somaSalarios += diretor.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Presidente"){
-                                  
-                                  presidente = arquivo.stringToPresidente(i);
-                                  presidente.calculaFolhaSalarial(i);
-                                  somaSalarios += presidente.getSalarioLiquido();
-
-                                }
-                              } else {
-                                strAux1 = to_string(somaSalarios).erase(to_string(somaSalarios).size()-4, 4);
-                                strAux2 = to_string(somaSalarios/count2).erase(to_string(somaSalarios/count2).size()-4, 4);
-
-                                cout << "++++ - " + strAux1 + " - " + to_string(count2) + " - " + strAux2 << endl;
-                                cout << "/" + mes + "/" << endl;
-                                break;
-                              }
-                            }
-                            
-                            somaSalarioAnual += somaSalarios;
-                            break;
-                          case 11:
-                            mes = "Novembro";
-
-                            for(i = 0; i < NUMERO_LINHAS; i++){
-                              if(arquivo.linhas[i] == ""){
-                                cout << "\\" + mes + "\\" << endl;
-
-                                m = i + 1;
-                                break;
-                              }
-                            }
-
-                            count2 = 0;
-                            somaSalarios = 0;
-
-                            for(i = 0, j = m; i < NUMERO_LINHAS; i++, j++){
-                              if(arquivo.linhas[i] != "#"){
-                                count2++;
-
-                                if(arquivo.getDesignacao(i) == "Operador"){
-                                  
-                                  operador = arquivo.stringToOperador(i);
-                                  operador.calculaFolhaSalarial(i);
-                                  somaSalarios += operador.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Gerente"){
-                                  
-                                  gerente = arquivo.stringToGerente(i);
-                                  gerente.calculaFolhaSalarial(i);
-                                  somaSalarios += gerente.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Diretor"){
-                                  
-                                  diretor = arquivo.stringToDiretor(i);
-                                  diretor.calculaFolhaSalarial(i);
-                                  somaSalarios += diretor.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Presidente"){
-                                  
-                                  presidente = arquivo.stringToPresidente(i);
-                                  presidente.calculaFolhaSalarial(i);
-                                  somaSalarios += presidente.getSalarioLiquido();
-
-                                }
-                              } else {
-                                strAux1 = to_string(somaSalarios).erase(to_string(somaSalarios).size()-4, 4);
-                                strAux2 = to_string(somaSalarios/count2).erase(to_string(somaSalarios/count2).size()-4, 4);
-
-                                cout << "++++ - " + strAux1 + " - " + to_string(count2) + " - " + strAux2 << endl;
-                                cout << "/" + mes + "/" << endl;
-                                break;
-                              }
-                            }
-                            
-                            somaSalarioAnual += somaSalarios;
-                            break;
-                          case 12:
-                            mes = "Dezembro";
-
-                            for(i = 0; i < NUMERO_LINHAS; i++){
-                              if(arquivo.linhas[i] == ""){
-                                cout << "\\" + mes + "\\" << endl;
-
-                                m = i + 1;
-                                break;
-                              }
-                            }
-
-                            count2 = 0;
-                            somaSalarios = 0;
-
-                            for(i = 0, j = m; i < NUMERO_LINHAS; i++, j++){
-                              if(arquivo.linhas[i] != "#"){
-                                count2++;
-
-                                if(arquivo.getDesignacao(i) == "Operador"){
-                                  
-                                  operador = arquivo.stringToOperador(i);
-                                  operador.calculaFolhaSalarial(i);
-                                  somaSalarios += operador.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Gerente"){
-                                  
-                                  gerente = arquivo.stringToGerente(i);
-                                  gerente.calculaFolhaSalarial(i);
-                                  somaSalarios += gerente.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Diretor"){
-                                  
-                                  diretor = arquivo.stringToDiretor(i);
-                                  diretor.calculaFolhaSalarial(i);
-                                  somaSalarios += diretor.getSalarioLiquido();
-
-                                } else if(arquivo.getDesignacao(i) == "Presidente"){
-                                  
-                                  presidente = arquivo.stringToPresidente(i);
-                                  presidente.calculaFolhaSalarial(i);
-                                  somaSalarios += presidente.getSalarioLiquido();
-
-                                }
-                              } else {
-                                strAux1 = to_string(somaSalarios).erase(to_string(somaSalarios).size()-4, 4);
-                                strAux2 = to_string(somaSalarios/count2).erase(to_string(somaSalarios/count2).size()-4, 4);
-
-                                cout << "++++ - " + strAux1 + " - " + to_string(count2) + " - " + strAux2 << endl;
-                                cout << "/" + mes + "/" << endl;
-                                break;
-                              }
-                            }
-                            
-                            somaSalarioAnual += somaSalarios;
-                            break;
+                            system("cls");
+
+                            cout << "Total pago no ano: " << somaSalarios << endl;
+                            cout << "Servidores beneficiados: " << endl;
+                            cout << "Media paga por mes: " << somaSalarios/12 << endl;
                         }
-                      }
-                      strAux1 = to_string(somaSalarioAnual).erase(to_string(somaSalarioAnual).size()-4, 4);
-                      strAux2 = to_string(somaSalarioAnual/count2).erase(to_string(somaSalarioAnual/count2).size()-4, 4);
 
-                      cout << "Total (Anual) - " + strAux1 + " - " + to_string(count2) + " - " + strAux2 << endl;
+                        cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+
+                        getchar();
+
+                        j = 0;
+
+                        break;
+                    case 0:
+                        j = 0;
+                        count++;
+                        
+                        break;
+                    default:
+                        system("cls");
+                        
+                        cout << "Escolha invalida. Tente novamente" << endl;
                     }
-                    break;
-                  case 0:
-                    j = 0;
-                    count++;
-                    
-                    break;
-                  default:
-                    system("cls");
-                    
-                    cout << "Escolha invalida. Tente novamente" << endl;
                 }
-              }
 
-              if(count){
                 break;
-              }
-
-              break;
             case 10: //limpar registro das folhas
                 system("cls");
 
@@ -3371,7 +2693,14 @@ int main(){
 
                 break;
             case 11:  //buscar funcionario
+                break;
             case 0:  //sair do sistema
+                system("cls");
+
+                cout << "--------------------------" << endl;
+                cout << "    Sistema finalizado" << endl;
+                cout << "--------------------------\n" << endl;
+
                 k = 0;
                 break;
             break;

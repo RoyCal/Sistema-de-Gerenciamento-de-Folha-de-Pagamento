@@ -1,4 +1,4 @@
-#define NUMERO_LINHAS 100
+#define NUMERO_LINHAS 200
 
 #pragma once
 #include "Operador.h"
