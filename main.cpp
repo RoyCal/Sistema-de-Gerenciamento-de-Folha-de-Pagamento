@@ -2693,6 +2693,193 @@ int main(){
 
                 break;
             case 11:  //buscar funcionario
+                system("cls");
+
+                j = 1;
+                while(j){
+                    cout << "Deseja buscar o funcionario pelo nome, pela data ou endereco?" << endl;
+                    cout << "Nome(1) data(2) endereco(3)" << endl;
+                    cout << "Sair(0)" << endl;
+
+                    cin >> escolha;
+                    getchar();
+
+                    switch(escolha){
+                        case 1:
+                            count = 0;
+
+                            system("cls");
+
+                            cout << "Digite o nome do funcionario" << endl;
+
+                            getline(cin, nome);
+
+                            for(i = 0; i < NUMERO_LINHAS; i++){
+                                arquivo.stringToNome(i);
+
+                                if(arquivo.linhaAux == nome){
+                                    count++;
+
+                                    strAux1 = arquivo.getDesignacao(i);
+
+                                    if(strAux1 == "Operador"){
+                                        system("cls");
+
+                                        operador = arquivo.stringToOperador(i);
+                                        operador.imprimeRegistro();
+                                        operador = Operador();
+
+                                        break;
+                                    } else if(strAux1 == "Gerente"){
+                                        system("cls");
+
+                                        gerente = arquivo.stringToGerente(i);
+                                        gerente.imprimeRegistro();
+                                        gerente = Gerente();
+
+                                        break;
+                                    } else if(strAux1 == "Diretor"){
+                                        system("cls");
+
+                                        diretor = arquivo.stringToDiretor(i);
+                                        diretor.imprimeRegistro();
+                                        diretor = Diretor();
+
+                                        break;
+                                    } else if(strAux1 == "Presidente"){
+                                        system("cls");
+
+                                        presidente = arquivo.stringToPresidente(i);
+                                        presidente.imprimeRegistro();
+                                        presidente = Presidente();
+
+                                        break;
+                                    }
+                                }
+                            }
+
+                            if(count == 0){
+                                system("cls");
+
+                                cout << "Funcionario nao encontrado" << endl;
+                            }
+
+                            cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+
+                            getchar();
+
+                            j = 0;
+
+                            break;
+                        case 2:
+                        case 3:
+                            count = 0;
+
+                            system("cls");
+
+                            while(1){
+                                cout << "Informe o CEP" << endl;
+
+                                getline(cin, strAux2);
+
+                                if(strAux2.size() < 8 || strAux2.size() >
+                                    8){
+                                    system("cls");
+
+                                    cout << "CEP invalido. Tente novamente" << endl;
+                                    continue;
+                                }
+
+                                strAux2 = operador.CEPtoEndereco(strAux2);
+
+                                if(strAux2 == "CEP nao encontrado. Tente novamente"){
+                                    system("cls");
+
+                                    cout << strAux2 << endl;
+                                    continue;
+                                }
+
+                                break;
+                            }
+
+                            system("cls");
+
+                            cout << "Informe o numero da residencia" << endl;
+
+                            getline(cin, numero);
+
+                            strAux2 += numero;
+
+                            system("cls");
+
+                            for(i = 0; i < NUMERO_LINHAS; i++){
+                                arquivo.stringToEndereco(i);
+
+                                if(arquivo.linhas[i] == "#"){
+                                    break;
+                                }
+
+                                if(arquivo.linhaAux == strAux2){
+                                    count++;
+
+                                    strAux1 = arquivo.getDesignacao(i);
+
+                                    if(strAux1 == "Operador"){
+                                        operador = arquivo.stringToOperador(i);
+                                        operador.imprimeRegistro();
+                                        operador = Operador();
+
+                                        cout << "\n";
+                                        
+                                    } else if(strAux1 == "Gerente"){
+                                        gerente = arquivo.stringToGerente(i);
+                                        gerente.imprimeRegistro();
+                                        gerente = Gerente();
+
+                                        cout << "\n";
+                                        
+                                    } else if(strAux1 == "Diretor"){
+                                        diretor = arquivo.stringToDiretor(i);
+                                        diretor.imprimeRegistro();
+                                        diretor = Diretor();
+
+                                        cout << "\n";
+                                        
+                                    } else if(strAux1 == "Presidente"){
+                                        presidente = arquivo.stringToPresidente(i);
+                                        presidente.imprimeRegistro();
+                                        presidente = Presidente();
+
+                                        cout << "\n";
+                                        
+                                    }
+                                }
+                            }
+
+                            if(count == 0){
+                                system("cls");
+
+                                cout << "Funcionario nao encontrado" << endl;
+                            }
+
+                            cout << "Pressione ENTER para voltar para o menu principal" << endl;
+
+                            getchar();
+
+                            j = 0;
+
+                            break;
+                        case 0:
+                            j = 0;
+                            
+                            break;
+                        default:
+                            system("cls");
+
+                            cout << "Opcao invalida! Tente novamente" << endl;
+                    }
+                }
+
                 break;
             case 0:  //sair do sistema
                 system("cls");
