@@ -2772,6 +2772,9 @@ int main(){
 
                             break;
                         case 2:
+                            j = 0;
+
+                            break;
                         case 3:
                             count = 0;
 
@@ -2871,7 +2874,7 @@ int main(){
                             break;
                         case 0:
                             j = 0;
-                            
+
                             break;
                         default:
                             system("cls");
