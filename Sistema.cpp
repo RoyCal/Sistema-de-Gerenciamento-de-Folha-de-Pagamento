@@ -91,69 +91,6 @@ void Sistema::imprimeMenuPrincipal(){
     cout << "0 - Sair do Sistema" << endl;
 }
 
-void Sistema::switchMeses(){
-    switch(escolha){
-        case 1:
-            mes = "Janeiro";
-            j = 0;
-            break;
-        case 2:
-            mes = "Fevereiro";
-            j = 0;
-            break;
-        case 3:
-            mes = "Marco";
-            j = 0;
-            break;
-        case 4:
-            mes = "Abril";
-            j = 0;
-            break;
-        case 5:
-            mes = "Maio";
-            j = 0;
-            break;
-        case 6:
-            mes = "Junho";
-            j = 0;
-            break;
-        case 7:
-            mes = "Julho";
-            j = 0;
-            break;
-        case 8:
-            mes = "Agosto";
-            j = 0;
-            break;
-        case 9:
-            mes = "Setembro";
-            j = 0;
-            break;
-        case 10:
-            mes = "Outubro";
-            j = 0;
-            break;
-        case 11:
-            mes = "Novembro";
-            j = 0;
-            break;
-        case 12:
-            mes = "Dezembro";
-            j = 0;
-            break;
-        case 0:
-            j = 0;
-            
-            count++;
-
-            break;
-        default:
-            system("cls");
-
-            cout << "Escolha invalida. Tente novamente" << endl;
-    }
-}
-
 void Sistema::adicionarFuncionario(){
     system("cls");
 
@@ -3016,5 +2953,68 @@ bool Sistema::verificaIntervaloDatas(string data1, string data2, string dataRef)
         return true;
     } else {
         return false;
+    }
+}
+
+void Sistema::switchMeses(){
+    switch(escolha){
+        case 1:
+            mes = "Janeiro";
+            j = 0;
+            break;
+        case 2:
+            mes = "Fevereiro";
+            j = 0;
+            break;
+        case 3:
+            mes = "Marco";
+            j = 0;
+            break;
+        case 4:
+            mes = "Abril";
+            j = 0;
+            break;
+        case 5:
+            mes = "Maio";
+            j = 0;
+            break;
+        case 6:
+            mes = "Junho";
+            j = 0;
+            break;
+        case 7:
+            mes = "Julho";
+            j = 0;
+            break;
+        case 8:
+            mes = "Agosto";
+            j = 0;
+            break;
+        case 9:
+            mes = "Setembro";
+            j = 0;
+            break;
+        case 10:
+            mes = "Outubro";
+            j = 0;
+            break;
+        case 11:
+            mes = "Novembro";
+            j = 0;
+            break;
+        case 12:
+            mes = "Dezembro";
+            j = 0;
+            break;
+        case 0:
+            j = 0;
+            
+            count++;
+
+            break;
+        default:
+            system("cls");
+
+            cout << "Escolha invalida. Tente novamente" << endl;
     }
 }
