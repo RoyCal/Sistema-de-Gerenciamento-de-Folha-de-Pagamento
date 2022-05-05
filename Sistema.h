@@ -16,7 +16,7 @@ class Sistema{
         int flag = 0;
         float somaSalarios;
 
-        string numero, designacao, strAux1, strAux2, mes, nome;
+        string numero, designacao, strAux1, strAux2, mes, nome, dataHoje;
 
         Funcionario *funcionario;
 
@@ -28,7 +28,7 @@ class Sistema{
         Arquivo arquivo;
 
     public:
-        void rodarSistema();
+        void rodarSistema(bool x);
 
         void imprimeMenuPrincipal();
 
@@ -59,4 +59,6 @@ class Sistema{
         void finalizarSistema();
 
         void switchMeses();
+
+        bool menuLogin();
 };

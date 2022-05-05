@@ -1,11 +1,46 @@
 #include "Sistema.h"
 
-void Sistema::rodarSistema(){
-    arquivo.criaArquivo();
+bool Sistema::menuLogin(){
+    system("cls");
+
+    while(1){
+        cout << "Informe a data de hoje? __/__/__" << endl;
+        getline(cin, dataHoje);
+        system("cls");
+
+        if(operador.verificaValidadeData(dataHoje)){
+            break;
+        } else {
+            cout << "Data invalida. Tente novamente\n" << endl;
+        }
+    }
 
     system("cls");
 
-    k = 1;
+    cout << "Informe a senha: ";
+
+    getline(cin, strAux1);
+
+    if(strAux1 == "senha1234"){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+void Sistema::rodarSistema(bool x){
+    if(!x){
+        finalizarSistema();
+
+        cout << "Senha incorreta\n" << endl;
+    } else {
+        arquivo.criaArquivo();
+
+        system("cls");
+
+        k = 1;
+    }
+
     while(k){
         arquivo.scanArquivo();
         
