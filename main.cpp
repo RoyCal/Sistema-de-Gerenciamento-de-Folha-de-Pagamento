@@ -10,7 +10,7 @@
 
 using namespace std;
 
-void imprimeMenuPrincipal(){
+void imprimeMenuPrincipal(){  //criar um metodo em uma classe
     system("cls");
 
     cout << "--------------------------" << endl;
@@ -2633,7 +2633,6 @@ int main(){
                             system("cls");
 
                             cout << "Total pago no ano: " << somaSalarios << endl;
-                            cout << "Servidores beneficiados: " << endl;
                             cout << "Media paga por mes: " << somaSalarios/12 << endl;
                         }
 
@@ -2697,7 +2696,7 @@ int main(){
 
                 j = 1;
                 while(j){
-                    cout << "Deseja buscar o funcionario pelo nome, pela data ou endereco?" << endl;
+                    cout << "Deseja buscar o funcionario pelo nome, pela data de ingresso ou endereco?" << endl;
                     cout << "Nome(1) data(2) endereco(3)" << endl;
                     cout << "Sair(0)" << endl;
 
@@ -2772,6 +2771,92 @@ int main(){
 
                             break;
                         case 2:
+                            count = 0;
+
+                            system("cls");
+
+                            while(1){
+                                cout << "Informe uma data __/__/__" << endl;
+                                getline(cin, strAux1);
+                                system("cls");
+
+                                if(operador.verificaValidadeData(strAux1)){
+                                    break;
+                                } else {
+                                    cout << "Data invalida. Tente novamente\n" << endl;
+                                }
+                            }
+
+                            system("cls");
+
+                            while(1){
+                                cout << "Informe outra data __/__/__" << endl;
+                                getline(cin, strAux2);
+                                system("cls");
+
+                                if(operador.verificaValidadeData(strAux2)){
+                                    break;
+                                } else {
+                                    cout << "Data invalida. Tente novamente\n" << endl;
+                                }
+                            }
+
+                            system("cls");
+
+                            for(i = 0; i < NUMERO_LINHAS; i++){
+                                if(arquivo.linhas[i] == "#"){
+                                    break;
+                                }
+
+                                arquivo.stringToDataIngresso(i);
+
+                                if(operador.verificaIntervaloDatas(strAux1, strAux2, arquivo.linhaAux)){
+                                    designacao = arquivo.getDesignacao(i);
+
+                                    count++;
+
+                                    if(designacao == "Operador"){
+                                        operador = arquivo.stringToOperador(i);
+                                        operador.imprimeRegistro();
+                                        operador = Operador();
+
+                                        cout << "\n";
+                                    } else if(designacao == "Gerente"){
+                                        gerente = arquivo.stringToGerente(i);
+                                        gerente.imprimeRegistro();
+                                        gerente = Gerente();
+
+                                        cout << "\n";
+                                    } else if(designacao == "Diretor"){
+                                        diretor = arquivo.stringToDiretor(i);
+                                        diretor.imprimeRegistro();
+                                        diretor = Diretor();
+
+                                        cout << "\n";
+                                    } else if(designacao == "Presidente"){
+                                        presidente = arquivo.stringToPresidente(i);
+                                        presidente.imprimeRegistro();
+                                        presidente = Presidente();
+
+                                        cout << "\n";
+                                    }
+                                }
+                            }
+
+                            if(count != 0){
+                                cout << count << " funcionario(s) encontrado(s) entre as datas " << strAux1 << " e " << strAux2 << endl;
+                            }
+
+                            if(count == 0){
+                                system("cls");
+
+                                cout << "Nenhum funcionario foi encontrado" << endl;
+                            }
+
+                            cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+
+                            getchar();
+
                             j = 0;
 
                             break;
@@ -2816,45 +2901,41 @@ int main(){
                             system("cls");
 
                             for(i = 0; i < NUMERO_LINHAS; i++){
-                                arquivo.stringToEndereco(i);
-
                                 if(arquivo.linhas[i] == "#"){
                                     break;
                                 }
 
+                                arquivo.stringToEndereco(i);
+
                                 if(arquivo.linhaAux == strAux2){
                                     count++;
 
-                                    strAux1 = arquivo.getDesignacao(i);
+                                    designacao = arquivo.getDesignacao(i);
 
-                                    if(strAux1 == "Operador"){
+                                    if(designacao == "Operador"){
                                         operador = arquivo.stringToOperador(i);
                                         operador.imprimeRegistro();
                                         operador = Operador();
 
                                         cout << "\n";
-                                        
-                                    } else if(strAux1 == "Gerente"){
+                                    } else if(designacao == "Gerente"){
                                         gerente = arquivo.stringToGerente(i);
                                         gerente.imprimeRegistro();
                                         gerente = Gerente();
 
                                         cout << "\n";
-                                        
-                                    } else if(strAux1 == "Diretor"){
+                                    } else if(designacao == "Diretor"){
                                         diretor = arquivo.stringToDiretor(i);
                                         diretor.imprimeRegistro();
                                         diretor = Diretor();
 
                                         cout << "\n";
-                                        
-                                    } else if(strAux1 == "Presidente"){
+                                    } else if(designacao == "Presidente"){
                                         presidente = arquivo.stringToPresidente(i);
                                         presidente.imprimeRegistro();
                                         presidente = Presidente();
 
                                         cout << "\n";
-                                        
                                     }
                                 }
                             }
@@ -2862,7 +2943,7 @@ int main(){
                             if(count == 0){
                                 system("cls");
 
-                                cout << "Funcionario nao encontrado" << endl;
+                                cout << "Nenhum funcionario encontrado" << endl;
                             }
 
                             cout << "Pressione ENTER para voltar para o menu principal" << endl;

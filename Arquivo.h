@@ -52,7 +52,7 @@ class Arquivo{
 
         string verificaCodigoRepetido();
 
-        string completaNumero(string numero);
+        string completaNumero(string numero); //mudar classe
 
         void substituiLinha(string novaLinha, string numero);
 

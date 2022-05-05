@@ -345,3 +345,84 @@ string Funcionario::calculaFolhaSalarial(int i){
 float Funcionario::getSalarioLiquido(){
     return salarioLiquido;
 }
+
+bool Funcionario::verificaIntervaloDatas(string data1, string data2, string dataRef){
+    int aux;
+
+    int dia1, mes1, ano1;
+    int dia2, mes2, ano2;
+    int diaRef, mesRef, anoRef;
+
+    string strAux;
+
+    strAux = data1;
+    dia1 = stoi(strAux.erase(2, 8));
+    strAux = data1;
+    mes1 = stoi(strAux.erase(0, 3).erase(2, 5));
+    strAux = data1;
+    ano1 = stoi(strAux.erase(0, 6));
+
+    strAux = data2;
+    dia2 = stoi(strAux.erase(2, 8));
+    strAux = data2;
+    mes2 = stoi(strAux.erase(0, 3).erase(2, 5));
+    strAux = data2;
+    ano2 = stoi(strAux.erase(0, 6));
+
+    strAux = dataRef;
+    diaRef = stoi(strAux.erase(2, 8));
+    strAux = dataRef;
+    mesRef = stoi(strAux.erase(0, 3).erase(2, 5));
+    strAux = dataRef;
+    anoRef = stoi(strAux.erase(0, 6));
+
+    if(ano1 > ano2){
+        aux = ano1;
+        ano1 = ano2;
+        ano2 = aux;
+
+        aux = mes1;
+        mes1 = mes2;
+        mes2 = aux;
+
+        aux = dia1;
+        dia1 = dia2;
+        dia2 = aux;
+    } else if(ano1 == ano2 && mes1 > mes2){
+        aux = ano1;
+        ano1 = ano2;
+        ano2 = aux;
+
+        aux = mes1;
+        mes1 = mes2;
+        mes2 = aux;
+
+        aux = dia1;
+        dia1 = dia2;
+        dia2 = aux;
+    } else if(mes1 == mes2 && dia1 > dia2){
+        aux = ano1;
+        ano1 = ano2;
+        ano2 = aux;
+
+        aux = mes1;
+        mes1 = mes2;
+        mes2 = aux;
+
+        aux = dia1;
+        dia1 = dia2;
+        dia2 = aux;
+    }
+
+    double res1, res2, resRef;
+
+    res1 = dia1 + mes1*30 + ano1*365;
+    res2 = dia2 + mes2*30 + ano2*365;
+    resRef = diaRef + mesRef*30 + anoRef*365;
+
+    if(resRef >= res1 && resRef <= res2){
+        return true;
+    } else {
+        return false;
+    }
+}

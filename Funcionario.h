@@ -50,7 +50,7 @@ class Funcionario{
 
         float getSalarioLiquido();
 
-        string CEPtoEndereco(string CEP);
+        string CEPtoEndereco(string CEP); //mudar classe
 
         virtual void getAtributos(string codigo) = 0;
 
@@ -60,11 +60,13 @@ class Funcionario{
 
         virtual void aumentaSalario() = 0;
 
-        bool verificaValidadeData(string str);
+        bool verificaValidadeData(string str); //mudar classe
 
-        bool verificaValidadeDataAniversario(string str);
+        bool verificaValidadeDataAniversario(string str); //mudar classe
 
-        bool verificaAnoBisexto(int ano);
+        bool verificaAnoBisexto(int ano); //mudar classe
 
         string calculaFolhaSalarial(int i);
+
+        bool verificaIntervaloDatas(string data1, string data2, string dataRef); //mudar classe
 };
