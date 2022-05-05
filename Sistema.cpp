@@ -1,5 +1,76 @@
 #include "Sistema.h"
 
+void Sistema::rodarSistema(){
+    arquivo.criaArquivo();
+
+    system("cls");
+
+    k = 1;
+    while(k){
+        arquivo.scanArquivo();
+        
+        if(flag == 0){
+            imprimeMenuPrincipal();
+
+            cin >> escolha;
+            getchar();
+        }
+    
+        switch(escolha){
+            case 1: //adicionar funcionario 
+                adicionarFuncionario();
+
+                break;
+            case 2: //editar atributos 
+                editarAtributo();
+                
+                break;
+            case 3: //excluir registro
+                excluirRegistro();
+
+                break;
+            case 4: //exibir um registro
+                exibirRegistro();
+                
+                break;
+            case 5: //exibe lista de funcionarios
+                listaDeFuncionarios();
+            
+                break;
+            case 6:  //conceder aumento
+                concederAumento();
+
+                break;
+            case 7:  //calcular folha salarial
+                calcularFolhaSalarial();
+
+                break;
+            case 8:  //consultar folha salarial de um funcionario
+                consultarFolhaFuncionario();
+                
+                break;
+            case 9:     //consultar folha salarial da empresa
+                consultarFolhaEmpresa();
+
+                break;
+            case 10: //limpar registro das folhas
+                limparRegistroDasFolhas();
+
+                break;
+            case 11:  //buscar funcionario
+                buscarFuncionario();
+
+                break;
+            case 0:  //sair do sistema
+                finalizarSistema();
+                
+                break;
+        }
+    }
+
+    return;
+}
+
 void Sistema::imprimeMenuPrincipal(){
     system("cls");
 
@@ -18,6 +89,69 @@ void Sistema::imprimeMenuPrincipal(){
     cout << "10 - Limpar registro das folhas salariais" << endl;
     cout << "11 - Buscar funcionario" << endl;
     cout << "0 - Sair do Sistema" << endl;
+}
+
+void Sistema::switchMeses(){
+    switch(escolha){
+        case 1:
+            mes = "Janeiro";
+            j = 0;
+            break;
+        case 2:
+            mes = "Fevereiro";
+            j = 0;
+            break;
+        case 3:
+            mes = "Marco";
+            j = 0;
+            break;
+        case 4:
+            mes = "Abril";
+            j = 0;
+            break;
+        case 5:
+            mes = "Maio";
+            j = 0;
+            break;
+        case 6:
+            mes = "Junho";
+            j = 0;
+            break;
+        case 7:
+            mes = "Julho";
+            j = 0;
+            break;
+        case 8:
+            mes = "Agosto";
+            j = 0;
+            break;
+        case 9:
+            mes = "Setembro";
+            j = 0;
+            break;
+        case 10:
+            mes = "Outubro";
+            j = 0;
+            break;
+        case 11:
+            mes = "Novembro";
+            j = 0;
+            break;
+        case 12:
+            mes = "Dezembro";
+            j = 0;
+            break;
+        case 0:
+            j = 0;
+            
+            count++;
+
+            break;
+        default:
+            system("cls");
+
+            cout << "Escolha invalida. Tente novamente" << endl;
+    }
 }
 
 void Sistema::adicionarFuncionario(){
@@ -2217,66 +2351,7 @@ void Sistema::consultarFolhaFuncionario(){
         cin >> escolha;
         getchar();
 
-        switch(escolha){
-            case 1:
-                mes = "Janeiro";
-                j = 0;
-                break;
-            case 2:
-                mes = "Fevereiro";
-                j = 0;
-                break;
-            case 3:
-                mes = "Marco";
-                j = 0;
-                break;
-            case 4:
-                mes = "Abril";
-                j = 0;
-                break;
-            case 5:
-                mes = "Maio";
-                j = 0;
-                break;
-            case 6:
-                mes = "Junho";
-                j = 0;
-                break;
-            case 7:
-                mes = "Julho";
-                j = 0;
-                break;
-            case 8:
-                mes = "Agosto";
-                j = 0;
-                break;
-            case 9:
-                mes = "Setembro";
-                j = 0;
-                break;
-            case 10:
-                mes = "Outubro";
-                j = 0;
-                break;
-            case 11:
-                mes = "Novembro";
-                j = 0;
-                break;
-            case 12:
-                mes = "Dezembro";
-                j = 0;
-                break;
-            case 0:
-                j = 0;
-
-                count++;
-
-                break;
-            default:
-                system("cls");
-
-                cout << "Escolha invalida. Tente novamente" << endl;
-        }
+        switchMeses();
     }
 
     if(count != 0){
@@ -2341,7 +2416,7 @@ void Sistema::consultarFolhaFuncionario(){
                     cout << "Funcionario nao encontrado" << endl;
                 }
                 
-                cout << "Deseja exibir outro registro (1) ou voltar para o menu (2)?" << endl;
+                cout << "Deseja exibir outra folha (1) ou voltar para o menu (2)?" << endl;
 
                 cin >> escolha;
                 getchar();
@@ -2391,7 +2466,7 @@ void Sistema::consultarFolhaFuncionario(){
                     cout << "Funcionario nao encontrado" << endl;
                 }
                 
-                cout << "Deseja exibir outro registro (1) ou voltar para o menu (2)?" << endl;
+                cout << "Deseja exibir outra folha (1) ou voltar para o menu (2)?" << endl;
 
                 cin >> escolha;
                 getchar();
@@ -2422,8 +2497,8 @@ void Sistema::consultarFolhaFuncionario(){
 void Sistema::consultarFolhaEmpresa(){
     system("cls");
 
-    j= 1;
-    while(j){
+    i = 1;
+    while(i){
         cout << "Deseja exibir a folha salarial mensal ou anual da empresa?" << endl;
         cout << "Mensal(1) anual(2)" << endl;
         cout << "Sair(0)" << endl;
@@ -2445,67 +2520,9 @@ void Sistema::consultarFolhaEmpresa(){
             cin >> escolha;
             getchar();
 
-            i = 1;
-            while(i){
-                switch(escolha){
-                    case 1:
-                        mes = "Janeiro";
-                        i = 0;
-                        break;
-                    case 2:
-                        mes = "Fevereiro";
-                        i = 0;
-                        break;
-                    case 3:
-                        mes = "Marco";
-                        i = 0;
-                        break;
-                    case 4:
-                        mes = "Abril";
-                        i = 0;
-                        break;
-                    case 5:
-                        mes = "Maio";
-                        i = 0;
-                        break;
-                    case 6:
-                        mes = "Junho";
-                        i = 0;
-                        break;
-                    case 7:
-                        mes = "Julho";
-                        i = 0;
-                        break;
-                    case 8:
-                        mes = "Agosto";
-                        i = 0;
-                        break;
-                    case 9:
-                        mes = "Setembro";
-                        i = 0;
-                        break;
-                    case 10:
-                        mes = "Outubro";
-                        i = 0;
-                        break;
-                    case 11:
-                        mes = "Novembro";
-                        i = 0;
-                        break;
-                    case 12:
-                        mes = "Dezembro";
-                        i = 0;
-                        break;
-                    case 0:
-                        i = 0;
-                        count++;
-
-                        break;
-                    default:
-                        system("cls");
-
-                        cout << "Escolha invalida. Tente novamente" << endl;
-                }
+            j = 1;
+            while(j){
+                switchMeses();
             }
 
             if(!arquivo.verificaCalculoFolha(mes)){
@@ -2547,7 +2564,7 @@ void Sistema::consultarFolhaEmpresa(){
 
                 getchar();
 
-                j = 0;
+                i = 0;
             }
             
             break;
@@ -3000,75 +3017,4 @@ bool Sistema::verificaIntervaloDatas(string data1, string data2, string dataRef)
     } else {
         return false;
     }
-}
-
-void Sistema::rodarSistema(){
-    arquivo.criaArquivo();
-
-    system("cls");
-
-    k = 1;
-    while(k){
-        arquivo.scanArquivo();
-        
-        if(flag == 0){
-            imprimeMenuPrincipal();
-
-            cin >> escolha;
-            getchar();
-        }
-    
-        switch(escolha){
-            case 1: //adicionar funcionario 
-                adicionarFuncionario();
-
-                break;
-            case 2: //editar atributos 
-                editarAtributo();
-                
-                break;
-            case 3: //excluir registro
-                excluirRegistro();
-
-                break;
-            case 4: //exibir um registro
-                exibirRegistro();
-                
-                break;
-            case 5: //exibe lista de funcionarios
-                listaDeFuncionarios();
-            
-                break;
-            case 6:  //conceder aumento
-                concederAumento();
-
-                break;
-            case 7:  //calcular folha salarial
-                calcularFolhaSalarial();
-
-                break;
-            case 8:  //consultar folha salarial de um funcionario
-                consultarFolhaFuncionario();
-                
-                break;
-            case 9:     //consultar folha salarial da empresa
-                consultarFolhaEmpresa();
-
-                break;
-            case 10: //limpar registro das folhas
-                limparRegistroDasFolhas();
-
-                break;
-            case 11:  //buscar funcionario
-                buscarFuncionario();
-
-                break;
-            case 0:  //sair do sistema
-                finalizarSistema();
-                
-                break;
-        }
-    }
-
-    return;
 }

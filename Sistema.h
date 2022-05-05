@@ -57,4 +57,6 @@ class Sistema{
         void buscarFuncionario();
 
         void finalizarSistema();
+
+        void switchMeses();
 };
