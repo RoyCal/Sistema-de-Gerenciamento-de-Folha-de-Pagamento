@@ -64,8 +64,15 @@ int main(){
                 system("cls");
 
                 cout << "Digite o codigo do novo funcionario" << endl;
+                cout << "Sair(0)" << endl;
 
                 numero = arquivo.verificaCodigoRepetido();
+
+                if(numero == "0000"){
+                    j = 0;
+
+                    break;
+                }
                 
                 system("cls");
 
@@ -180,8 +187,16 @@ int main(){
 
                     if(flag == 0){
                         cout << "Informe o codigo do funcionario para editar seu registro" << endl;
+                        cout << "Sair(0)" << endl;
 
                         getline(cin, numero);
+
+                        if(numero == "0"){
+                            l = 0;
+
+                            continue;
+                        }
+
                         numero = arquivo.completaNumero(numero);
                     } 
 
@@ -1501,8 +1516,15 @@ int main(){
                 j = 1;
                 while(j){           
                     cout << "Digite o codigo do funcionario que deseja excluir" << endl;
-                    cin >> numero;
-                    getchar();
+                    cout << "Sair(0)" << endl;
+
+                    getline(cin, numero);
+
+                    if(numero == "0"){
+                        j = 0;
+
+                        continue;
+                    }
 
                     numero = arquivo.completaNumero(numero);
 
@@ -1686,8 +1708,16 @@ int main(){
                 l = 1;
                 while(l){
                     cout << "Informe o codigo do funcionario que deseja exibir o registro" << endl;
+                    cout << "Sair(0)" << endl;
 
                     getline(cin, numero);
+
+                    if(numero == "0"){
+                        l = 0;
+
+                        continue;
+                    }
+                    
                     numero = arquivo.completaNumero(numero);
 
                     for(i = 0; i < NUMERO_LINHAS; i++){
