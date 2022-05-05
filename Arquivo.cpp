@@ -15,7 +15,8 @@ void Arquivo::criaArquivo(){
 
     if(arquivo.is_open() == false){                 ///////////////////////////////////////////////
         arquivo.open("dados.txt", ios::out);        //se o arquivo nao existe, ele cria o arquivo//
-        arquivo.close();                            ///////////////////////////////////////////////
+        arquivo << "#";                             ///////////////////////////////////////////////
+        arquivo.close();                            
     }
 
     arquivo.close();
