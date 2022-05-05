@@ -2270,11 +2270,24 @@ int main(){
                                 presidente = Presidente();
                             }
                         } else {
-                            strAux1 = to_string(somaSalarios).erase(to_string(somaSalarios).size()-4, 4);
-                            strAux2 = to_string(somaSalarios/count).erase(to_string(somaSalarios/count).size()-4, 4);
+                            try{
+                                strAux1 = to_string(somaSalarios).erase(to_string(somaSalarios).size()-4, 4);
+                                strAux2 = to_string(somaSalarios/count).erase(to_string(somaSalarios/count).size()-4, 4);
 
-                            arquivo.linhas[j] = "++++ - " + strAux1 + " - " + to_string(count) + " - " + strAux2;
-                            arquivo.linhas[j+1] = "/" + mes + "/";
+                                arquivo.linhas[j] = "++++ - " + strAux1 + " - " + to_string(count) + " - " + strAux2;
+                                arquivo.linhas[j+1] = "/" + mes + "/";
+                            } catch(exception out_of_range){
+                                system("cls");
+
+                                arquivo.linhas[m-1] = "";
+
+                                cout << "Nao existe nenhum funcionario para calcular a folha!" << endl;
+
+                                cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+
+                                getchar();
+                            }
+                            
                             break;
                         }
                     }
@@ -2639,8 +2652,6 @@ int main(){
                             
                             cout << "Nao foi possivel calcular a folha anual da empresa!" << endl;
                             cout << "A folha para Dezembro ainda nao foi calculada!" << endl;
-                            cout << "\nPressione ENTER para voltar para o menu principal" << endl;
-                            getchar();
 
                             j = 0;
                         
