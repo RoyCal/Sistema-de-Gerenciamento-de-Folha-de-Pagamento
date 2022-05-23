@@ -31,5 +31,8 @@ Menu principal
 7 - Calcular folha salarial
 8 - Consultar folha salarial do funcionario
 9 - Consultar folha salarial da empresa
-10 - Buscar funcionario
+10 - Limpar registro das folhas salariais
+11 - Buscar funcionario
+0 - Sair do Sistema
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

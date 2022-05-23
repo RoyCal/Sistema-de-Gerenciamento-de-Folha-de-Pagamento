@@ -4,7 +4,7 @@ bool Sistema::menuLogin(){
     system("cls");
 
     while(1){
-        cout << "Informe a data de hoje? __/__/__" << endl;
+        cout << "Informe a data de hoje: __/__/__" << endl;
         getline(cin, dataHoje);
         system("cls");
 
@@ -2631,7 +2631,7 @@ void Sistema::buscarFuncionario(){
 
     j = 1;
     while(j){
-        cout << "Deseja buscar o funcionario pelo nome, pela data de ingresso ou endereco?" << endl;
+        cout << "Deseja buscar o funcionario pelo nome, intervalo da data de ingresso ou endereco?" << endl;
         cout << "Nome(1) data(2) endereco(3)" << endl;
         cout << "Sair(0)" << endl;
 
@@ -2779,7 +2779,7 @@ void Sistema::buscarFuncionario(){
                 }
 
                 if(count != 0){
-                    cout << count << " funcionario(s) encontrado(s) entre as datas " << strAux1 << " e " << strAux2 << endl;
+                    cout << count << " funcionario(s) encontrado(s) que ingressaram entre as datas " << strAux1 << " e " << strAux2 << endl;
                 }
 
                 if(count == 0){
