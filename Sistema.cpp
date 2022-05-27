@@ -1,4 +1,5 @@
 #include "Sistema.h"
+#include <vector>
 
 bool Sistema::menuLogin(){
     system("cls");
@@ -46,6 +47,8 @@ void Sistema::rodarSistema(bool x){
         
         if(flag == 0){
             imprimeMenuPrincipal();
+
+            aniversariantes();
 
             cin >> escolha;
             getchar();
@@ -3047,5 +3050,31 @@ void Sistema::switchMeses(){
             system("cls");
 
             cout << "Escolha invalida. Tente novamente" << endl;
+    }
+}
+
+void Sistema::aniversariantes(){
+    vector<string> aniversariantes;
+
+    for(i = 0; i < NUMERO_LINHAS; i++){
+        if(arquivo.linhas[i] == "#"){
+            break;
+        }
+
+        arquivo.stringToDataAniversario(i);
+
+        if(arquivo.linhaAux == dataHoje.erase(5, 5)){
+            arquivo.stringToNome(i);
+            
+            aniversariantes.push_back(arquivo.linhaAux);
+        }
+    }
+
+    if(aniversariantes.size() > 0){
+        cout << "\nOs aniversariantes do dia sao:" << endl;
+
+        for(i = 0; i < aniversariantes.size(); i++){
+            cout << "- " << aniversariantes[i] << endl;
+        }
     }
 }

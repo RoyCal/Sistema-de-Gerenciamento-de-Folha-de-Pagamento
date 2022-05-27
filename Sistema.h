@@ -61,4 +61,6 @@ class Sistema{
         void switchMeses();
 
         bool menuLogin();
+
+        void aniversariantes();
 };
