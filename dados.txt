@@ -5,4 +5,5 @@
 0006 - Aranha - Avenida Sergipe, Estados, João Pessoa, PB, numero 150 - 993024042 - 21/04/2022 - Operador - 4830.00 - 30/02
 0009 - Van Dame - Avenida Rio de Janeiro, Estados, João Pessoa, PB, numero 15 - 988772255 - 15/02/2022 - Operador - 4500.00 - 15/04
 0005 - Elidio - Avenida Amazonas, Estados, João Pessoa, PB, numero 10 - 988881276 - 12/12/2020 - Diretor - 9600.00 - 14/02 - Central de stand up - Artes
+0012 - Vito Corleone - Avenida Sergipe, Estados, João Pessoa, PB, numero 123 - 987325048 - 27/05/2022 - Operador - 4500.00 - 18/03
 #

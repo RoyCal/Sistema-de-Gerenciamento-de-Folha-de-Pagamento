@@ -2648,46 +2648,48 @@ void Sistema::buscarFuncionario(){
 
                 getline(cin, nome);
 
+                system("cls");
+
                 for(i = 0; i < NUMERO_LINHAS; i++){
+                    if(arquivo.linhas[i] == "#"){
+                        break;
+                    }
+
                     arquivo.stringToNome(i);
 
-                    if(arquivo.linhaAux == nome){
+                    if(arquivo.linhaAux.find(nome) != -1){
                         count++;
 
                         strAux1 = arquivo.getDesignacao(i);
 
                         if(strAux1 == "Operador"){
-                            system("cls");
 
                             operador = arquivo.stringToOperador(i);
                             operador.imprimeRegistro();
+                            cout << "\n";
                             operador = Operador();
 
-                            break;
                         } else if(strAux1 == "Gerente"){
-                            system("cls");
 
                             gerente = arquivo.stringToGerente(i);
                             gerente.imprimeRegistro();
+                            cout << "\n";
                             gerente = Gerente();
 
-                            break;
                         } else if(strAux1 == "Diretor"){
-                            system("cls");
 
                             diretor = arquivo.stringToDiretor(i);
                             diretor.imprimeRegistro();
+                            cout << "\n";
                             diretor = Diretor();
 
-                            break;
                         } else if(strAux1 == "Presidente"){
-                            system("cls");
 
                             presidente = arquivo.stringToPresidente(i);
                             presidente.imprimeRegistro();
+                            cout << "\n";
                             presidente = Presidente();
 
-                            break;
                         }
                     }
                 }
@@ -2696,6 +2698,8 @@ void Sistema::buscarFuncionario(){
                     system("cls");
 
                     cout << "Funcionario nao encontrado" << endl;
+                } else {
+                    cout << count << " Funcionario(s) encontrado(s)" << endl;
                 }
 
                 cout << "\nPressione ENTER para voltar para o menu principal" << endl;
@@ -2778,14 +2782,12 @@ void Sistema::buscarFuncionario(){
                     }
                 }
 
-                if(count != 0){
-                    cout << count << " funcionario(s) encontrado(s) que ingressaram entre as datas " << strAux1 << " e " << strAux2 << endl;
-                }
-
                 if(count == 0){
                     system("cls");
 
                     cout << "Nenhum funcionario foi encontrado" << endl;
+                } else {
+                    cout << count << " funcionario(s) encontrado(s) que ingressaram entre as datas " << strAux1 << " e " << strAux2 << endl;
                 }
 
                 cout << "\nPressione ENTER para voltar para o menu principal" << endl;
@@ -2827,14 +2829,6 @@ void Sistema::buscarFuncionario(){
 
                 system("cls");
 
-                cout << "Informe o numero da residencia" << endl;
-
-                getline(cin, numero);
-
-                strAux2 += numero;
-
-                system("cls");
-
                 for(i = 0; i < NUMERO_LINHAS; i++){
                     if(arquivo.linhas[i] == "#"){
                         break;
@@ -2842,7 +2836,7 @@ void Sistema::buscarFuncionario(){
 
                     arquivo.stringToEndereco(i);
 
-                    if(arquivo.linhaAux == strAux2){
+                    if(arquivo.linhaAux.find(strAux2) != -1){
                         count++;
 
                         designacao = arquivo.getDesignacao(i);
@@ -2879,9 +2873,11 @@ void Sistema::buscarFuncionario(){
                     system("cls");
 
                     cout << "Nenhum funcionario encontrado" << endl;
+                } else {
+                    cout << count << " Funcionario(s) encontrado(s)" << endl;
                 }
 
-                cout << "Pressione ENTER para voltar para o menu principal" << endl;
+                cout << "\nPressione ENTER para voltar para o menu principal" << endl;
 
                 getchar();
 
