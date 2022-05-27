@@ -107,5 +107,5 @@ Os projetos devem ser desenvolvidos em grupos de até 3 alunos
 # Diagrama de classes
 
 <div align="center"> 
-  <img height="600em" src="UML.png"/>
+  <img width="1000em" src="UML.png"/>
 </div>
