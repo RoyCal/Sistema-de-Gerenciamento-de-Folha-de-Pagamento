@@ -1,4 +1,4 @@
-# Sistema-de-Gerenciamento-de-Folha-de-Pagamento
+# Sistema de Gerenciamento de Folha de Pagamento
 Projeto de Linguagem de Programação 1 2021.2 professor Marcelo Iury
 
 Projeto da Disciplina Linguagem de Programação I.
@@ -107,5 +107,5 @@ Os projetos devem ser desenvolvidos em grupos de até 3 alunos
 # Diagrama de classes
 
 <div align="center"> 
-  <img height="600em" src="UML.png"/>
+  <img width="1000em" src="UML.png"/>
 </div>
