@@ -11,10 +11,10 @@ void Arquivo::imprimeArquivo(){
 }
 
 void Arquivo::criaArquivo(){
-    arquivo.open("dados.txt", ios::in);
+    arquivo.open("../data/dados.txt", ios::in);
 
     if(arquivo.is_open() == false){                 ///////////////////////////////////////////////
-        arquivo.open("dados.txt", ios::out);        //se o arquivo nao existe, ele cria o arquivo//
+        arquivo.open("../data/dados.txt", ios::out);        //se o arquivo nao existe, ele cria o arquivo//
         arquivo << "#";                             ///////////////////////////////////////////////
         arquivo.close();                            
     }
@@ -32,7 +32,7 @@ void Arquivo::stringToCode(int i){
 void Arquivo::scanArquivo(){
     int i;
 
-    arquivo.open("dados.txt", ios::in);
+    arquivo.open("../data/dados.txt", ios::in);
     
     i = 0;                              //Colocando todas as linhas do arquivo em um vetor de strings
     while(getline(arquivo, linhas[i])){
@@ -111,11 +111,11 @@ void Arquivo::stringToDataAniversario(int i){
 void Arquivo::atualizaArquivo(string str){
     int i;
 
-    arquivo.open("dados.txt", ios::out);
+    arquivo.open("../data/dados.txt", ios::out);
     arquivo.clear();
     arquivo.close();
 
-    arquivo.open("dados.txt", ios::out | ios::app);
+    arquivo.open("../data/dados.txt", ios::out | ios::app);
 
     for(i = 0; i < NUMERO_LINHAS; i++){
         if(linhas[i] != ""){
@@ -223,11 +223,11 @@ void Arquivo::substituiArquivo(){
     int i;
 
     for(i = 0; i < NUMERO_LINHAS; i++){
-        arquivo.open("dados.txt", ios::out);
+        arquivo.open("../data/dados.txt", ios::out);
         arquivo.clear();
         arquivo.close();
 
-        arquivo.open("dados.txt", ios::out | ios::app);
+        arquivo.open("../data/dados.txt", ios::out | ios::app);
 
         for(i = 0; i < NUMERO_LINHAS; i++){
             if(linhas[i] != ""){
