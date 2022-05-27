@@ -103,3 +103,9 @@ estas relações devem ser descritas no documento.
   - Pelo menos um recurso interessante não listado acima.
 
 Os projetos devem ser desenvolvidos em grupos de até 3 alunos
+
+# Diagrama de classes
+
+<div align="center"> 
+  <img height="600em" src="UML.png"/>
+</div>
