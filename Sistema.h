@@ -12,22 +12,6 @@
 #include <vector>
 
 class Sistema{
-    private:
-        int i, j, k, l, m, escolha, escolha1, count, count2, count3;
-        int flag = 0;
-        float somaSalarios;
-
-        string numero, designacao, strAux1, strAux2, mes, nome, dataHoje;
-
-        Funcionario *funcionario;
-
-        Operador operador;
-        Gerente gerente;
-        Diretor diretor;
-        Presidente presidente;
-
-        Arquivo arquivo;
-
     public:
         void rodarSistema(bool x);
 

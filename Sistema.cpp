@@ -1,5 +1,20 @@
 #include "Sistema.h"
 
+int i, j, k, l, m, escolha, escolha1, count, count2, count3;
+int flag = 0;
+float somaSalarios;
+
+string numero, designacao, strAux1, strAux2, mes, nome, dataHoje;
+
+Funcionario *funcionario;
+
+Operador operador;
+Gerente gerente;
+Diretor diretor;
+Presidente presidente;
+
+Arquivo arquivo;
+
 bool Sistema::menuLogin(){
     system("cls");
 
@@ -2371,10 +2386,18 @@ void Sistema::consultarFolhaFuncionario(){
                     }
                 }
 
+                count2 = 0;
+
                 for(i = l; i < NUMERO_LINHAS; i++){
+                    if(arquivo.linhas[i] == "/" + mes + "/"){
+                        cout << "\nNenhum registro encontrado em " << mes << "\n" << endl;
+
+                        count2++;
+                    }
+
                     arquivo.stringToCode(i);
 
-                    if(arquivo.linhaAux == numero){
+                    if(arquivo.linhaAux == numero && count2 == 0){
                         system("cls");
 
                         count++;
@@ -2382,12 +2405,6 @@ void Sistema::consultarFolhaFuncionario(){
                         arquivo.imprimeFolhaFuncionario(i);
                         break;
                     }
-                }
-
-                if(count == 0){
-                    system("cls");
-
-                    cout << "Funcionario nao encontrado" << endl;
                 }
                 
                 cout << "Deseja exibir outra folha (1) ou voltar para o menu (2)?" << endl;
@@ -2410,7 +2427,7 @@ void Sistema::consultarFolhaFuncionario(){
             case 2:
                 system("cls");
 
-                cout << "Informe o nome do funcionario" << endl;
+                cout << "Informe o nome completo do funcionario" << endl;
 
                 getline(cin, nome);
 
@@ -2484,27 +2501,32 @@ void Sistema::consultarFolhaEmpresa(){
         case 1:
             system("cls");
 
-            j = 0;
             cout << "Para qual mes deseja exibir a folha salarial da empresa?" << endl;
             cout << "\nJaneiro(01), Fevereiro(02), Marco(03), Abril(04)" << endl;
             cout << "Maio(05), Junho(06), Julho(07), Agosto(08)" << endl;
             cout << "Setembro(09), Outubro(10), Novembro(11), Dezembro(12)" << endl;
             cout << "Sair(0)" << endl;
 
-            cin >> escolha;
-            getchar();
-
             j = 1;
+            count = 0;
             while(j){
+                cin >> escolha;
+                getchar();
+
                 switchMeses();
             }
 
             if(!arquivo.verificaCalculoFolha(mes)){
                 system("cls");
                 
-                cout << "A folha para " << mes << " ainda nao foi calculada!" << endl;
-                cout << "\nPressione ENTER para voltar para o menu principal" << endl;
-                getchar();
+                if(count == 0){
+                    cout << "A folha para " << mes << " ainda nao foi calculada!" << endl;
+                    cout << "\nPressione ENTER para voltar para o menu principal" << endl;
+
+                    getchar();
+                }
+
+                i = 0;
 
             } else {
                 system("cls");
@@ -2533,10 +2555,12 @@ void Sistema::consultarFolhaEmpresa(){
                         }
                     }
                 }
+                
+                if(count == 0){
+                    cout << "\nPressione ENTER para voltar para o menu principal" << endl;
 
-                cout << "\nPressione ENTER para voltar para o menu principal" << endl;
-
-                getchar();
+                    getchar();
+                }
 
                 i = 0;
             }
@@ -2549,7 +2573,7 @@ void Sistema::consultarFolhaEmpresa(){
                 cout << "Nao foi possivel calcular a folha anual da empresa!" << endl;
                 cout << "A folha para Dezembro ainda nao foi calculada!" << endl;
 
-                j = 0;
+                i = 0;
             
             } else {
                 float somaSalarios = 0;
@@ -2577,11 +2601,12 @@ void Sistema::consultarFolhaEmpresa(){
 
             getchar();
 
-            j = 0;
+            i = 0;
 
             break;
         case 0:
-            j = 0;
+            i = 0;
+
             count++;
             
             break;

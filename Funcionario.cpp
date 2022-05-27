@@ -287,7 +287,7 @@ string Funcionario::calculaFolhaSalarial(int i){
     while(1){
         diasTrabalhados = 1 + rand() % MAXIMO_DIAS_TRABALHADOS;
 
-        if(diasTrabalhados < 17){
+        if(diasTrabalhados < 19){
             continue;
         } else {
             break;
