@@ -1,5 +1,4 @@
 #include "Sistema.h"
-#include <vector>
 
 bool Sistema::menuLogin(){
     system("cls");
