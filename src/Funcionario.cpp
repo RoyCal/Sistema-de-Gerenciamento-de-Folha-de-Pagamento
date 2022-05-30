@@ -71,7 +71,7 @@ string Funcionario::CEPtoEndereco(string CEP){
 
     string linhas[12];
     string url = "https://viacep.com.br/ws/" + CEP + "/json/";
-    string comando = "wget " + url;
+    string comando = "wget -q " + url;
 
     system(comando.c_str());
 
